@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧠 Burhan
+#  Burhan | بُرهان
 
 ### Evidence-Driven Research Intelligence through a Research Digital Twin
 
