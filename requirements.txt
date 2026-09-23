@@ -1,0 +1,23 @@
+# API
+fastapi
+uvicorn[standard]
+python-multipart
+
+# Data validation
+pydantic
+pydantic-settings
+
+# PDF processing
+PyMuPDF
+
+# LLM
+groq
+
+# Environment variables
+python-dotenv
+
+# Utilities
+httpx
+
+# Testing
+pytest
