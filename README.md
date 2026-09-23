@@ -1,66 +1,96 @@
 <div align="center">
 
-# Burhan
-### 🧠 Building a Research Digital Twin for Scientific Knowledge
+# 🧠 Burhan
 
-*"From research papers to research intelligence."*
+### Evidence-Driven Research Intelligence through a Research Digital Twin
 
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Status](https://img.shields.io/badge/status-Prototype-orange)
-![Built With](https://img.shields.io/badge/Built%20With-AI%20%7C%20Neo4j%20%7C%20FastAPI-success)
+*"Transforming research papers into a living representation of scientific knowledge."*
+
+![Status](https://img.shields.io/badge/Status-Prototype-orange)
+![License](https://img.shields.io/badge/License-MIT-blue)
+![Python](https://img.shields.io/badge/Python-3.11+-green)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688)
+![Next.js](https://img.shields.io/badge/Next.js-Frontend-black)
+![Neo4j](https://img.shields.io/badge/Neo4j-Knowledge_Graph-blue)
 
 </div>
 
 ---
 
-## 📖 Overview
+# 📖 What is Burhan?
 
-**Burhan** is an AI-powered **Research Digital Twin** that transforms scientific papers into a living, evolving representation of a research domain.
+**Burhan** is an AI-powered **Research Digital Twin** that transforms scientific papers into a structured, continuously evolving representation of a research domain.
 
-Unlike traditional RAG systems that simply retrieve passages from PDFs, Burhan continuously extracts structured scientific knowledge, models relationships across papers, and builds an evidence-based Digital Twin capable of answering research questions, comparing studies, and identifying research gaps.
+Unlike traditional AI tools that retrieve information from PDFs, Burhan understands relationships between research papers and builds a living knowledge model that evolves as new papers are added.
 
-> **RAG is only one subsystem.**
->
-> **The Research Digital Twin is the core innovation.**
+Rather than asking:
+
+> *"What does this paper say?"*
+
+Burhan answers:
+
+> *"What does the research field collectively know?"*
 
 ---
 
-# 🎯 Problem
+# 💡 Why "Burhan"?
 
-Researchers spend countless hours reading dozens of papers just to understand:
+**Burhan (بُرهان)** is an Arabic word meaning:
+
+- Proof
+- Evidence
+- Conclusive Argument
+
+Scientific progress is built on evidence—not isolated documents.
+
+Burhan reflects our mission of transforming scattered research papers into **evidence-based research intelligence**.
+
+---
+
+# 🚨 The Problem
+
+Researchers spend countless hours reading papers to answer questions like:
 
 - Which methods perform best?
-- Which datasets are commonly used?
-- What limitations recur across studies?
-- Where are the real research gaps?
+- Which datasets are most commonly used?
+- What limitations appear repeatedly?
+- What research gaps still exist?
+- Which papers agree or contradict each other?
 
-Current AI tools can search papers.
+Current AI tools can search documents.
 
-Burhan helps researchers **understand an entire research field.**
+Very few can understand an entire research field.
 
 ---
 
-# 💡 Solution
+# 🚀 Our Solution
 
-Instead of storing research papers as documents...
+Burhan converts research papers into a **Research Digital Twin**.
 
-Burhan converts them into an interconnected scientific knowledge representation.
+Instead of storing papers as documents, Burhan extracts structured scientific knowledge and connects it into an evolving representation of the domain.
 
-Every uploaded paper updates the Digital Twin, enabling the system to reason across the entire collection rather than individual documents.
+Every uploaded paper enriches the Digital Twin.
+
+This enables:
+
+- Cross-paper reasoning
+- Knowledge exploration
+- Relationship discovery
+- Evidence-backed research gap detection
 
 ---
 
 # ✨ Features
 
 - 📄 Multi-paper PDF upload
-- 🧠 AI-powered scientific information extraction
-- 🕸️ Research Knowledge Graph
-- 🔄 Continuously evolving Research Digital Twin
-- 📊 Interactive relationship visualization
+- 🤖 AI-powered knowledge extraction
+- 🧠 Research Digital Twin generation
+- 🌐 Knowledge Graph visualization
 - 🔍 Cross-paper comparison
-- 📚 Evidence-grounded AI Assistant
-- 🎯 Research gap detection
-- 📈 Domain evolution over time
+- 💬 Evidence-grounded AI Assistant
+- 📊 Research trend exploration
+- 🎯 Research gap identification
+- 🔄 Automatic Digital Twin updates
 
 ---
 
@@ -69,57 +99,56 @@ Every uploaded paper updates the Digital Twin, enabling the system to reason acr
 ```mermaid
 flowchart LR
 
-A[Research Papers]
+    A[📄 Research Papers]
+    --> B[📑 PDF Parsing]
 
---> B[PDF Processing]
+    B --> C[🧠 AI Knowledge Extraction]
 
---> C[Knowledge Extraction]
+    C --> D[📊 Structured Entities]
 
---> D[Research Digital Twin]
+    D --> E[(Neo4j Knowledge Graph)]
 
-D --> E[Knowledge Graph]
+    E --> F[🧬 Research Digital Twin]
 
-D --> F[Vector Database]
+    C --> G[(Vector Database)]
 
-E --> G[Relationship Visualization]
+    G --> H[RAG Engine]
 
-F --> H[RAG]
+    F --> I[🌐 Relationship Visualization]
 
-G --> I[Research Intelligence]
+    I --> J[🤖 Research Intelligence]
 
-H --> I
+    H --> J
 ```
 
 ---
 
-# 🧠 Research Digital Twin
+# 🧬 Research Digital Twin
 
 The Digital Twin models relationships between scientific entities instead of isolated documents.
 
 ```mermaid
-graph TD
+graph LR
 
-Paper1 --> Method
+    Paper --> Method
 
-Paper1 --> Dataset
+    Paper --> Dataset
 
-Paper1 --> Finding
+    Paper --> Metric
 
-Paper1 --> Limitation
+    Paper --> Finding
 
-Paper2 --> Method
+    Paper --> Limitation
 
-Paper2 --> Dataset
+    Paper --> Future_Work
 
-Paper2 --> FutureWork
+    Method --> Research_Gap
 
-Method --> ResearchGap
+    Dataset --> Finding
 
-Dataset --> Finding
+    Limitation --> Research_Gap
 
-Finding --> Evidence
-
-Limitation --> ResearchGap
+    Finding --> Evidence
 ```
 
 ---
@@ -129,163 +158,200 @@ Limitation --> ResearchGap
 ```mermaid
 flowchart TD
 
-PDF
+    A[Research Papers]
 
--->
+    B[PDF Parsing]
 
-Parser
+    C[LLM Knowledge Extraction]
 
--->
+    D[Structured Knowledge]
 
-LLM Extraction
+    E[Knowledge Graph]
 
--->
+    F[Research Digital Twin]
 
-Structured Knowledge
+    G[Research Intelligence Assistant]
 
--->
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+```
 
-Knowledge Graph
+---
 
--->
+# 🏛 System Architecture
 
-Digital Twin
+```mermaid
+flowchart TB
 
--->
+    subgraph Input
+        A[Research Papers]
+    end
 
-Research Assistant
+    subgraph Processing
+        B[PDF Parsing]
+        C[AI Knowledge Extraction]
+    end
+
+    subgraph Knowledge Layer
+        D[(Neo4j)]
+        E[Research Digital Twin]
+        F[(ChromaDB)]
+    end
+
+    subgraph Intelligence Layer
+        G[Relationship Visualization]
+        H[RAG Engine]
+        I[Research Intelligence]
+    end
+
+    A --> B
+    B --> C
+
+    C --> D
+    D --> E
+
+    C --> F
+
+    E --> G
+    F --> H
+
+    G --> I
+    H --> I
+```
+
+---
+
+# 👨‍🔬 Researcher Journey
+
+```mermaid
+journey
+    title Researcher Experience
+
+    section Build Knowledge
+
+      Upload Research Papers: 5: Researcher
+
+      AI Extracts Knowledge: 5: Burhan
+
+      Build Research Digital Twin: 5: Burhan
+
+    section Explore
+
+      Visualize Relationships: 5: Researcher
+
+      Compare Papers: 5: Researcher
+
+      Discover Research Gaps: 5: Researcher
+
+      Ask Scientific Questions: 5: Researcher
 ```
 
 ---
 
 # 📊 Digital Twin Structure
 
-Each uploaded paper contributes structured scientific knowledge.
+Each uploaded paper contributes structured knowledge to the Digital Twin.
 
 | Entity | Examples |
-|----------|----------|
-| Paper | YOLOv8 Paper |
-| Method | CNN, Transformer |
-| Dataset | COCO, ImageNet |
-| Metric | Accuracy, F1 |
-| Finding | Highest reported performance |
-| Limitation | Small dataset |
-| Future Work | Real-time deployment |
-| Research Gap | Missing benchmark comparisons |
+|----------|-----------|
+| 📄 Paper | Research article |
+| ⚙️ Method | CNN, Transformer, YOLO |
+| 🗂 Dataset | COCO, ImageNet |
+| 📏 Metric | Accuracy, F1-score |
+| 📈 Finding | Experimental result |
+| ⚠️ Limitation | Small dataset |
+| 🚀 Future Work | Suggested improvements |
+| 🎯 Research Gap | Missing comparison or unexplored direction |
 
 ---
 
-# 🤖 AI Assistant
+# 🤖 Research Intelligence
 
-Instead of asking:
+Unlike traditional document retrieval systems, Burhan reasons over structured scientific knowledge.
 
-> What does Paper A say?
+Researchers can ask questions such as:
 
-Users ask:
-
-- Which datasets appear most frequently?
-- Which methods outperform others?
-- What limitations are repeated?
+- Which datasets are used most frequently?
+- Which methods consistently outperform others?
+- What limitations recur across studies?
+- Which findings contradict each other?
 - Which research gaps are supported by evidence?
-- Which papers contradict each other?
-
-The assistant reasons over the **Digital Twin**, not only retrieved document chunks.
+- Which papers use the same methodology?
 
 ---
 
-# 🏛 Architecture
-
-```mermaid
-flowchart TB
-
-subgraph Input
-A[Research Papers]
-end
-
-subgraph Processing
-B[PDF Parsing]
-C[LLM Extraction]
-end
-
-subgraph Knowledge
-D[Neo4j Knowledge Graph]
-E[Digital Twin]
-F[ChromaDB]
-end
-
-subgraph Applications
-G[Graph Visualization]
-H[RAG Assistant]
-I[Research Intelligence]
-end
-
-A --> B
-
-B --> C
-
-C --> D
-
-D --> E
-
-C --> F
-
-E --> G
-
-F --> H
-
-G --> I
-
-H --> I
-```
-
----
-
-# ⚙ Tech Stack
+# 🛠 Technology Stack
 
 | Layer | Technology |
 |---------|------------|
 | Frontend | Next.js + React |
 | Backend | FastAPI |
-| LLM | OpenAI GPT / Gemini |
-| PDF Parsing | PyMuPDF + Docling |
+| AI Models | OpenAI GPT / Gemini |
+| PDF Processing | PyMuPDF + Docling |
 | Knowledge Graph | Neo4j |
 | Vector Database | ChromaDB |
-| Visualization | React Flow / Cytoscape |
+| Visualization | React Flow / Cytoscape.js |
 | Embeddings | OpenAI / Gemini |
 
 ---
 
-# 🚀 MVP
+# 🎯 MVP Scope
 
-The first version focuses on one research domain.
+The hackathon prototype focuses on a single research domain.
 
-✅ Upload papers
+✅ Upload research papers
 
 ✅ Extract structured knowledge
 
-✅ Build Digital Twin
+✅ Build a Research Digital Twin
 
 ✅ Visualize relationships
 
 ✅ Compare papers
 
-✅ Evidence-backed Q&A
+✅ Answer evidence-grounded questions
 
-✅ Research gap detection
+✅ Detect research gaps
 
 ---
 
-# 🌍 Vision
+# 🔮 Future Vision
 
-Burhan is not another "Chat with PDFs."
+Burhan is designed to evolve beyond a research assistant.
 
-It is the first step toward an evolving **Research Digital Twin** capable of representing scientific knowledge as a living, interconnected system that grows with every new publication.
+Future capabilities include:
+
+- Integration with arXiv and Semantic Scholar
+- Citation network analysis
+- Research trend prediction
+- Automatic literature reviews
+- Multi-agent scientific reasoning
+- Dynamic Digital Twin updates from newly published papers
+
+---
+
+# 🌟 What Makes Burhan Different?
+
+| Traditional RAG | Burhan |
+|-----------------|---------|
+| Chat with PDFs | ✅ |
+| Semantic Search | ✅ |
+| Knowledge Graph | ✅ |
+| Research Digital Twin | ✅ |
+| Cross-paper Reasoning | ✅ |
+| Automatic Domain Evolution | ✅ |
+| Evidence-based Research Gaps | ✅ |
+| Scientific Knowledge Representation | ✅ |
 
 ---
 
 # 👥 Team
 
-Developed for the **Farq Hackathon 2026**
+Developed for **Farq Hackathon**
 
 **Imam Abdulrahman Bin Faisal University**
 
@@ -295,12 +361,26 @@ Developed for the **Farq Hackathon 2026**
 - Raneem Bahobail
 - Batool Ashour
 
-Mentor
+### Mentor
 
-- Dr. Muzammil
+Dr. Muzammil
+
+Assistant Professor of AI — KFUPM
+
+Director — BRAIN Lab
 
 ---
 
 # 📜 License
 
-MIT License
+This project is licensed under the MIT License.
+
+---
+
+<div align="center">
+
+### ⭐ Burhan
+
+*"From research papers to research intelligence."*
+
+</div>
