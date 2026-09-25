@@ -1,3 +1,5 @@
+<div align="center">
+
 # Burhan | برهان
 
 ## Agentic AI Research Scientist
@@ -14,6 +16,8 @@ The Research Digital Twin is not the product positioning. It is Burhan's core in
 ![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688)
 ![Next.js](https://img.shields.io/badge/Next.js-Frontend-black)
 ![Neo4j](https://img.shields.io/badge/Neo4j-Scientific_Knowledge_Graph-blue)
+
+</div>
 
 ## Problem
 
