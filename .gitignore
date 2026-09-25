@@ -1,0 +1,11 @@
+.DS_Store
+.env
+*.pyc
+__pycache__/
+.venv/
+node_modules/
+.next/
+dist/
+storage/uploads/
+storage/runs/
+*.log

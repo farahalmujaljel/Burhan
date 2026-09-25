@@ -1,0 +1,31 @@
+@import "@xyflow/react/dist/style.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  min-height: 100%;
+  background: #f7f5ef;
+  color: #17211c;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.react-flow__node {
+  border-radius: 8px;
+  border: 1px solid #d7d4cb;
+  background: #fffdfa;
+  color: #17211c;
+  font-size: 12px;
+  padding: 8px 10px;
+  width: 180px;
+}
+
+.react-flow__edge-path {
+  stroke: #355c4a;
+}

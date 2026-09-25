@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: burhan-postgres
+    environment:
+      POSTGRES_USER: burhan
+      POSTGRES_PASSWORD: burhan
+      POSTGRES_DB: burhan
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  qdrant:
+    image: qdrant/qdrant:v1.12.5
+    container_name: burhan-qdrant
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant-data:/qdrant/storage
+
+  neo4j:
+    image: neo4j:5.26
+    container_name: burhan-neo4j
+    environment:
+      NEO4J_AUTH: neo4j/burhan-password
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - neo4j-data:/data
+
+volumes:
+  postgres-data:
+  qdrant-data:
+  neo4j-data:
