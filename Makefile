@@ -1,6 +1,6 @@
 PY := $(CURDIR)/.venv/bin/python
 
-.PHONY: venv install dev test lint infra-up infra-down
+.PHONY: venv install dev test lint infra-up infra-down frontend-install frontend-dev frontend-check
 
 venv:
 	python3 -m venv .venv
@@ -22,3 +22,12 @@ infra-up:
 
 infra-down:
 	docker compose down
+
+frontend-install:
+	cd frontend && npm install
+
+frontend-dev:
+	cd frontend && npm run dev
+
+frontend-check:
+	cd frontend && npm run lint && npm run typecheck && npm run build

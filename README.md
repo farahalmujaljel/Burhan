@@ -178,14 +178,15 @@ See [docs/ROADMAP.md](docs/ROADMAP.md) and [docs/MVP_PLAN.md](docs/MVP_PLAN.md).
 
 ## Getting Started
 
-The prototype is under active, incremental development. Currently implemented: backend foundation, the validated data contract (entities, relations, evidence, twin), and PDF ingestion (multi-file upload, page-aware parsing, section detection, traceable chunking).
+The prototype is under active, incremental development. Currently implemented: backend foundation, the validated data contract (entities, relations, evidence, twin), PDF ingestion (multi-file upload, page-aware parsing, section detection, traceable chunking), evidence-verified scientific extraction with Groq, the Research Digital Twin (entity resolution, knowledge graph, local-embedding evidence index, change tracking), and the Next.js frontend (twin dashboard, papers, knowledge graph, evidence search, twin evolution).
 
 ```bash
 python3 -m venv .venv
 make install
 cp .env.example .env   # add your GROQ_API_KEY
 make test
-make dev               # http://localhost:8000/docs
+make dev               # API: http://localhost:8000/docs
+make frontend-install && make frontend-dev   # UI: http://localhost:3000
 ```
 
 Neo4j and Qdrant are optional (`make infra-up`); the defaults use in-memory and local fallbacks. See [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md).
