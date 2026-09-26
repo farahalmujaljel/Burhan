@@ -1,0 +1,1061 @@
+{
+  "run_id": "3e9f43eb50474c8887f35281ee5b2b8a",
+  "created_at": "2026-09-26T08:59:38.577627",
+  "papers": [
+    {
+      "id": "5ea44dc30dcb4a5d83244a34c3ee00ab",
+      "filename": "1-s2.0-S1877050923001102-main.pdf",
+      "local_path": "storage/uploads/3e9f43eb50474c8887f35281ee5b2b8a/1-s2.0-S1877050923001102-main.pdf",
+      "metadata": {
+        "title": "ScienceDirect",
+        "authors": [
+          "Available online at www.sciencedirect.com"
+        ],
+        "year": 2023,
+        "abstract": "Breast cancer is main reason for mortality in woman. Prediction of breast cancer is a challenging task in medical data analysis. Doctors and pathologist required some automated tools to take decision and to differentiate between malignant and benign tumour. A machine learning (ML) algorithm helps lot to take decisions and to perform diagnosis from the data collected by medical field. Various researches show that ML techniques are helpful for decision making in breast cancer prediction. In this paper, we used various ML Classification techniques: Naïve Bayes(NB), Logistic regression (LR),Support vector machine(SVM),K-Nearest Neighbor (KNN), Decision Tree(DT), and ensemble techniques: Random forest(RF), Adaboost, XGBoost on breast cancer dataset and evaluated by using different performance measure. It has been found that both decision tree and XGBoost classifier has highest accuracy 97% among all model and highest AUC 0.999 obtained for XGBoost classifier. © 2023 The Authors. Published by Elsevier B.V. This is an open access article under the CC BY-NC-ND license (https://creativecommons.org/licenses/by-nc-nd/4.0) Peer-review under responsibility of the scientific committee of the International Conference on Machine Learning and Data Engineering Varsha Nemade et al. / Procedia Computer Science 218 (2023) 1314–1320\b 1315 doctors [4] pathologist for performing an accurate prediction that helps to avoid further medical expenditure and to get proper treatment and in some cases early detection can save a person's life [5]. Different techniques have been used to classify breast cancer. Classification techniques play an important role in breast cancer prediction and diagnosis. Many research have demonstrated the importance of breast cancer prediction with different techniques and",
+        "sections": {
+          "Introduction": "Introduction GLOBOCAN 2020 report shows that how cancer is more dangerous as it recorded total 19.3 cases in that 10 million deaths in 2020 [1,2].Female breast cancer has recorded with 2.3 million new cases [1] and also indicates the mortality rate also increased. Breast cancer created huge impact on the life of women. Mortality rate can be decreased by increasing awareness, early prediction and diagnosis [3]. Today medical field generates large amount data of different diseases and that data helps to perform analysis and further predictions. Technology helps lot to * Corresponding author.+91942361554. E-mail address: vvfegade@gmail.com International Conference on Machine Learning and Data Engineering Machine Learning Techniques for Breast Cancer Prediction Varsha Nemade1,*,Vishal Fegade2 aDepartment of Computer Engineering,Mukesh Patel School of Technology Management and Engineering,NMIMS Shirpur Campus, India bDepartment of Mechanical Engineering,Mukesh Patel School of Technology Management and Engineering,NMIMS Shirpur Campus, India",
+          "Abstract": "Abstract Breast cancer is main reason for mortality in woman. Prediction of breast cancer is a challenging task in medical data analysis. Doctors and pathologist required some automated tools to take decision and to differentiate between malignant and benign tumour. A machine learning (ML) algorithm helps lot to take decisions and to perform diagnosis from the data collected by medical field. Various researches show that ML techniques are helpful for decision making in breast cancer prediction. In this paper, we used various ML Classification techniques: Naïve Bayes(NB), Logistic regression (LR),Support vector machine(SVM),K-Nearest Neighbor (KNN), Decision Tree(DT), and ensemble techniques: Random forest(RF), Adaboost, XGBoost on breast cancer dataset and evaluated by using different performance measure. It has been found that both decision tree and XGBoost classifier has highest accuracy 97% among all model and highest AUC 0.999 obtained for XGBoost classifier. © 2023 The Authors. Published by Elsevier B.V. This is an open access article under the CC BY-NC-ND license (https://creativecommons.org/licenses/by-nc-nd/4.0) Peer-review under responsibility of the scientific committee of the International Conference on Machine Learning and Data Engineering Varsha Nemade et al. / Procedia Computer Science 218 (2023) 1314–1320\b 1315 doctors [4] pathologist for performing an accurate prediction that helps to avoid further medical expenditure and to get proper treatment and in some cases early detection can save a person's life [5]. Different techniques have been used to classify breast cancer. Classification techniques play an important role in breast cancer prediction and diagnosis. Many research have demonstrated the importance of breast cancer prediction with different techniques and challenges [6,7], and they used a variety of data mining classification approaches to analyze the Wisconsin Diagnostic Breast Cancer (WDBC)[8,9] and Wisconsin Breast Cancer(WBC) [10]dataset and it found substantial result. Many data mining techniques [11] are used for classification such as KNN, NB, DT, SVM, LR, ensemble techniques such as RF, Adaboost, XGBoost. Our aim is to predict breast cancer by applying different classification algorithm and compare their performance and find out best algorithm. This paper organizes in following manner: Section 2 describes similar kind of work performed before on breast cancer datasets, section 3 describe the architectural overview of system with dataset, and classification techniques details, section 4 describes",
+          "Results": "results and",
+          "Discussion": "discussion of ML techniques with different performance measures. 2. Related Work Prediction of breast cancer using ML techniques is on-going work. Research has shown that many machine learning techniques such as KNN, NB, DT, SVM, and LR have been developed for breast cancer diagnosis. Kabiraj et al. proposed a Random Forest and XGBoost system for predicting breast cancer risk and got 74.73%, 73.63% respectively[12]. Liu et al. has developed gradient boosting algorithm called EXSA to predict breast cancer progression that helps to increase survival rate [13]. Nanglia et al. has described the ensemble model using KNN, SVM, and DT with 78% [14]. Islam et al. has applied different supervised learning techniques on Wisconsin dataset and ANN got 98.57% highest accuracy [15]. Amrane et al. proposed breast cancer classification using KNN and NB using cross validation with accuracy 97.51% and 96.17% respectively [16]. Dhahri et al. proposed",
+          "Method": "method that used genetic programming techniques for selection of best features and parameter for ML classifier [17]. Obaid et al. presented that SVM with quadratic kernel function achieved highest accuracy [9].Both linear and nonlinear approaches to data reduction are viable options, and which one is used will depend on the characteristics of the correlations that exist between the features of the dataset [18].The vast majority of ML algorithms, on the other hand, will calculate the Euclidean distance between any two data points they are given. It is necessary to bring all of the characteristics down to the same magnitude level. Scaling is a method that can be used to accomplish this goal [19].Ara et al. performed feature selection and apply ML on breast cancer data set for classification into benign and malignant and by using SVM and RF they got 96.5% accuracy [20].Jabbar et al. classifying the breast cancer data, an Ensemble model has been constructed in this work by utilising Bayesian networks and Radial Basis Function producing accurate classifications optimal accuracy of 97.42 % by combining these two different types of classifiers.[21].Mahesh et al. used different machine learning techniques and also blended ensemble learning for breast cancer prediction and achieved 98.14% accuracy [22]. 3.",
+          "Methodology": "Methodology Fig.1. shows overall design of proposed methodology applied for detection of breast cancer. Different classification algorithms applied on breast cancer data but different classifier shows different performance on same data therefore we used an ensemble technique that uses bagging and boosting which combines results from different classifier also learns from previous classifiers. To perform this ,first step of this is data acquisition. The data then pre-processed for selection of attributes, after that data divided: 80% for training and 20 % for testing. Dataset is labelled dataset having labels malignant and benign and therefore supervised different classification techniques applied on training data for building a model. Test data evaluated by using different classifier and finally compare the performance of different classifiers. 1316 Varsha Nemade et al. / Procedia Computer Science 218 (2023) 1314–1320 Fig.1. Proposed Flow Diagram 3.1. Dataset For our experiments, we used the WDBC dataset. It is available on UCI repository [23].This dataset is used to determine whether a cancer is benign or malignant. A digitized image of an affine needle aspirate (FNA) of a mass in breast is used to extract features. It describes the properties of the nuclei in the image. This dataset contains 569 total records, 212 of which are malignant and 357 of which are benign. It has characteristics such as an ID number, a diagnosis, a radius, texture, a perimeter, an area, smoothness, compactness, concavity, concave points, symmetry, and fractal dimension. There are a total of 13 features left. The mean, standard error, and worst or largest of these features are calculated for every image. 3.2. Model Building The efficacy of medical treatment and the accuracy of the diagnosis are two factors that have a significant impact on Varsha Nemade et al. / Procedia Computer Science 218 (2023) 1314–1320\b 1317 a patient's chances of surviving cancer and avoiding a second bout with the disease. Data is randomly selected into training and testing and split in the ratio of 80:20 respectively. The effectiveness of the model was evaluated with the help of test data after it was trained with the help of training sets. The various features values will determine whether the person will be affected or not. The first thing that needs to be done is to collect the necessary data for pre-processing in order to enhance the data's quality. This can be done by using pre-processing Data is pre- processing performed by selecting only required attributes. Separate Diagnosis column from remaining attributes, and label encoding is applied to categorical labels to convert them into numerical form. Standard scalar is applied that scales each feature to convert unit variance. After data preparation different machine models are used to train data. Once model trained its performance is evaluated on test data. In this different ML algorithms are used along with the ensemble classifier. The goal of ensemble learning is to produce a single superior predictive model by combining the results of multiple learning algorithms. It does this by combining several different kinds of supervised learners in order to boost the predictive ability of the model. Here we use Random forest bagging technique and Adaboost and XGBoost boosting techniques. . Following different Classification Algorithms and three ensemble learning techniques are applied on pre-processed breast cancer dataset to decide whether it is malignant or benign.  Logistic Regression: It is an extension of linear regression model and used for classification problem. It provides the probabilities for two possible outcomes. In health care field this method is useful for prediction of likelihood of disease or illness.  KNN: It uses all training data to classify new data point based on the similarity. To assign label to new data point it calculate its distance from different label point and finally it find nearest neighbour. ",
+          "Conclusion": "Conclusion Breast cancer is the important field of research and technology helps to reduce mortality rate caused by breast cancer. There are many ML algorithms introduced till now for analysis of medical datasets. It is essential for a medical diagnosis that the data on breast cancer be classified in a way that is both accurate and effective. Even though a many number of methods have been developed to classify breast cancer data, there are still many obstacles to overcome, including accuracy. In order to address this issue, we put forth a model for the classification of data relating to breast cancer. In this paper we applied six ML classification techniques: DT, KNN, SVM, RF, NB, and LR along with ensemble techniques on WDBC dataset. All techniques are compared and it has been found that in standard ML algorithm Decision Tree classifier with criterion gini index achieved highest accuracy: 97% and found highest AUC: 0.996 for LR classifier and for ensemble techniques XGBoost achieved highest accuracy 97% and AUC 0.99. It is possible that the proposed system for learning in ensembles would be of use to cancer specialists in the process of recognising cancer. The future scope of this work is to perform hyper parameter tuning to improve the performance of the model. 1320 Varsha Nemade et al. / Procedia Computer Science 218 (2023) 1314–1320 References [1] S Sung, H., Ferlay, J., Siegel, R. L., Laversanne, M., Soerjomataram, I., Jemal, A., & Bray, F. (2021). Global cancer statistics 2020: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries. CA: a cancer journal for clinicians, 71(3), 209-249. [2] Ferlay, J., Colombet, M., Soerjomataram, I., Parkin, D. M., Piñeros, M., Znaor, A., & Bray, F. (2021). Cancer statistics for the year 2020: An overview. International Journal of Cancer, 149(4), 778-789. [3] Patil S, Kirange D, Nemade V. Predictive modelling of brain tumor detection using deep learning. Journal of Critical Reviews. 2020;7. [4] Nemade, V., Pathak, S., Dubey, A. K., & Barhate, D. (2022).A Review and Computational Analysis of Breast Cancer Using Different Machine Learning Techniques,12(3)111-118. [5] Chaturvedi P, Jhamb A, Vanani M, Nemade V. Prediction and classification of lung cancer using machine learning techniques. InIOP Conference Series:",
+          "Materials": "Materials Science and Engineering 2021 Mar 1 (Vol. 1099, No. 1, p. 012059). IOP Publishing. [6] Abdelhafiz, D., Yang, C., Ammar, R., & Nabavi, S. (2019). Deep convolutional neural networks for mammography: advances, challenges and applications. BMC bioinformatics, 20(11), 1-20. [7] Nemade, V., Pathak, S., & Dubey, A. K. (2022). A Systematic Literature Review of Breast Cancer Diagnosis Using Machine Intelligence Techniques. Archives of Computational Methods in Engineering, 1-30. [8] Dora L, Agrawal S, Panda R, Abraham A.(2017) Optimal breast cancer classification using Gauss–Newton representation based algorithm. Expert Systems with Applications,85:134-45 [9] Obaid OI, Mohammed MA, Ghani MK, Mostafa A, Taha F. (2018) Evaluating the performance of machine learning techniques in the classification of Wisconsin Breast Cancer. International Journal of Engineering & Technology,7(4.36):160-6. [10] Yellamma, P., Chowdary, C. S., Karunakar, G., Rao, B. S., & Ganesan, V. (2020). Breast Cancer Diagnosis Using MLP Back Propagation. International Journal, 8(9). [11] Naji, M. A., El Filali, S., Aarika, K., Benlahmar, E. H., Abdelouhahid, R. A., & Debauche, O. (2021). Machine Learning Algorithms For Breast Cancer Prediction And Diagnosis. Procedia Computer Science, 191, 487-492. [12] Kabiraj, S., Raihan, M., Alvi, N., Afrin, M., Akter, L., Sohagi, S. A., & Podder, E. (2020, July). Breast cancer risk prediction using XGBoost and random forest algorithm. In 2020 11th international conference on computing, communication and networking technologies (ICCCNT) (pp. 1-4). IEEE. [13] Liu, P., Fu, B., Yang, S. X., Deng, L., Zhong, X., & Zheng, H. (2020). Optimizing survival analysis of XGBoost for ties to predict disease progression of breast cancer. IEEE Transactions on Biomedical Engineering, 68(1), 148-160. [14] Nanglia, S., Ahmad, M., Khan, F. A., & Jhanjhi, N. Z. (2022). An enhanced Predictive heterogeneous ensemble model for breast cancer prediction. Biomedical Signal Processing and Control, 72, 103279. [15] Islam, M., Haque, M., Iqbal, H., Hasan, M., Hasan, M., & Kabir, M. N. (2020). Breast cancer prediction: a comparative study using machine learning techniques. SN Computer Science, 1(5), 1-14 [16] Amrane, M., Oukid, S., Gagaoua, I., & Ensari, T. (2018, April). Breast cancer classification using machine learning. In 2018 electric electronics, computer science, biomedical engineerings' meeting (EBBT) (pp. 1-4). IEEE. [17] Dhahri, H., Al Maghayreh, E., Mahmood, A., Elkilani, W., & Faisal Nagi, M. (2019). Automated breast cancer diagnosis based on machine learning algorithms. Journal of healthcare engineering. [18] Kharya S, Soni S. Weighted naive bayes classifier: a predictive model for breast cancer detection. International Journal of Computer Applications. 2016 Jan;133(9):32-7 [19] Huang Q, Chen Y, Liu L, Tao D, Li X. On combining biclustering mining and AdaBoost for breast tumor classification. IEEE Transactions on Knowledge and Data Engineering. 2019 Jan 14;32(4):728-38. [20] Ara S, Das A, Dey A. Malignant and benign breast cancer classification using machine learning algorithms. In2021 International Conference on Artificial Intelligence (ICAI) 2021 Apr 5 (pp. 97-101). IEEE. [21] Jabbar MA. Breast cancer data classification using ensemble machine learning. Engineering and Applied Science Research. 2021 Jan 27;48(1):65-72. [22] Mahesh TR, Vinoth Kumar V, Vivek V, Karthick Raghunath KM, Sindhu Madhuri G. Early predictive model for breast cancer classification using blended ensemble learning. International Journal of System Assurance Engineering and Management. 2022 Jun 26:1-0. [23] https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(diagnostic) [24] Chaurasia V, Pal S, Tiwari BB. Prediction of benign and malignant breast cancer using data mining techniques. Journal of Algorithms & Computational Technology. 2018 Jun;12(2):119-26."
+        }
+      },
+      "extraction": {
+        "problem": "The selected research domain requires reliable evidence across methods, datasets, and reported findings.",
+        "objective": "Breast cancer is main reason for mortality in woman. Prediction of breast cancer is a challenging task in medical data analysis. Doctors and pathologist required some automated tools to take decision and to differentiate between malignant and benign tumour. A machine learning (ML) algorithm helps lot to take decisions and to perform diagnosis from ",
+        "method": "Deep Learning",
+        "dataset": "Wisconsin",
+        "metrics": [
+          "accuracy",
+          "auc",
+          "f1 score",
+          "precision",
+          "recall",
+          "roc"
+        ],
+        "findings": [
+          "In this paper, we used various ML Classification techniques: Naïve Bayes(NB), Logistic regression (LR),Support vector machine(SVM),K-Nearest Neighbor (KNN), Decision Tree(DT), and ensemble techniques: Random forest(RF), Adaboost, XGBoost on breast cancer dataset and evaluated by using different performance measure.",
+          "It has been found that both decision tree and XGBoost classifier has highest accuracy 97% among all model and highest AUC 0.999 obtained for XGBoost classifier.",
+          "/ Procedia Computer Science 218 (2023) 1314–1320\b 1315 doctors [4] pathologist for performing an accurate prediction that helps to avoid further medical expenditure and to get proper treatment and in some cases early detection can save a person's life [5].",
+          "Classification techniques play an important role in breast cancer prediction and diagnosis."
+        ],
+        "limitations": [
+          "The paper indicates that broader validation and stronger generalization evidence are needed."
+        ],
+        "future_work": [
+          "Today medical field generates large amount data of different diseases and that data helps to perform analysis and further predictions.",
+          "/ Procedia Computer Science 218 (2023) 1314–1320\b 1315 doctors [4] pathologist for performing an accurate prediction that helps to avoid further medical expenditure and to get proper treatment and in some cases early detection can save a person's life [5].",
+          "The future scope of this work is to perform hyper parameter tuning to improve the performance of the model."
+        ],
+        "evidence_quotes": [
+          "In this paper, we used various ML Classification techniques: Naïve Bayes(NB), Logistic regression (LR),Support vector machine(SVM),K-Nearest Neighbor (KNN), Decision Tree(DT), and ensemble techniques: Random forest(RF), Adaboost, XGBoost on breast cancer dataset and evaluated by using different performance measure.",
+          "It has been found that both decision tree and XGBoost classifier has highest accuracy 97% among all model and highest AUC 0.999 obtained for XGBoost classifier.",
+          "/ Procedia Computer Science 218 (2023) 1314–1320\b 1315 doctors [4] pathologist for performing an accurate prediction that helps to avoid further medical expenditure and to get proper treatment and in some cases early detection can save a person's life [5].",
+          "Classification techniques play an important role in breast cancer prediction and diagnosis.",
+          "Many data mining techniques [11] are used for classification such as KNN, NB, DT, SVM, LR, ensemble techniques such as RF, Adaboost, XGBoost.",
+          "Our aim is to predict breast cancer by applying different classification algorithm and compare their performance and find out best algorithm."
+        ]
+      }
+    },
+    {
+      "id": "2f70e946b4b84ce4ab8f90283e77f55f",
+      "filename": "1-s2.0-S1877050921014629-main.pdf",
+      "local_path": "storage/uploads/3e9f43eb50474c8887f35281ee5b2b8a/1-s2.0-S1877050921014629-main.pdf",
+      "metadata": {
+        "title": "ScienceDirect",
+        "authors": [
+          "Available online at www.sciencedirect.com"
+        ],
+        "year": 2021,
+        "abstract": "Each year number of deaths is increasing extremely because of breast cancer. It is the most frequent type of all cancers and the major cause of death in women worldwide. Any development for prediction and diagnosis of cancer disease is capital important for a healthy life. Consequently, high accuracy in cancer prediction is important to update the treatment aspect and the survivability standard of patients. Machine learning techniques can bring a large contribute on the process of prediction and early diagnosis of breast cancer, became a research hotspot and has been proved as a strong technique. In this study, we applied five machine learning algorithms: Support Vector Machine (SVM), Random Forest, Logistic Regression, Decision tree (C4.5) and K-Nearest Neighbours (KNN) on the Breast Cancer Wisconsin Diagnostic dataset, after obtaining the results, a performance evaluation and comparison is carried out between these different classifiers. The main objective of this research paper is to predict and diagnosis breast cancer, using machine-learning algorithms, and find out the most effective whit respect to confusion matrix, accuracy and precision. It is observed that Support vector Machine outperformed all other classifiers and achieved the highest accuracy (97.2%).All the work is done in the Anaconda environment based on python programming language and Scikit-learn library. 488 Mohammed Amine Naji et al. / Procedia Computer Science 191 (2021) 487–492 1.",
+        "sections": {
+          "Abstract": "Abstract Each year number of deaths is increasing extremely because of breast cancer. It is the most frequent type of all cancers and the major cause of death in women worldwide. Any development for prediction and diagnosis of cancer disease is capital important for a healthy life. Consequently, high accuracy in cancer prediction is important to update the treatment aspect and the survivability standard of patients. Machine learning techniques can bring a large contribute on the process of prediction and early diagnosis of breast cancer, became a research hotspot and has been proved as a strong technique. In this study, we applied five machine learning algorithms: Support Vector Machine (SVM), Random Forest, Logistic Regression, Decision tree (C4.5) and K-Nearest Neighbours (KNN) on the Breast Cancer Wisconsin Diagnostic dataset, after obtaining the",
+          "Results": "results, a performance evaluation and comparison is carried out between these different classifiers. The main objective of this research paper is to predict and diagnosis breast cancer, using machine-learning algorithms, and find out the most effective whit respect to confusion matrix, accuracy and precision. It is observed that Support vector Machine outperformed all other classifiers and achieved the highest accuracy (97.2%).All the work is done in the Anaconda environment based on python programming language and Scikit-learn library. 488 Mohammed Amine Naji et al. / Procedia Computer Science 191 (2021) 487–492 1.",
+          "Introduction": "Introduction Breast cancer has now overtaken lung cancer as the most commonly diagnosed cancer in women worldwide, according to statistics released by the International Agency for Research on Cancer (IARC) in December 2020. In the past two decades, the overall number of people diagnosed with cancer nearly doubled, from an estimated 10 million in 2000 to 19.3 million in 2020 [1]. Today, one in 5 people worldwide will develop cancer during their lifetime. Projections suggest that the number of people being diagnosed with cancer will increase still further in the coming years, and will be nearly 50% higher in 2040 than in 2020. The number of cancer deaths has also increased, from 6.2 million in 2000 to 10 million in 2020. More than one in six deaths is due to cancer. This reinforces the need to invest in both the fight against cancer and cancer prevention. The successful introduction of information and communication technologies (ICT) in medical practice is an important stake in the renovation of the health system and more precisely in cancer care. Actually, Big data has revolutionized the size of data and also creating value from it Big data has made a big change in BI by analyzing large amount of unstructured, heterogeneous, non-standard and incomplete healthcare data. It does not only forecast but also helps in decision making and is increasingly noticed as breakthrough in ongoing advancement with the goal is to improve the quality of patient care and reduces the healthcare cost. Data mining algorithms applied in healthcare industry play a significant role due to their high performance in predicting, diagnosis of the diseases, reducing costs of medicine, making real time decision to save people's lives. The Most common Data mining modeling goals are classification and prediction which uses several algorithms for the prediction of breast cancer. This paper mainly gives a comparison between the performance of five classifiers: Support Vector Machine (SVM)), Random Forest, Logistic Regression, Decision tree (C4.5) and K- Nearest Neighbors (KNN Network) which according to research community are among the most influential data mining algorithms and among the top 10 data mining algorithms [2]. Our objective is to predict and diagnosis breast cancer, using machine-learning algorithms, and find out the most effective based on the performance of each classifier in terms of confusion matrix, accuracy, precision and sensitivity. The rest of this paper is organized as follows .section 2 introduces",
+          "Method": "methods and results of previous research on breast cancer diagnosis. Section 3 describes the proposed",
+          "Methodology": "methodology for our work. Section 4 presents and explains in detail the experiments results. Section 5 concludes the paper. 2. Related Works A large number of machine learning algorithms are available for prediction and diagnosis of breast cancer. Some of the machine learning algorithm are Support Vector Machine (SVM), Random Forest, Logistic Regression, Decision tree (C4.5) and K-Nearest Neighbors (KNN Network) etc. A lot of researcher have realized research in breast cancer by using several dataset such as using SEER dataset, Mammogram images as dataset, Wisconsin Dataset and also dataset from various hospitals. By exploiting these dataset authors extract and select various features and complete their research. These are some significant research. The author Sudarshan Nayak [3], demonstrates the use of various supervised machine learning algorithms in classification of breast cancer from using 3D images and find out that SVM is the best based on his overall performance. On the other side, we find that B.M. Gayathri [4], work on comparative study of Relevance vector machine which provides Low computational cost while comparing with other machine learning techniques which are used for breast cancer detection, and explain how RVM is better than other machine learning algorithms for diagnosing breast cancer even the variables are reduced and achieved 97% accuracy. Hiba Asri [5], demonstrated that Support vector Machine (SVM) proves its efficiency in Breast Cancer prediction and diagnosis and achieves the best performance in terms of precision and low error rate with an accuracy of 97.13%. in recent works, we find that Youness khoudfi and Mohamed Bahaj [6], similarly proposed a comparison between Machine learning algorithms and they found the SVM is the best classifier with an accuracy of 97.9% compared with K-NN, RF and NB, they are based on Multilayer perception with 5 layers and 10 times cross validation using MLP. The author Latchoumiet TP [7] Found a classification value of 98.4% proposing an optimization weighting of the particle swarm (WPSO) based on the SSVM for the classification. Ahmed Hamza Osman [8] proposed a solution for the diagnosis of Wisconsin breast cancer (WBCD) with a prediction of 99.10% found by the SVM algorithm by combining a clustering algorithm with an efficient probabilistic vector support machine. Our research is focused on assessing such machine learning algorithms and Mohammed Amine Naji et al. / Procedia Computer Science 191 (2021) 487–492\b 489 approaches in order to conclude the best methodology for breast cancer prediction and diagnosis. 3. Methodology The main objective of our experiment is to identify the effective and predictive algorithm for the detection of breast cancer, therefore we applied machine learning classifiers Support Vector Machine (SVM), Random Forests, Logistic Regression, Decision tree (C4.5), K-Nearest Neighbors (KNN) on Breast Cancer Wisconsin Diagnostic dataset and evaluate the results obtained to define which model provides a higher accuracy. The proposed architecture is detailed in figure 1. Fig. 1. Process Flow Diagram. Our methodology begins with data acquisition followed by pre-processing, which contains four steps viz: data cleaning, select attributes, set target Role and features extraction. The prepared data is used to build machine learning algorithms that can predict the breast cancer for a new set of measurements. To evaluate the algorithms performances, we show the model new data for which we have labels. This is usually done by splitting the labeled data we have collected into two parts whit Train_test_split method. 75% of the data is used to build our machine learning model, and is called the training data or training set. 25% of the data will be used to access how well the model works and is called test data, test set. After testing the models we compare the obtained results to select the algorithm that provides the high accuracy and identify the most predict",
+          "Discussion": "Discussion After applying Machine Learning Algorithms on Breast Cancer Wisconsin Diagnostic dataset.We used Confusion Matrix, Accuracy, Precision, Sensitivity, F1 Score, AUC as performance metrics to evaluate and compare the models and identify the best algortihm for the brest cancer Prediction. Confusion Matrix is the way to measure the performance of a classification problem where the output can be of two or more type of classes. A confusion matrix is a table with two dimensions viz. “Actual” and “Predicted” and furthermore, both the dimensions have “True Positives (TP)”, “True Negatives (TN)”, “False Positives (FP)”, and “False Negatives (FN)”. Accuracy is most common performance metric for classification algorithms. It defined as the number of correct predictions made as a ratio of all predictions made. Precision, used in document retrievals, may be defined as the number of correct documents returned by our ML model. Sensitivity may be defined as the number of positives returned by your ML model. F1 score gives us the harmonic mean of precision and Sensitivity. Mathematically, F1 score is the weighted Mohammed Amine Naji et al. / Procedia Computer Science 191 (2021) 487–492\b 491 average of the precision and Sensitivity. Table 1 and figure 2 show the accuracy percentage for Wincson Breast Cancer Diagnostic datasets. From the results of training set and testing set we can see that all the classifiers have varying accuracies but SVM always has higher accuracy testing set (97.2%) than the other classifiers. Table 1. Accuracy percentage for breast cancer diagnostic dataset. Fig. 3. Comparative graph of different classifiers Since confusion matrices are a useful way to assess the classifier, each row in Table 2 represents the rates in an actual class while each column displays the predictions. Table 3 present the calculated performance measures of classification models based on confusion matrix results, precision sensitivity f1 score for benign and malignant. class. Table 3. Classifiers performances Table 2 Confusion matrix shows that Support Vector Machine predicts correctly 556 cases out of 569 cases constituted of 201 malignant cases that are actually malignant and 356 benign cases that are actually benign, and 11 cases incorrectly predicted including 11 cases of malignant class predicted as benign and 1 case of benign class predicted as malignant. That is why the accuracy of Support Vector Machine is better than other classification techniques. From the results of table we can see that the percentages of precision 0.98%, sensitivity 0.94%, F- Measure 0.96% of SVM is higher than that of other classifiers. SVM always outperforms than the other classifiers in performance for two class malignant and benign in Breast Cancer Wisconsin Diagnostic dataset cancer. The ROC curves of each machine learning algorithms are presented on Fig.4. ROC curve is an important metric for the performance of classifiers. The area under ROC curve (AUC) is computed. The area is bigger, the performance of the classifier is better. The Support Vector Machine has the highest AUC score 0.96% while the AUC score of Decison tree 0.94% is the lowest as shown in table 4. Algorithms Accuracy Training Set (%) Accuracy Testing Set (%) SVM 98.4% 97.2% Radom Forest 99.8% 96.5% Logistic Regression 95.5% 95.8% Decision Tree 98.8% 95.1% K-NN 94.6% 93.7% Algorithms Precision Sensit ivity F-Measure Class SVM 0.98 0.94 0.96 Benign 0.97 0.99 0.98 Malignant Random Forests 0.96 0.94 0.95 Benign 0.97 0.98 0.97 Malignant Logistic Regression 0.98 0.91 0.94 Benign 0.95 0.99 0.97 Malignant Decision Tree 0.94 0.92 0.93 Benign 0.96 0.97 0.96 Malignant K-NN 0.92 0.91 0.91 Benign 0.95 0.96 0.95 Malignant Table 2. Confusion Matrix. Malignant Benign SVM 201 11 Malignant 1 356 Benign Random Forest 196 16 Malignant 7 350 Benign Logistic Regression 201 11 Malignant 5 352 Benign C4.5 195 17 Malignant 22 335 Benign KNN 201 11 Malignant 7 350 Benign 492 Mohammed Amine Naji et al. / Procedi",
+          "Conclusion": "Conclusion On the Wisconsin Breast Cancer Diagnostic dataset (WBCD) we applied five main algorithms which are: SVM, Random Forests, Logistic Regression, Decision Tree, K-NN, calculate, compare and evaluate different results obtained based on confusion matrix, accuracy, sensitivity, precision, AUC to identify the best machine learning algorithm that are precise, reliable and find the higher accuracy. All algorithms have been programmed in Python using scikit-learn library in Anaconda environment. After an accurate comparison between our models, we found that Support Vector Machine achieved a higher efficiency of 97.2%, Precision of 97.5%, AUC of 96.6% and outperforms all other algorithms. In conclusion, Support Vector Machine has demonstrated its efficiency in Breast Cancer prediction and diagnosis and achieves the best performance in terms of accuracy and precision. It should be noted that all the results obtained are related just to the WBCD database, it can be considered as a limitation of our work, it is therefore necessary to reflect for",
+          "Future Work": "future works to apply these same algorithms and methods on other databases to confirm the results obtained via this database, as well as, in our future works, we plan to apply our and other machine learning algorithms using new parameters on larger data sets with more disease classes to obtain higher accuracy. References [1] ‘WHO | Breast cancer’, WHO. http://www.who.int/cancer/prevention/diagnosis-screening/breast-cancer/en/ (accessed Feb. 18, 2020). [2] Datafloq - Top 10 Data Mining Algorithms, Demystified. https://datafloq.com/read/top-10-data-mining-algorithmsdemystified/1144. Accessed December 29, 2015. [3] S. Nayak and D. Gope, \"Comparison of supervised learning algorithms for RF-based breast cancer detection,\" 2017 Computing and Electromagnetics International Workshop (CEM), Barcelona, 2017, pp. [4] B.M. Gayathri and C. P. Sumathi, \"Comparative study of relevance vector machine with various machine learning techniques used for detecting breast cancer,\" 2016 IEEE International Conference on Computational Intelligence and Computing Research (ICCIC), Chennai, 2016, pp. 1-5. [5] H. Asri, H. Mousannif, H. A. Moatassime, and T. Noel, ‘Using Machine Learning Algorithms for Breast Cancer Risk Prediction and Diagnosis’, Procedia Computer Science, vol. 83, pp. 1064–1069, 2016, doi: 10.1016/j.procs.2016.04.224. [6] Y. khoudfi and M. Bahaj, Applying Best Machine Learning Algorithms for Breast Cancer Prediction and Classification, 978-1-5386- 4225- 2/18/$31.00 ©2018 IEEE. [7] L. Latchoumi, T. P., & Parthiban, “Abnormality detection using weighed particle swarm optimization and smooth support vector machine,” Biomed. Res., vol. 28, no. 11, pp. 4749–4751, 2017. [8] A. H. Osman, “An Enhanced Breast Cancer Diagnosis Scheme based on Two-Step-SVM Technique,” Int. J. Adv. Comput. Sci. Appl., vol. 8, no. 4, pp. 158–165, 2017. [9] Noble WS. What is a support vector machine? Nat Biotechnol. 2006;24(12):1565-1567. doi:10.1038/nbt1206-1565. [10] Larose DT. Discovering Knowledge in Data. Hoboken, NJ, USA: John Wiley & Sons, Inc.; 2004. [11] Hastie T, Tibshirani R, Friedman J. The elements of statistical learning. New York, NY: Springer-Verlag;2001. [12] Quinlan JR. C4.5: Programs for Machine Learning.; 2014:302. https://books.google.com/books?hl=fr&lr=&id=b3ujBQAAQBAJ&pgis=1. [13] “UCI Machine Learning Repository: Breast Cancer Wisconsin (Diagnostic) Data Set.” [14] Fabian Pedregosa and all (2011). \"Scikit-learn: Machine Learning in Python\". Journal of Machine Learning Research. 12: 2825–2830."
+        }
+      },
+      "extraction": {
+        "problem": "The selected research domain requires reliable evidence across methods, datasets, and reported findings.",
+        "objective": "Each year number of deaths is increasing extremely because of breast cancer. It is the most frequent type of all cancers and the major cause of death in women worldwide. Any development for prediction and diagnosis of cancer disease is capital important for a healthy life. Consequently, high accuracy in cancer prediction is important to update the ",
+        "method": "Machine Learning",
+        "dataset": "Wisconsin",
+        "metrics": [
+          "accuracy",
+          "auc",
+          "f1 score",
+          "precision",
+          "roc",
+          "sensitivity"
+        ],
+        "findings": [
+          "Keywords: Breast Cancer; Prediction; Diagnostic ; SVM; Random Forest; Logistic regression ; C4.5; k-NN; Accuracy; Precision; * Corresponding author.",
+          "Consequently, high accuracy in cancer prediction is important to update the treatment aspect and the survivability standard of patients.",
+          "The main objective of this research paper is to predict and diagnosis breast cancer, using machine-learning algorithms, and find out the most effective whit respect to confusion matrix, accuracy and precision.",
+          "It is observed that Support vector Machine outperformed all other classifiers and achieved the highest accuracy (97.2%).All the work is done in the Anaconda environment based on python programming language and Scikit-learn library."
+        ],
+        "limitations": [
+          "/ Procedia Computer Science 191 (2021) 487–492 • Logistic regression is a very powerful modeling tool, is a generalization of linear regression [11]."
+        ],
+        "future_work": [
+          "Projections suggest that the number of people being diagnosed with cancer will increase still further in the coming years, and will be nearly 50% higher in 2040 than in 2020.",
+          "“Actual” and “Predicted” and furthermore, both the dimensions have “True Positives (TP)”, “True Negatives (TN)”, “False Positives (FP)”, and “False Negatives (FN)”."
+        ],
+        "evidence_quotes": [
+          "Keywords: Breast Cancer; Prediction; Diagnostic ; SVM; Random Forest; Logistic regression ; C4.5; k-NN; Accuracy; Precision; * Corresponding author.",
+          "Consequently, high accuracy in cancer prediction is important to update the treatment aspect and the survivability standard of patients.",
+          "The main objective of this research paper is to predict and diagnosis breast cancer, using machine-learning algorithms, and find out the most effective whit respect to confusion matrix, accuracy and precision.",
+          "It is observed that Support vector Machine outperformed all other classifiers and achieved the highest accuracy (97.2%).All the work is done in the Anaconda environment based on python programming language and Scikit-learn library.",
+          "It does not only forecast but also helps in decision making and is increasingly noticed as breakthrough in ongoing advancement with the goal is to improve the quality of patient care and reduces the healthcare cost.",
+          "The Most common Data mining modeling goals are classification and prediction which uses several algorithms for the prediction of breast cancer."
+        ]
+      }
+    },
+    {
+      "id": "0556b1c20b6946edb46124c3e862c3ca",
+      "filename": "JBPE-12-297.pdf",
+      "local_path": "storage/uploads/3e9f43eb50474c8887f35281ee5b2b8a/JBPE-12-297.pdf",
+      "metadata": {
+        "title": "J Biomed Phys Eng 2022; 12(3)",
+        "authors": [
+          "Prediction of Breast Cancer using Machine"
+        ],
+        "year": 2022,
+        "abstract": "Background: Breast cancer is considered one of the most common cancers in wom­ en caused by various clinical, lifestyle, social, and economic factors. Machine learning has the potential to predict breast cancer based on features hidden in data. Objective: This study aimed to predict breast cancer using different machine- learning approaches applying demographic, laboratory, and mammographic data. Material and Methods: In this analytical study, the database, including 5,178 independent records, 25% of which belonged to breast cancer patients with 24 attri­ butes in each record was obtained from Motamed cancer institute (ACECR), Tehran, Iran. The database contained 5,178 independent records, 25% of which belonged to breast cancer patients containing 24 attributes in each record. The random forest (RF), neural network (MLP), gradient boosting trees (GBT), and genetic algorithms (GA) were used in this study. Models were initially trained with demographic and laboratory features (20 features). The models were then trained with all demographic, laboratory, and mammographic features (24 features) to measure the effectiveness of mammogra­ phy features in predicting breast cancer. Results: RF presented higher performance compared to other techniques (accuracy 80%, sensitivity 95%, specificity 80%, and the area under the curve (AUC) 0.56). Gra­ dient boosting (AUC=0.59) showed a stronger performance compared to the neural network. Conclusion: Combining multiple risk factors in modeling for breast cancer predic­ tion could help the early diagnosis of the disease with necessary care plans. Collection, storage, and management of different data and intelligent systems based on multiple factors for predicting breast cancer are effective in disease management. Citation: Rabiei R, Ayyou",
+        "sections": {
+          "Introduction": "Introduction B reast cancer is considered a multifactorial disease and the most common cancer in women worldwide [1,2] with approximately 30% of all female cancers [3, 4] (i.e. 1.5 million women are di­ agnosed with breast cancer each year, and 500,000 women die from this disease in the world). Over the past 30 years, this disease has increased, while the death rate has decreased. However, the reduction in mortality due to mammography screening is estimated at 20% and improvement in cancer treatment is estimated at 60% [5,6]. Diagnostic mammography can assess abnormal breast cancer tissue Original",
+          "Abstract": "ABSTRACT Background: Breast cancer is considered one of the most common cancers in wom­ en caused by various clinical, lifestyle, social, and economic factors. Machine learning has the potential to predict breast cancer based on features hidden in data. Objective: This study aimed to predict breast cancer using different machine- learning approaches applying demographic, laboratory, and mammographic data. Material and",
+          "Method": "Methods: In this analytical study, the database, including 5,178 independent records, 25% of which belonged to breast cancer patients with 24 attri­ butes in each record was obtained from Motamed cancer institute (ACECR), Tehran, Iran. The database contained 5,178 independent records, 25% of which belonged to breast cancer patients containing 24 attributes in each record. The random forest (RF), neural network (MLP), gradient boosting trees (GBT), and genetic algorithms (GA) were used in this study. Models were initially trained with demographic and laboratory features (20 features). The models were then trained with all demographic, laboratory, and mammographic features (24 features) to measure the effectiveness of mammogra­ phy features in predicting breast cancer.",
+          "Results": "Results: RF presented higher performance compared to other techniques (accuracy 80%, sensitivity 95%, specificity 80%, and the area under the curve (AUC) 0.56). Gra­ dient boosting (AUC=0.59) showed a stronger performance compared to the neural network.",
+          "Conclusion": "Conclusion: Combining multiple risk factors in modeling for breast cancer predic­ tion could help the early diagnosis of the disease with necessary care plans. Collection, storage, and management of different data and intelligent systems based on multiple factors for predicting breast cancer are effective in disease management. Citation: Rabiei R, Ayyoubzadeh SM, Sohrabei S, Esmaeili M, Atashi AR. Prediction of Breast Cancer using Machine Learning Approaches. J Biomed Phys Eng. 2022;12(3):297-308. doi: 10.31661/jbpe.v0i0.2109-1403. Keywords Artificial Intelligence; Breast Cancer; Computing Methodologies; Genetic Algo­ rithm; Machine Learning 297 J Biomed Phys Eng 2022; 12(3) Reza Rabiei, et al in patients with subtle and inconspicuous ma­ lignancy signs. Due to a large number of im­ ages, this method cannot effectively be used in assessing cancer suspected areas. According to a report, approximately 50% of breast can­ cers were not detected in screenings of women with very dense breast tissue [7]. However, about a quarter of women with breast cancer are diagnosed negatively within two years of screening. Therefore, the early and timely di­ agnosis of breast cancer is crucial [8]. Most mammography-based breast cancer screening is performed at regular intervals - usually annually or every two years - for all women. This “A fix screening program for ev­ eryone” is not effective in diagnosing cancer at the individual level and may impair the ef­ fectiveness of screening programs [9]. On the other hand, experts suggest that considering other risk factors along with mammography screening can help a more accurate diagno­ sis of women at risk [9-11]. Moreover, effec­ tive risk prediction through modeling can not only help radiologists in setting up a personal screening for patients and encouraging them to participate in the program for early detec­ tion but also help identify high-risk patients [12,13]. Machine learning, as a modeling approach, represents the process of extracting knowl­ edge from data and discovering hidden rela­ tionships [14], widely used in healthcare in recent years [15] to predict different diseases [16-18]. Some studies only used demographic risk factors (lifestyle and laboratory data) in predicting breast cancer [19,20], and several studies predicted based on mammographic stereotypes [21] or used data from patient bi­ opsy [22]. Others showed the application of genetic data in predicting breast cancer [23]. A major challenge in predicting breast can­ cer is the creation of a model for addressing all known risk factors [24-26]. Current prediction models might only focus on the analysis of mammographic images or demographic risk factors without other critical factors. In addi­ tion, these models, which are accurate enough for identifying high-risk women, could result in multiple screening and invasive sampling with magnetic resonance imaging (MRI) and ultrasound. The financial and psychological burden could be experienced by patients [27- 29]. The effective prediction of breast cancer risk requires different factors, including demo­ graphic, laboratory, and mammographic risk factors [24,25,30,31]. Therefore, multifac­ torial models with many risk factors in their analysis can be effective in assessing the risk of breast cancer through more accurate analy­ sis [32,33]. The current study aimed to predict breast cancer using different machine learn­ ing approaches considering various factors in modeling. Material and Methods In this analytical study, the database was ob­ tained from a clinical breast cancer research center (Motamed cancer institute) in Tehran, Iran. The research was conducted in 4 stages: data collection, data pre-processing, model­ ing, and model evaluation. Data Collection In the first stage, 5178 records of people, re­ ferred to the research center over the past 10 years (2011-2021), were prepared retrospec­ tively. Each record covered 24 features (11 demographic features, 9 laboratory features,",
+          "Discussion": "Discussion According to the findings of the current study, the mammographic features along with other features could improve the performance of models. The RF model showed the highest Predicted Negative Positive Actual Negative TN FP Positive FN TP TN: True Negative, FN: False Negative, FP: False Positive, TP: True Positive Table 2: Confusion matrix of a binominal classifier 301 J Biomed Phys Eng 2022; 12(3) Reza Rabiei, et al sensitivity (95%), but was more efficient due to the sensitivity of breast cancer diagnosis, models, such as gradient boosting with higher specificity (86%). In a study by Rosner et al. [47,48], the find­ ings showed that family and personal history of breast cancer were two of the key influen­ tial factors in breast cancer, which are con­ sistent with the findings of the current study as these two factors demonstrated the highest weight (0.92 and 0.89) compared to other fac­ tors. Breast density and age are influential in tumor appearance and increase the proportion of breast cancers [49] with the weights (0.80, 0.80), respectively. However, the hysterec­ tomy feature was used along with other risk factors that could influence the performance of models. The study by Chow et al. assessed the risk of breast cancer after hysterectomy and showed a statistical significance between hys­ terectomy and breast cancer [50]. The use of optimization algorithms with feature weighting and proper adjustment of classification parameters could improve the performance of classification algorithms [51]. Studies reported that the classifiers that used GA in feature selection demonstrated better performance compared to those that did not use the GA. For the prediction of breast can­ cer, Bhattacharya et al. [52] approached three Figure 2: The weight of the features in breast cancer prediction Models Features AUC Sensitivity (%) Specificity (%) Accuracy (%) Random Forest Demographics 0.53 93 83 79 Demographics + Mammography 0.53 95 83 80 Gradient Boosting Demographics 0.59 63 87 62 Demographics + Mammography 0.59 82 86 74 Multi-Layer Perceptron Demographics 0.56 78 85 71 Demographics + Mammography 0.56 82 84 73 AUC: Area under the ROC curve, ROC: Receiver operating characteristic Table 3: Performance comparison of the breast cancer prediction models 302 J Biomed Phys Eng 2022; 12(3) Prediction of Breast Cancer and Machine Learning machine learning algorithms and used GA for feature selection; the findings of this study showed that the GA led to an improved perfor­ mance for models created. In a study by Sakri et al. [53] to predict breast cancer recurrence in 198 instances with 34 clinical attributes, the GA was used for optimization. The Naive Bayes accuracy, sensitivity, specificity, and area under the ROC curve were reported at 70%, 81%, 79%, and 0.82, respectively in this study. Kumar et al. [54] used GA on a breast cancer dataset containing 611 records with 10 features to predict breast cancer survival and the reported accuracy, and ROC were 88% and 0.966 for GA, showing a better performance compared to Naive Bayes, DT, and K-nearest neighbor (KNN); in their study conducted to classify the masses observed in mammo­ graphic stereotypes, Thawkar and Ingolikar [55] used a dataset composed of 651 records with 25 mammography features. In the current study, the models were optimized by GA, and the ROC, accuracy, sensitivity, and specific­ ity were 0.974, 95%, 96.14%, and 93.94% for RF, respectively. In the studies noted above, the modeling was performed using one set of influencing factors. Some machine-learning studies [56-62] re­ ported higher accuracy (100%) and sensitivity (100%) for breast cancer prediction compared to the present study, which is likely due to us­ ing different databases, such as “Wisconsin” and “SEER”. Similar to the database used in the current study, some studies used data­ bases from specific medical or research cen­ ters. Behravan and Hartikainen [33] predicted breast cancer using a database contain",
+          "Limitations": "limitations are consid­ ered as follows: modeling based on records of only one database, and the lack of access to genetic data that could influence the find­ ings of the study. However, different machine learning approaches were used considering demographic, laboratory, and mammography features, resulting in comparing the perfor­ mance of different approaches in predicting breast cancer. Conclusion The proposed machine-learning approaches could predict breast cancer as the early detec­ tion of this disease could help slow down the progress of the disease and reduce the mortal­ ity rate through appropriate therapeutic inter­ ventions at the right time. Applying different machine learning approaches, accessibility to bigger datasets from different institutions (multi-center study), and considering key fea­ tures from a variety of relevant data sources could improve the performance of modeling. Authors’ Contribution R. Rabiei proposed conceptualization and de­ sign, supervision of modeling, manuscript draft­ ing, editing, and critical review. Deta modeling, interpretation, and manuscript drafting was done by SM. Ayyoubzadeh. S. Sohrabei provided con­ ceptualization and design, data modeling and in­ terpretation, manuscript drafting, and editing. M. Esmaeili presented data interpretation and manu­ script drafting. A. Atashi collected data and manu­ script drafting. All the authors read, modified, and approved the final version of the manuscript. Ethical Approval This study was approved by Clinical Research Department, Breast Cancer Research Center, Mota­ med Cancer Institute (ACECR), Tehran, Iran, with Approval ID IR, ACECR, IBCRC, REC.1394.68. 304 J Biomed Phys Eng 2022; 12(3) Prediction of Breast Cancer and Machine Learning Informed consent We used anonymous data for modeling and no consent was required for conducting this study. Funding There was no funding for conducting this study. Conflict of Interest None References 1. Zhang X, Shengli SU, Hongchao WA. Intelligent diagnosis model and method of palpation imag­ ing breast cancer based on data mining. Big Data Research. 2019;5(1):2019005. doi: 10.11959/j. issn.2096-0271.2019005. 2. Chen SI, Tseng HT, Hsieh CC. Evaluating the impact of soy compounds on breast cancer us­ ing the data mining approach. Food & function. 2020;11(5):4561-70. doi: 10.1039/C9FO00976K. PubMed PMID: 32400770. 3. Aavula R, Bhramaramba R, Ramula US. A Com­ prehensive Study on Data Mining Techniques used in Bioinformatics for Breast Cancer Prognosis. Journal of Innovation in Computer Science and Engineering. 2019;9(1):34-9. 4. Kaushik D, Kaur K. Application of Data Mining for high accuracy prediction of breast tissue biopsy results. 2016 Third International Conference on Digital Information Processing, Data Mining, and Wireless Communications (DIPDMWC); Moscow, Russia: IEEE; 2016. p. 40-5. doi: 10.1109/DIPD­ MWC.2016.7529361. 5. Mokhtar SA, Elsayad A. Predicting the severity of breast masses with data mining methods. ArXiv preprint arXiv:1305.7057. 2013. doi: 10.48550/ ARxIV.1305.7057. 6. Chaurasia V, Pal S, Tiwari BB. Prediction of be­ nign and malignant breast cancer using data min­ ing techniques. Journal of Algorithms & Com­ putational Technology. 2018;12(2):119-26. doi: 10.1177/1748301818756225. 7. Fan J, Wu Y, Yuan M, Page D, Liu J, Ong IM, Peis­ sig P, Burnside E. Structure-leveraged methods in breast cancer risk prediction. The Journal of Ma­ chine Learning Research. 2016;17(1):2956-70. 8. Burnside ES, Liu J, Wu Y, Onitilo AA, McCarty CA, Page CD, et al. Comparing Mammography Abnor­ mality Features to Genetic Variants in the Predic­ tion of Breast Cancer in Women Recommended for Breast Biopsy. Acad Radiol. 2016;23(1):62-9. doi: 10.1016/j.acra.2015.09.007. PubMed PMID: 26514439. PubMed PMCID: PMC4684977. 9. Stephens K. New Mammogram Measures of Breast Cancer Risk Could Revolutionize Screen­ ing. AXIS Imaging News. 2020. 10. Feld SI, Fan J, Yuan M, Wu Y, Woo KM, Alex­ andridis R, Burnside ES. Utility"
+        }
+      },
+      "extraction": {
+        "problem": "The selected research domain requires reliable evidence across methods, datasets, and reported findings.",
+        "objective": "Background: Breast cancer is considered one of the most common cancers in wom­ en caused by various clinical, lifestyle, social, and economic factors. Machine learning has the potential to predict breast cancer based on features hidden in data. Objective: This study aimed to predict breast cancer using different machine- learning approaches applyin",
+        "method": "Deep Learning",
+        "dataset": "Wisconsin",
+        "metrics": [
+          "accuracy",
+          "auc",
+          "recall",
+          "roc",
+          "sensitivity",
+          "specificity"
+        ],
+        "findings": [
+          "However, the reduction in mortality due to mammography screening is estimated at 20% and improvement in cancer treatment is estimated at 60% [5,6].",
+          "Results: RF presented higher performance compared to other techniques (accuracy 80%, sensitivity 95%, specificity 80%, and the area under the curve (AUC) 0.56).",
+          "According to a report, approximately 50% of breast can­ cers were not detected in screenings of women with very dense breast tissue [7].",
+          "In this study, a genetic algorithm (GA) with a population of 5, the number of children 50, and the number of 10 generations with the criterion of the high­ est accuracy in model selection were used to optimize values for variables."
+        ],
+        "limitations": [
+          "In the current study, limitations are consid­ ered as follows: modeling based on records of only one database, and the lack of access to genetic data that could influence the find­ ings of the study.",
+          "Pre­ dicting breast cancer via supervised machine learning methods on class imbalanced data."
+        ],
+        "future_work": [
+          "Diagnostic mammography can assess abnormal breast cancer tissue Original ABSTRACT Background: Breast cancer is considered one of the most common cancers in wom­ en caused by various clinical, lifestyle, social, and economic factors.",
+          "Material and Methods In this analytical study, the database was ob­ tained from a clinical breast cancer research center (Motamed cancer institute) in Tehran, Iran.",
+          "Further, these models were then trained with demographic and laboratory features (20 features)."
+        ],
+        "evidence_quotes": [
+          "However, the reduction in mortality due to mammography screening is estimated at 20% and improvement in cancer treatment is estimated at 60% [5,6].",
+          "Results: RF presented higher performance compared to other techniques (accuracy 80%, sensitivity 95%, specificity 80%, and the area under the curve (AUC) 0.56).",
+          "According to a report, approximately 50% of breast can­ cers were not detected in screenings of women with very dense breast tissue [7].",
+          "In this study, a genetic algorithm (GA) with a population of 5, the number of children 50, and the number of 10 generations with the criterion of the high­ est accuracy in model selection were used to optimize values for variables.",
+          "Random Forest (RF) As a non-parametric approach, the RF uses the classification method.",
+          "In each generation, the op­ timal solution is achieved based on a natural biological process and by selecting the best chromosomes for creating the subsequent gen­ eration to solve the problem optimally [45]."
+        ]
+      }
+    },
+    {
+      "id": "0c71bc4a50fe44e09f3647e938c0c3c5",
+      "filename": "yousefi.arzyabiamalkard12.pdf",
+      "local_path": "storage/uploads/3e9f43eb50474c8887f35281ee5b2b8a/yousefi.arzyabiamalkard12.pdf",
+      "metadata": {
+        "title": "Applied and Computational Mathematics",
+        "authors": [
+          "2018; 7(4): 212-216"
+        ],
+        "year": 2018,
+        "abstract": "Breast cancer is the most common invasive cancer in women and the second main cause of cancer death in females, which can be classified Benign or Malignant. Research and prevention on breast cancer have attracted more concern of researchers in recent years. On the other hand, the development of data mining methods provides an effective way to extract more useful information from complex database, and some prediction, classification and clustering can be made according to extracted information. In this study, to explore the relationship between breast cancer and some attributes so that the death probability of breast cancer can be reduced, five different classification models including Decision Tree (DT), Random Forest (RF), Support Vector Machine (SVM), Neural Network (NN) and Logistics Regression (LR) are used for the classification of two different datasets related to breast cancer: Breast Cancer Coimbra Dataset (BCCD) and Wisconsin Breast Cancer Database (WBCD). Three indicators including prediction accuracy values, F-measure metric and AUC values are used to compare the performance of these five classification models. comparative experiment analysis shows that random forest model can achieve better performance and adaptation than other four methods. Therefore, the model of this study is approved to possess clinical and referential values in practical applications.",
+        "sections": {
+          "Method": "Methods for Breast Cancer Prediction Yixuan Li1, Zixuan Chen2, * 1School of Mathematics and Statistics, University of Sheffield, Sheffield, UK 2School of Information, Zhejiang University of Finance and Economics, Hangzhou, China Email address: *Corresponding author. To cite this article: Yixuan Li, Zixuan Chen. Performance Evaluation of Machine Learning Methods for Breast Cancer Prediction. Applied and Computational Mathematics. Vol. 7, No. 4, 2018, pp. 212-216. doi: 10.11648/j.acm.20180704.15 Received: September 14, 2018; Accepted: October 16, 2018; Published: October 18, 2018",
+          "Abstract": "Abstract: Breast cancer is the most common invasive cancer in women and the second main cause of cancer death in females, which can be classified Benign or Malignant. Research and prevention on breast cancer have attracted more concern of researchers in recent years. On the other hand, the development of data mining methods provides an effective way to extract more useful information from complex database, and some prediction, classification and clustering can be made according to extracted information. In this study, to explore the relationship between breast cancer and some attributes so that the death probability of breast cancer can be reduced, five different classification models including Decision Tree (DT), Random Forest (RF), Support Vector Machine (SVM), Neural Network (NN) and Logistics Regression (LR) are used for the classification of two different datasets related to breast cancer: Breast Cancer Coimbra Dataset (BCCD) and Wisconsin Breast Cancer Database (WBCD). Three indicators including prediction accuracy values, F-measure metric and AUC values are used to compare the performance of these five classification models. comparative experiment analysis shows that random forest model can achieve better performance and adaptation than other four methods. Therefore, the model of this study is approved to possess clinical and referential values in practical applications. Keywords: Data Mining, Breast Cancer, Classification Models, Prediction 1.",
+          "Introduction": "Introduction Breast cancer is a horrific disease for women all over the world, which brings both physical and psychological damage. It also affects great amounts of women. In 2017, around 252710 new diagnoses of breast cancer were expected in women, and around 40610 women almost died from the disease [1]. Breast cancer can be divided into benign and malignant. According to the judgment of breast cancer, experts and doctors will make different treatment projects for therapy. If there happens misdiagnoses, it will lead improper treatments and let people lose the best time for curing, which will lead dreadful",
+          "Results": "results. Therefore, the selection of model for predicting the nature of breast tumor is significantly important. This study chooses five different classification models for classifying the nature of breast tumor for female patients, which separately are Decision Tree (DT), Support Vector Machine (SVM), Random Forest (RF), Logistic Regression (LR) and Neural Network (NN). These models are also classic algorithms from the area of machine learning. Then, the R programming language is employed as an essential tool to predict the nature of breast tumor [2]. One dataset from Breast Cancer Coimbra Dataset (BCCD) that was created by Patrício et al. [3], at the faculty of medicine of the university of Coimbra, and another dataset from Wisconsin Breast Cancer Database (WBCD) that was created by Dr. William H. Wolberg, at the University of Wisconsin Hospitals, which can be obtained on website http://archive.ics.uci.edu/ml/machine-learning-databases/brea st-cancer-wisconsin/, are used for validation and demonstration. The final results illustrate that the RF model can lead to an enrichment in predicting the nature of breast tumor for female patients and perform better than other four models in classification accuracy. 213 Yixuan Li and Zixuan Chen: Performance Evaluation of Machine Learning Methods for Breast Cancer Prediction The remainder of this paper is organized as follows. A related work about data mining and the application in breast cancer are presented in Section 2. In Section 3, we provide the description of the data, the process of data preprocessing and the modeling method employed in this study. Section 4 gives a detailed evaluation of comparative experiments based on prediction accuracy, F-measure metric and receiver operating characteristic curve (ROC curve). In the last Section, we conclude this paper and present potential",
+          "Future Work": "future works. 2. Related Work Data mining generally refers to the process of searching hidden information from a large amount of data through algorithms. In recent years, data mining has attracted great attention from the information industry. The main reason is that there exists mass of data, which can be widely used, and there is an urgent need to transform these data into useful information and knowledge. The information and knowledge acquired can be widely used in a variety of applications, including business management, production control, market analysis, engineering design and scientific exploration. This study is focused on the breast cancer, from the area of clinical medicine. Breast cancer is the most common invasive cancer in women, and worth catching the attention of doctors and experts. They diagnose whether patients have breast cancer by judging the nature of the cancer (benign/malignant). Many scientists denote themselves to develop appropriate approaches as to the better accuracy, therefore, a great variety of classical statistic methods, data mining models and optimization algorithms are applied into medical study and help them predict the illness. For instance, Chaurasiaet et al. [4] employed the Naive Bayes, Radial Basis Function Network and Decision Tree to develop the prediction models for breast cancer survivability. Cakir and Demirel [5] developed a new software called “Treatment Assistant” which combine D-class Lifeboat (IB1), Multilayer Perception and Decision Table, in order to give better determination of breast cancer treatment methods. Takadaet et al. [6] used alternating decision trees to develop a novel computational technique for predicting the pathological complete response to neoadjuvant chemotherapy in primary breast cancer patients. This study used five different classification models for prediction: DT, RF, SVM, NN and LR. DT is a prediction model which represents the mapping between object attributes and object values. Liu et al. [7] focus on designing differentially private decision tree and its ensemble counterpart to perform the classification task. The goal is to guarantee highly accurate and stable performance of the classification task. RF is operated by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes or mean prediction of individual trees. It also corrects the habit of overfitting to their training set from decision tree. There are some remarkable instances of using RF for prediction, as improving environmental planning-scale wetland identification [8], intensively managed reclamation zone of eastern China [9], risk prediction in a wide variety of medical fields [10], and so on. NN is traditionally used to refer to a network or circuit of neuros. Clark [11] took some examples of models streamlined for collective computation, NN in theoretical neurobiology and synthetic NN in details. LR is a kind of generalized linear model which is taken to apply to a binary dependent variable. Suthar et al. [12] used LR model to examine students’ mathematical beliefs and also found relationships between students’ beliefs on mathematics and achievement of university students. After that, this study makes a comparison of predicting accuracy about the nature of breast tumor for female patients among two different datasets, between RF and other data mining models. 3. Data Preprocessing and Modeling Method This section introduces the datasets which are implemented in this paper, the preprocessing of our data, and variety of classification models leveraged for the prediction of female breast tumor. 3.1. The Source of the Dataset All the models introduced in this study are verified on two datasets, which are separately from BCCD and WBCD. The BCCD data is composed of 116 instances, reported by March 6th, 2018, with 10 attributes for each case. The independent attributes are: age, BMI, glucose, insulin, HOMA, leptin, adiponectin, resist ",
+          "Conclusion": "conclusion intuitively. The ROC curve of BCCD data and WBCD are shown in Figure 4 and Figure 5 respectively. The ROC curve takes the specificity (the percentage of right classification on negative class) as x-axis and sensitivity (the percentage of correct classification on positive class) as y-axis. Additionally, the AUC (area under the ROC curve) describe the probability when the prediction of true positive instance is higher than the true negative instance. They are shown in Table 3 and Table 4 respectively. Figure 2. The accuracy and F-measure metric of five classification models for BCCD data. 215 Yixuan Li and Zixuan Chen: Performance Evaluation of Machine Learning Methods for Breast Cancer Prediction Figure 3. The accuracy and F-measure metric of five classification models for WBCD data. Table 1. The detailed information about accuracy and F-measure metrics of five classification models for BCCD data. Classification model DT SVM RF LR NN Accuracy 0.686 0.714 0.743 0.657 0.600 F-measure metric 0.717 0.762 0.780 0.616 0.570 Table 2. The detailed information about accuracy and F-measure metrics of five classification models for WBCD data. Classification model DT SVM RF LR NN Accuracy 0.961 0.951 0.961 0.937 0.956 F-measure metric 0.941 0.934 0.955 0.938 0.945 Figure 4. Whole ROC curves for BCCD data. Figure 5. Whole ROC curves for WBCD data. Table 3. AUC value of BCCD data. Classification model DT SVM RF LR NN AUC 0.683 0.763 0.785 0.737 0.748 Table 4. AUC value of WBCD data. Classification model DT SVM RF LR NN AUC 0.963 0.977 0.989 0.981 0.985 On the basis of data shown in the AUC form, all of them are greater than 0.5 and less than 1. It means using these models for prediction is better than random prediction. Combining those two tables, the AUC value of RF is greater than other AUC values of rest four classification models. The higher AUC value is, the higher accuracy rates of classifier are. Therefore, RF is the most suitable models for prediction on those two datasets. 5. Conclusion In this study, the method of DT, SVM, RF, LR and NN models are employed as the classification to predict the nature of breast cancer with other attributes. The results of prediction will help to decrease the rate of misdiagnoses and make the suitable treatment projects for therapy. There are two datasets used in this study. This study firstly collects the raw data of the BCCD dataset which contains 116 volunteers with 9 attributes and raw data of WBCD dataset which contains 699 volunteers and 11 attributes. Then we preprocesses the raw data of WBCD dataset and obtained the data that contains 683 volunteers with 9 attributes and the index indicating whether the volunteer has the malignant tumor. After comparing the accuracy, F-measure metric and ROC curve of five classification models, the result has shown that RF is selected as the primary classification model in this study. Therefore, the results of this study provide a reference for experts to distinguish the nature of breast cancer. Currently, the factors of malignant breast cancer become more and more complex. In this study, there are still some",
+          "Limitations": "limitations that should be solved in further work. For example, though there also exist some indices people have not found yet, this study only collects the data of 10 attributes in this experiment. The limited raw data has an effect on the accuracy of results. In addition, the RF also can be combined with other data mining technologies to obtain more accurate and efficient results in the future work. References [1] Harbeck, N. & Gnant, M. (2017). Breast cancer. The Lancet, 389, 1134-1150. [2] Wass, J. (2007). The R language. Scientific Computing, 24, 40-41. [3] Patrício, M., Pereira, J., & Crisóstomo, J. et al. (2018). Using resistin, glucose, age, and BMI to predict the presence of breast cancer. BMC Cancer, 18, 21-29. Applied and Computational Mathematics 2018; 7(4): 212-216 216 [4] Chaurasia, V., Pal, S., & Tiwari, B. B. (2018). Prediction of benign and malignant breast cancer using data mining techniques. Journal of Algorithms & Computational Technology, 12(2), 119-126. [5] Cakir, A. & Demirel, B. (2011). A software tool for determination of breast cancer treatment methods using data mining approach. Journal of Medical Systems, 35(6), 1503-1511. [6] Takada, M., Sugimoto, M., & Ohno, S. et al. (2012). Prediction of the pathological response to neoadjuvant chemotherapy in patients with primary breast cancer using a data mining technique. Breast Cancer Research and Treatment, 134(2), 661-670. [7] Liu, X. Q., Li, Q. M., & Li, T. (2017). Differentially private classification with decision tree ensemble. Applied Soft Computing, 62, 807-816. [8] O’Neil, G. L., Goodhall, J. L., & Watson, L. T. (2018). Evaluating the potential for site-specific modification of LiDAR DEM derivatives to improve environmental planning-scale wetland identification using random forest classification. Journal of Hydrology, 559, 192-208. [9] Zhang, H., Gao, C., & Zhang, M. (2017). Prediction of soil organic carbon in an intensively managed reclamation zone of eastern China: a comparison of multiple linear regressions and the random forest model. Science of the Total Environment, 592, 704-713. [10] Li, L., Paxton, E. W., & Fan, J. (2017). Predicting risk for adverse health events using random forest. Journal of Applied Statistics, 45(12), 2279-2294. [11] Clark, J. W. (1991). Neural network modeling. Physics in Medicine & Biology, 36, 1259-1317. [12] Suthar, V., Tarmizi, R. A., & Midi, H. et al. (2010). Students’ belief on mathematics and achievement of university students: logistic regression analysis. Procedia-Social and Behavioral Science, 8, 525-531."
+        }
+      },
+      "extraction": {
+        "problem": "The selected research domain requires reliable evidence across methods, datasets, and reported findings.",
+        "objective": "Breast cancer is the most common invasive cancer in women and the second main cause of cancer death in females, which can be classified Benign or Malignant. Research and prevention on breast cancer have attracted more concern of researchers in recent years. On the other hand, the development of data mining methods provides an effective way to extra",
+        "method": "Machine Learning",
+        "dataset": "Wisconsin",
+        "metrics": [
+          "accuracy",
+          "auc",
+          "precision",
+          "recall",
+          "roc",
+          "sensitivity"
+        ],
+        "findings": [
+          "On the other hand, the development of data mining methods provides an effective way to extract more useful information from complex database, and some prediction, classification and clustering can be made according to extracted information.",
+          "Three indicators including prediction accuracy values, F-measure metric and AUC values are used to compare the performance of these five classification models.",
+          "comparative experiment analysis shows that random forest model can achieve better performance and adaptation than other four methods.",
+          "Keywords: Data Mining, Breast Cancer, Classification Models, Prediction 1."
+        ],
+        "limitations": [
+          "In this study, there are still some limitations that should be solved in further work.",
+          "The limited raw data has an effect on the accuracy of results."
+        ],
+        "future_work": [
+          "Therefore, the model of this study is approved to possess clinical and referential values in practical applications.",
+          "In the last Section, we conclude this paper and present potential future works.",
+          "This study is focused on the breast cancer, from the area of clinical medicine."
+        ],
+        "evidence_quotes": [
+          "On the other hand, the development of data mining methods provides an effective way to extract more useful information from complex database, and some prediction, classification and clustering can be made according to extracted information.",
+          "Three indicators including prediction accuracy values, F-measure metric and AUC values are used to compare the performance of these five classification models.",
+          "comparative experiment analysis shows that random forest model can achieve better performance and adaptation than other four methods.",
+          "Keywords: Data Mining, Breast Cancer, Classification Models, Prediction 1.",
+          "This study chooses five different classification models for classifying the nature of breast tumor for female patients, which separately are Decision Tree (DT), Support Vector Machine (SVM), Random Forest (RF), Logistic Regression (LR) and Neural Network (NN).",
+          "The final results illustrate that the RF model can lead to an enrichment in predicting the nature of breast tumor for female patients and perform better than other four models in classification accuracy."
+        ]
+      }
+    },
+    {
+      "id": "d5cd600ff86146068e39ae1a3a605455",
+      "filename": "1-s2.0-S1877050916302575-main.pdf",
+      "local_path": "storage/uploads/3e9f43eb50474c8887f35281ee5b2b8a/1-s2.0-S1877050916302575-main.pdf",
+      "metadata": {
+        "title": "Procedia Computer Science  83 ( 2016 )  1064 – 1069",
+        "authors": [],
+        "year": 2016,
+        "abstract": "Breast cancer represents one of the diseases that make a high number of deaths every year. It is the most common type of all cancers and the main cause of women’s deaths worldwide. Classification and data mining methods are an effective way to classify data. Especially in medical field, where those methods are widely used in diagnosis and analysis to make decisions. In this paper, a performance comparison between different machine learning algorithms: Support Vector Machine (SVM), Decision Tree (C4.5), Naive Bayes (NB) and k Nearest Neighbors (k-NN) on the Wisconsin Breast Cancer (original) datasets is conducted. The main objective is to assess the correctness in classifying data with respect to efficiency and effectiveness of each algorithm in terms of accuracy, precision, sensitivity and specificity. Experimental results show that SVM gives the highest accuracy (97.13%) with lowest error rate. All experiments are executed within a simulation environment and conducted in WEKA data mining tool. © 2016 The Authors. Published by Elsevier B.V. Peer-review under responsibility of the Conference Program Chairs.",
+        "sections": {
+          "Abstract": "Abstract Breast cancer represents one of the diseases that make a high number of deaths every year. It is the most common type of all cancers and the main cause of women’s deaths worldwide. Classification and data mining",
+          "Method": "methods are an effective way to classify data. Especially in medical field, where those methods are widely used in diagnosis and analysis to make decisions. In this paper, a performance comparison between different machine learning algorithms: Support Vector Machine (SVM), Decision Tree (C4.5), Naive Bayes (NB) and k Nearest Neighbors (k-NN) on the Wisconsin Breast Cancer (original) datasets is conducted. The main objective is to assess the correctness in classifying data with respect to efficiency and effectiveness of each algorithm in terms of accuracy, precision, sensitivity and specificity. Experimental",
+          "Results": "results show that SVM gives the highest accuracy (97.13%) with lowest error rate. All experiments are executed within a simulation environment and conducted in WEKA data mining tool. © 2016 The Authors. Published by Elsevier B.V. Peer-review under responsibility of the Conference Program Chairs. Keywords: Breast cancer; SVM;NB;C4.5;k-NN;Classification;Efficiency;Effectiveness. * Corresponding author. Tel.:+212-666-41-79-11; fax: +212-524-43-31-70. E-mail address: hiba.asri@ced.uca.ma © 2016 The Authors. Published by Elsevier B.V. This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/). Peer-review under responsibility of the Conference Program Chairs 1065 Hiba Asri et al. / Procedia Computer Science 83 ( 2016 ) 1064 – 1069 1.",
+          "Introduction": "Introduction The second major cause of women's death is breast cancer (after lung cancer) 1. 246,660 of women's new cases of invasive breast cancer are expected to be diagnosed in the US during 2016 and 40,450 of women’s death is estimated2. Breast cancer represents about 12% of all new cancer cases and 25% of all cancers in women3. Information and Communication Technologies (ICT) can play potential roles in cancer care. In fact, Big data has advanced not only the size of data but also creating value from it; Big data, that becomes a synonymous of data mining, business analytics and business intelligence, has made a big change in BI from reporting and decision to prediction results4. Data mining approaches, for instance, applied to medical science topics rise rapidly due to their high performance in predicting outcomes, reducing costs of medicine, promoting patients’ health, improving healthcare value and quality and in making real time decision to save people's lives. There are many algorithms for classification and prediction of breast cancer outcomes. The present paper gives a comparaison between the performance of four classifiers: SVM5, NB6, C4.57 and k-NN8 which are among the most influential data mining algorithms in the research community and among the top 10 data mining algorithms9,10. Our aim is to evaluate efficiency and effectiveness of those algorithms in terms of accuracy, sensitivity, specificity and precision. The rest of this paper is organized as follows. Section 2 is about related work. Section 3 presents the context of the experiment. Section 4 deals with their experimental comparison. Section 5 discusses experiments results obtained. Finally, section 6 concludes the paper. 2. Related work Classification is one of the most important and essential task in machine learning and data mining. About a lot of research has been conducted to apply data mining and machine learning on different medical datasets to classify Breast Cancer. Many of them show good classification accuracy. Vikas Chaurasia and Saurabh Pal11 compare the performance criterion of supervised learning classifiers; such as Naïve Bayes, SVM-RBF kernel, RBF neural networks, Decision trees (J48) and simple CART; to find the best classifier in breast cancer datasets. The experimental result shows that SVM-RBF kernel is more accurate than other classifiers; it scores accuracy of 96.84% in Wisconsin Breast Cancer (original) datasets. Djebbari et al.12consider the effect of ensemble of machine learning techniques to predict the survival time in breast cancer. Their technique shows better accuracy on their breast cancer data set comparing to previous results. S. Aruna and L. V Nandakishore13, compare the performance of C4.5, Naïve Bayes, Support Vector Machine (SVM) and K- Nearest Neighbor (K-NN) to find the best classifier in WBC. SVM proves to be the most accurate classifier with accuracy of 96.99%. Angeline Christobel. Y and Dr. Sivaprakasam14, achieve accuracy of 69.23% using decision tree classifier (CART) in breast cancer datasets. The accuracy of data mining algorithms SVM, IBK, BF Tree is compared by A. Pradesh15. The performance of SMO shows a higher value compared with other classifiers. T.Joachims16 reaches accuracy of 95.06% with neuron- fuzzy techniques when using Wisconsin Breast Cancer (original) datasets. In this study, a hybrid method is proposed to enhance the classification accuracy of Wisconsin Breast Cancer (original) datasets (95.96) with 10 fold cross validation. Liu Ya-Qin’s, W. Cheng, and Z. Lu17 experimented on breast cancer data using C5 algorithm with bagging; by generating additional data for training from the original set using combinations with repetitions to produce multisets of the same size as you’re the original data; to predict breast cancer survivability. Delen et al. Lu18 take 202,932 breast cancer patients records , which then pre-classified into two groups of “survived” (93,273) and “not survived” (109,659). The re",
+          "Discussion": "Discussion: We can notice from Table 1 that SVM takes about 0.07 s to build its model unlike k-NN that takes just 0.01 s. It can be explained by the fact that k-NN is a lazy learner and does not do much during training process unlike others classifiers that build the models. In other hand, the accuracy obtained by SVM (97.13%) is better than the accuracy obtained by C4.5, Naïve Bayes and k-NN that have an accuracy that varies between 95.12 % and 95.28 %. It can also be easily seen that SVM has the highest value of correctly classified instances and the lower value of incorrectly classified instances than the other classifiers (see Fig. 1). From Table 2, we can better see that the chance of having a best classification (0.93 %) with the least warning error rate (0.02) is produced by SVM. We can also notice that SVM has the best compatibility between the reliability of the data collected and their validity. C4.5 and k-NN has the highest value of error rate; as shown in Fig. 2, which explains the large number of incorrectly classified instances for each algorithm (34 incorrect instances for C4.5 and 33 incorrect instances for k-NN) (see Fig. 1). After creating the predicted model, we can now analyse results obtained in evaluating efficiency of our algorithms. In fact, Table 3 shows that SVM and C4.5 got the highest value (97 %) of TP for benign class but k-NN correctly predicts 97% of instance that belong to malignant class. The FP rate is lower when using SVM classifiers (0.03 for benign class and 0.02 for malignant class), and then other algorithms follow: k-NN, C4.5 and NB. From these results, we can understand why SVM has outperformed other classifiers. ROC curve helps to better understand the power of a machine learning algorithm. We can easily observe in Fig. 3 that SVM is the perfect classifier as it begins from the left corner, to straight up to the upper left corner and then to the upper right corner (99% sensitive and 99% specific). Then other algorithms follow: NB, C4.5 and k-NN. Let us now compare actual class and predicted results obtained using confusion matrix as shown Table 4. SVM correctly predicts 678 instances out of 699 instances (448 benign instances that are effectively benign and 221 malignant instance that are actually malignant), and 21 instances incorrectly predicted (12 instance of benign class predicted as malignant and 9 instances of malignant class predicted as benign). That is why the accuracy of SVM is better than other classification techniques used with lower error rate value. In summary, SVM was able to show its power in terms of effectiveness and efficiency based on accuracy and recall. Compared to a good amount of research on Breast-cancer-Wisconsin found in literature that compare Benign Malignant class C4.5 438 20 Benign 14 227 Malignant SVM 446 12 Benign 9 232 Malignant NB 436 22 Benign 6 235 Malignant k-NN 445 13 Benign 20 221 Malignant SVM FP (1- Specificity) TP (Sensitivity) Fig. 3. ROC curve. 1069 Hiba Asri et al. / Procedia Computer Science 83 ( 2016 ) 1064 – 1069 classification accuracies of data mining algorithms, our experimental results make the highest value of accuracy (97.28 %) in classifying breast cancer dataset. It can be noticed that SVM outperforms other classifiers with respect to accuracy, sensitivity, specificity and precision; in classifying breast cancer dataset. 6.",
+          "Conclusion": "Conclusion To analyze medical data, various data mining and machine learning methods are available. An important challenge in data mining and machine learning areas is to build accurate and computationally efficient classifiers for Medical applications. In this study, we employed four main algorithms: SVM, NB, k-NN and C4.5 on the Wisconsin Breast Cancer (original) datasets. We tried to compare efficiency and effectiveness of those algorithms in terms of accuracy, precision, sensitivity and specificity to find the best classification accuracy. of SVM reaches and accuracy of 97.13% and outperforms, therefore, all other algorithms. In conclusion, SVM has proven its efficiency in Breast Cancer prediction and diagnosis and achieves the best performance in terms of precision and low error rate. References 1. U.S. Cancer Statistics Working Group. United States Cancer Statistics: 1999–2008 Incidence and Mortality Web-based Report. Atlanta (GA): Department of Health and Human Services, Centers for Disease Control and Prevention, and National Cancer Institute; 2012. 2. Siegel RL, Miller KD, Jemal A. Cancer Statistics , 2016. 2016;00(00):1-24. doi:10.3322/caac.21332. 3. “Globocan 2012 - Home.” [Online]. Available: http://globocan.iarc.fr/Default.aspx. [Accessed: 28-Dec-2015]. 4. Asri H, Mousannif H, Al Moatassime H, Noel T. Big data in healthcare: Challenges and opportunities. 2015 Int Conf Cloud Technol Appl. 2015:1-7. doi:10.1109/CloudTech.2015.7337020. 5. Noble WS. What is a support vector machine? Nat Biotechnol. 2006;24(12):1565-1567. doi:10.1038/nbt1206-1565. 6. Rish I. An empirical study of the naive Bayes classifier. IJCAI Work Empir methods Artif Intell. 2001;3(November):41-46. 7. Quinlan JR. C4.5: Programs for Machine Learning.; 2014:302. https://books.google.com/books?hl=fr&lr=&id=b3ujBQAAQBAJ&pgis=1. Accessed January 5, 2016. 8. Larose DT. Discovering Knowledge in Data. Hoboken, NJ, USA: John Wiley & Sons, Inc.; 2004. 9. X. Wu, V. Kumar, J. R. Quinlan, J. Ghosh, Q. Yang, H. Motoda, G. J. Mclachlan, A. Ng, B. Liu, P. S. Yu, Z. Z. Michael, S. David, and J. H. Dan, Top 10 algorithms in data mining. 2008, pp. 1–37. 10. Datafloq - Top 10 Data Mining Algorithms, Demystified. https://datafloq.com/read/top-10-data-mining-algorithms- demystified/1144. Accessed December 29, 2015. 11. V. Chaurasia and S. Pal, “Data Mining Techniques : To Predict and Resolve Breast Cancer Survivability,” vol. 3, no. 1, pp. 10– 22, 2014. 12. Djebbari, A., Liu, Z., Phan, S., AND Famili, F. International journal of computational biology and drug design (ijcbdd). 21st Annual Conference on Neural Information Processing Systems (2008). 13. S. Aruna and L. V Nandakishore, “KNOWLEDGE B ASED A NALYSIS OF V ARIOUS S TATISTICAL T OOLS IN D ETECTING B REAST,” pp. 37–45, 2011. 14. A. C. Y, “An Empirical Comparison of Data Mining Classification Methods,” vol. 3, no. 2, pp. 24–28, 2011. 15. A. Pradesh, “Analysis of Feature Selection with Classification : Breast Cancer Datasets,” Indian J. Comput. Sci. Eng., vol. 2, no. 5, pp. 756–763, 2011. 16. Thorsten J. Transductive Inference for Text Classification Using Support Vector Machines. Icml. 1999;99:200-209. doi:10.4218/etrij.10.0109.0425. 17. L. Ya-qin, W. Cheng, and Z. Lu, “Decision tree based predictive models for breast cancer survivability on imbalanced data,” pp. 1–4, 2009. 18. D. Delen, G. Walker, and A. Kadam, “Predicting breast cancer survivability: a comparison of three data mining methods,” Artif. Intell. Med., vol. 34, pp. 113–127, 2005. 19. W. Version, “Machine Learning with WEKA,” 2004. 20. “UCI Machine Learning Repository: Breast Cancer Wisconsin (Original) Data Set.” [Online]. Available: https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Original%29. [Accessed: 29-Dec-2015]. 21. “SUGI 31 Statistics and Data Analysis Receiver Operating Characteristic ( ROC ) Curves Mithat Gönen , Memorial Sloan- Kettering Cancer Center SUGI 31 Statistics and Data Analysis FN + FP,” pp. 1–18, 2001."
+        }
+      },
+      "extraction": {
+        "problem": "The selected research domain requires reliable evidence across methods, datasets, and reported findings.",
+        "objective": "Breast cancer represents one of the diseases that make a high number of deaths every year. It is the most common type of all cancers and the main cause of women’s deaths worldwide. Classification and data mining methods are an effective way to classify data. Especially in medical field, where those methods are widely used in diagnosis and analysis ",
+        "method": "Machine Learning",
+        "dataset": "Wisconsin",
+        "metrics": [
+          "accuracy",
+          "precision",
+          "recall",
+          "roc",
+          "sensitivity",
+          "specificity"
+        ],
+        "findings": [
+          "Classification and data mining methods are an effective way to classify data.",
+          "The main objective is to assess the correctness in classifying data with respect to efficiency and effectiveness of each algorithm in terms of accuracy, precision, sensitivity and specificity.",
+          "Experimental results show that SVM gives the highest accuracy (97.13%) with lowest error rate.",
+          "Keywords: Breast cancer; SVM;NB;C4.5;k-NN;Classification;Efficiency;Effectiveness."
+        ],
+        "limitations": [
+          "Lu, “Decision tree based predictive models for breast cancer survivability on imbalanced data,” pp."
+        ],
+        "future_work": [
+          "Lu17 experimented on breast cancer data using C5 algorithm with bagging; by generating additional data for training from the original set using combinations with repetitions to produce multisets of the same size as you’re the original data; to predict breast cancer survivability."
+        ],
+        "evidence_quotes": [
+          "Classification and data mining methods are an effective way to classify data.",
+          "The main objective is to assess the correctness in classifying data with respect to efficiency and effectiveness of each algorithm in terms of accuracy, precision, sensitivity and specificity.",
+          "Experimental results show that SVM gives the highest accuracy (97.13%) with lowest error rate.",
+          "Keywords: Breast cancer; SVM;NB;C4.5;k-NN;Classification;Efficiency;Effectiveness.",
+          "There are many algorithms for classification and prediction of breast cancer outcomes.",
+          "Our aim is to evaluate efficiency and effectiveness of those algorithms in terms of accuracy, sensitivity, specificity and precision."
+        ]
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "id": "paper:5ea44dc30dcb4a5d83244a34c3ee00ab",
+      "type": "Paper",
+      "label": "ScienceDirect",
+      "metadata": {
+        "filename": "1-s2.0-S1877050923001102-main.pdf",
+        "year": 2023,
+        "authors": [
+          "Available online at www.sciencedirect.com"
+        ]
+      }
+    },
+    {
+      "id": "method:1",
+      "type": "Method",
+      "label": "Deep Learning",
+      "metadata": {}
+    },
+    {
+      "id": "dataset:1",
+      "type": "Dataset",
+      "label": "Wisconsin",
+      "metadata": {}
+    },
+    {
+      "id": "metric:1",
+      "type": "Metric",
+      "label": "accuracy",
+      "metadata": {}
+    },
+    {
+      "id": "metric:2",
+      "type": "Metric",
+      "label": "auc",
+      "metadata": {}
+    },
+    {
+      "id": "metric:3",
+      "type": "Metric",
+      "label": "f1 score",
+      "metadata": {}
+    },
+    {
+      "id": "metric:4",
+      "type": "Metric",
+      "label": "precision",
+      "metadata": {}
+    },
+    {
+      "id": "metric:5",
+      "type": "Metric",
+      "label": "recall",
+      "metadata": {}
+    },
+    {
+      "id": "metric:6",
+      "type": "Metric",
+      "label": "roc",
+      "metadata": {}
+    },
+    {
+      "id": "finding:5ea44dc30dcb4a5d83244a34c3ee00ab:0",
+      "type": "Finding",
+      "label": "In this paper, we used various ML Classification techniques: Naïve Bayes(NB), Logistic regression (LR),Support",
+      "metadata": {
+        "paper": "ScienceDirect"
+      }
+    },
+    {
+      "id": "finding:5ea44dc30dcb4a5d83244a34c3ee00ab:1",
+      "type": "Finding",
+      "label": "It has been found that both decision tree and XGBoost classifier has highest accuracy 97% among all model and ",
+      "metadata": {
+        "paper": "ScienceDirect"
+      }
+    },
+    {
+      "id": "finding:5ea44dc30dcb4a5d83244a34c3ee00ab:2",
+      "type": "Finding",
+      "label": "/ Procedia Computer Science 218 (2023) 1314–1320\b 1315 doctors [4] pathologist for performing an accurate pred",
+      "metadata": {
+        "paper": "ScienceDirect"
+      }
+    },
+    {
+      "id": "limitation:5ea44dc30dcb4a5d83244a34c3ee00ab:0",
+      "type": "Limitation",
+      "label": "The paper indicates that broader validation and stronger generalization evidence are needed.",
+      "metadata": {
+        "paper": "ScienceDirect"
+      }
+    },
+    {
+      "id": "paper:2f70e946b4b84ce4ab8f90283e77f55f",
+      "type": "Paper",
+      "label": "ScienceDirect",
+      "metadata": {
+        "filename": "1-s2.0-S1877050921014629-main.pdf",
+        "year": 2021,
+        "authors": [
+          "Available online at www.sciencedirect.com"
+        ]
+      }
+    },
+    {
+      "id": "method:2",
+      "type": "Method",
+      "label": "Machine Learning",
+      "metadata": {}
+    },
+    {
+      "id": "metric:7",
+      "type": "Metric",
+      "label": "sensitivity",
+      "metadata": {}
+    },
+    {
+      "id": "finding:2f70e946b4b84ce4ab8f90283e77f55f:0",
+      "type": "Finding",
+      "label": "Keywords: Breast Cancer; Prediction; Diagnostic ; SVM; Random Forest; Logistic regression ; C4.5; k-NN; Accura",
+      "metadata": {
+        "paper": "ScienceDirect"
+      }
+    },
+    {
+      "id": "finding:2f70e946b4b84ce4ab8f90283e77f55f:1",
+      "type": "Finding",
+      "label": "Consequently, high accuracy in cancer prediction is important to update the treatment aspect and the survivabi",
+      "metadata": {
+        "paper": "ScienceDirect"
+      }
+    },
+    {
+      "id": "finding:2f70e946b4b84ce4ab8f90283e77f55f:2",
+      "type": "Finding",
+      "label": "The main objective of this research paper is to predict and diagnosis breast cancer, using machine-learning al",
+      "metadata": {
+        "paper": "ScienceDirect"
+      }
+    },
+    {
+      "id": "limitation:2f70e946b4b84ce4ab8f90283e77f55f:0",
+      "type": "Limitation",
+      "label": "/ Procedia Computer Science 191 (2021) 487–492 • Logistic regression is a very powerful modeling tool, is a ge",
+      "metadata": {
+        "paper": "ScienceDirect"
+      }
+    },
+    {
+      "id": "paper:0556b1c20b6946edb46124c3e862c3ca",
+      "type": "Paper",
+      "label": "J Biomed Phys Eng 2022; 12(3)",
+      "metadata": {
+        "filename": "JBPE-12-297.pdf",
+        "year": 2022,
+        "authors": [
+          "Prediction of Breast Cancer using Machine"
+        ]
+      }
+    },
+    {
+      "id": "metric:8",
+      "type": "Metric",
+      "label": "specificity",
+      "metadata": {}
+    },
+    {
+      "id": "finding:0556b1c20b6946edb46124c3e862c3ca:0",
+      "type": "Finding",
+      "label": "However, the reduction in mortality due to mammography screening is estimated at 20% and improvement in cancer",
+      "metadata": {
+        "paper": "J Biomed Phys Eng 2022; 12(3)"
+      }
+    },
+    {
+      "id": "finding:0556b1c20b6946edb46124c3e862c3ca:1",
+      "type": "Finding",
+      "label": "Results: RF presented higher performance compared to other techniques (accuracy 80%, sensitivity 95%, specific",
+      "metadata": {
+        "paper": "J Biomed Phys Eng 2022; 12(3)"
+      }
+    },
+    {
+      "id": "finding:0556b1c20b6946edb46124c3e862c3ca:2",
+      "type": "Finding",
+      "label": "According to a report, approximately 50% of breast can­ cers were not detected in screenings of women with ver",
+      "metadata": {
+        "paper": "J Biomed Phys Eng 2022; 12(3)"
+      }
+    },
+    {
+      "id": "limitation:0556b1c20b6946edb46124c3e862c3ca:0",
+      "type": "Limitation",
+      "label": "In the current study, limitations are consid­ ered as follows: modeling based on records of only one database,",
+      "metadata": {
+        "paper": "J Biomed Phys Eng 2022; 12(3)"
+      }
+    },
+    {
+      "id": "limitation:0556b1c20b6946edb46124c3e862c3ca:1",
+      "type": "Limitation",
+      "label": "Pre­ dicting breast cancer via supervised machine learning methods on class imbalanced data.",
+      "metadata": {
+        "paper": "J Biomed Phys Eng 2022; 12(3)"
+      }
+    },
+    {
+      "id": "paper:0c71bc4a50fe44e09f3647e938c0c3c5",
+      "type": "Paper",
+      "label": "Applied and Computational Mathematics",
+      "metadata": {
+        "filename": "yousefi.arzyabiamalkard12.pdf",
+        "year": 2018,
+        "authors": [
+          "2018; 7(4): 212-216"
+        ]
+      }
+    },
+    {
+      "id": "finding:0c71bc4a50fe44e09f3647e938c0c3c5:0",
+      "type": "Finding",
+      "label": "On the other hand, the development of data mining methods provides an effective way to extract more useful inf",
+      "metadata": {
+        "paper": "Applied and Computational Mathematics"
+      }
+    },
+    {
+      "id": "finding:0c71bc4a50fe44e09f3647e938c0c3c5:1",
+      "type": "Finding",
+      "label": "Three indicators including prediction accuracy values, F-measure metric and AUC values are used to compare the",
+      "metadata": {
+        "paper": "Applied and Computational Mathematics"
+      }
+    },
+    {
+      "id": "finding:0c71bc4a50fe44e09f3647e938c0c3c5:2",
+      "type": "Finding",
+      "label": "comparative experiment analysis shows that random forest model can achieve better performance and adaptation t",
+      "metadata": {
+        "paper": "Applied and Computational Mathematics"
+      }
+    },
+    {
+      "id": "limitation:0c71bc4a50fe44e09f3647e938c0c3c5:0",
+      "type": "Limitation",
+      "label": "In this study, there are still some limitations that should be solved in further work.",
+      "metadata": {
+        "paper": "Applied and Computational Mathematics"
+      }
+    },
+    {
+      "id": "limitation:0c71bc4a50fe44e09f3647e938c0c3c5:1",
+      "type": "Limitation",
+      "label": "The limited raw data has an effect on the accuracy of results.",
+      "metadata": {
+        "paper": "Applied and Computational Mathematics"
+      }
+    },
+    {
+      "id": "paper:d5cd600ff86146068e39ae1a3a605455",
+      "type": "Paper",
+      "label": "Procedia Computer Science  83 ( 2016 )  1064 – 1069",
+      "metadata": {
+        "filename": "1-s2.0-S1877050916302575-main.pdf",
+        "year": 2016,
+        "authors": []
+      }
+    },
+    {
+      "id": "finding:d5cd600ff86146068e39ae1a3a605455:0",
+      "type": "Finding",
+      "label": "Classification and data mining methods are an effective way to classify data.",
+      "metadata": {
+        "paper": "Procedia Computer Science  83 ( 2016 )  1064 – 1069"
+      }
+    },
+    {
+      "id": "finding:d5cd600ff86146068e39ae1a3a605455:1",
+      "type": "Finding",
+      "label": "The main objective is to assess the correctness in classifying data with respect to efficiency and effectivene",
+      "metadata": {
+        "paper": "Procedia Computer Science  83 ( 2016 )  1064 – 1069"
+      }
+    },
+    {
+      "id": "finding:d5cd600ff86146068e39ae1a3a605455:2",
+      "type": "Finding",
+      "label": "Experimental results show that SVM gives the highest accuracy (97.13%) with lowest error rate.",
+      "metadata": {
+        "paper": "Procedia Computer Science  83 ( 2016 )  1064 – 1069"
+      }
+    },
+    {
+      "id": "limitation:d5cd600ff86146068e39ae1a3a605455:0",
+      "type": "Limitation",
+      "label": "Lu, “Decision tree based predictive models for breast cancer survivability on imbalanced data,” pp.",
+      "metadata": {
+        "paper": "Procedia Computer Science  83 ( 2016 )  1064 – 1069"
+      }
+    },
+    {
+      "id": "gap:primary",
+      "type": "ResearchGap",
+      "label": "Need for externally validated and generalizable AI research evidence",
+      "metadata": {
+        "supporting_papers": [
+          "J Biomed Phys Eng 2022; 12(3)",
+          "Applied and Computational Mathematics",
+          "Procedia Computer Science  83 ( 2016 )  1064 – 1069"
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge:0fb3b8bd3588442cb43dfae5437fa31b",
+      "source": "paper:5ea44dc30dcb4a5d83244a34c3ee00ab",
+      "target": "method:1",
+      "type": "USES"
+    },
+    {
+      "id": "edge:c3f819363621476d97e64c2cd560aa47",
+      "source": "paper:5ea44dc30dcb4a5d83244a34c3ee00ab",
+      "target": "dataset:1",
+      "type": "EVALUATES"
+    },
+    {
+      "id": "edge:e9f9f1dd56e649029fc1d3945e5ac7ed",
+      "source": "paper:5ea44dc30dcb4a5d83244a34c3ee00ab",
+      "target": "metric:1",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:acc55e92be7e47ab802d986877e4ad39",
+      "source": "paper:5ea44dc30dcb4a5d83244a34c3ee00ab",
+      "target": "metric:2",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:c44ac60bd194454988ab4d41fcb46aeb",
+      "source": "paper:5ea44dc30dcb4a5d83244a34c3ee00ab",
+      "target": "metric:3",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:12f13ea6c35a4c219062906b9de5b0e3",
+      "source": "paper:5ea44dc30dcb4a5d83244a34c3ee00ab",
+      "target": "metric:4",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:063bfa10fad042c8a759d28d4ab62595",
+      "source": "paper:5ea44dc30dcb4a5d83244a34c3ee00ab",
+      "target": "metric:5",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:7af697cc32f54f3e829dacb78a4d881a",
+      "source": "paper:5ea44dc30dcb4a5d83244a34c3ee00ab",
+      "target": "metric:6",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:b091477caffb4f2f8f15ef3b8ebb9e5d",
+      "source": "paper:5ea44dc30dcb4a5d83244a34c3ee00ab",
+      "target": "finding:5ea44dc30dcb4a5d83244a34c3ee00ab:0",
+      "type": "CLAIMS"
+    },
+    {
+      "id": "edge:8781360e83de4143886d2d2e17e9747f",
+      "source": "paper:5ea44dc30dcb4a5d83244a34c3ee00ab",
+      "target": "finding:5ea44dc30dcb4a5d83244a34c3ee00ab:1",
+      "type": "CLAIMS"
+    },
+    {
+      "id": "edge:33c5c94d1735443cad32f60cbd91f27c",
+      "source": "paper:5ea44dc30dcb4a5d83244a34c3ee00ab",
+      "target": "finding:5ea44dc30dcb4a5d83244a34c3ee00ab:2",
+      "type": "CLAIMS"
+    },
+    {
+      "id": "edge:20b182c5dc324d2ab6756097f16bc583",
+      "source": "paper:5ea44dc30dcb4a5d83244a34c3ee00ab",
+      "target": "limitation:5ea44dc30dcb4a5d83244a34c3ee00ab:0",
+      "type": "STATES"
+    },
+    {
+      "id": "edge:580edda43e4845d7b9732dba23d54ec4",
+      "source": "paper:2f70e946b4b84ce4ab8f90283e77f55f",
+      "target": "method:2",
+      "type": "USES"
+    },
+    {
+      "id": "edge:7e44ac6e783a412492938efd840574e0",
+      "source": "paper:2f70e946b4b84ce4ab8f90283e77f55f",
+      "target": "dataset:1",
+      "type": "EVALUATES"
+    },
+    {
+      "id": "edge:baf5b5af887040a4b1450c79edea76cc",
+      "source": "paper:2f70e946b4b84ce4ab8f90283e77f55f",
+      "target": "metric:1",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:4a123bf25cf3424f8b946b429bdbef20",
+      "source": "paper:2f70e946b4b84ce4ab8f90283e77f55f",
+      "target": "metric:2",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:1152ff7b8fc64508bb20c5e2d45d4dfc",
+      "source": "paper:2f70e946b4b84ce4ab8f90283e77f55f",
+      "target": "metric:3",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:acd04e16c58d4df0a67766ce9426d566",
+      "source": "paper:2f70e946b4b84ce4ab8f90283e77f55f",
+      "target": "metric:4",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:9291f0a105ca4ab1972706eb37526138",
+      "source": "paper:2f70e946b4b84ce4ab8f90283e77f55f",
+      "target": "metric:6",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:8077901e51414cfab9561f45292f4c69",
+      "source": "paper:2f70e946b4b84ce4ab8f90283e77f55f",
+      "target": "metric:7",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:0437020a0044464ea36600e01c17872e",
+      "source": "paper:2f70e946b4b84ce4ab8f90283e77f55f",
+      "target": "finding:2f70e946b4b84ce4ab8f90283e77f55f:0",
+      "type": "CLAIMS"
+    },
+    {
+      "id": "edge:43ad4a9605524a18b9d4db33fbc9c750",
+      "source": "paper:2f70e946b4b84ce4ab8f90283e77f55f",
+      "target": "finding:2f70e946b4b84ce4ab8f90283e77f55f:1",
+      "type": "CLAIMS"
+    },
+    {
+      "id": "edge:809b0fc7400140eaacba4c2f3ab01edb",
+      "source": "paper:2f70e946b4b84ce4ab8f90283e77f55f",
+      "target": "finding:2f70e946b4b84ce4ab8f90283e77f55f:2",
+      "type": "CLAIMS"
+    },
+    {
+      "id": "edge:d02bd8b658864f0d941349e8e8d5ce3d",
+      "source": "paper:2f70e946b4b84ce4ab8f90283e77f55f",
+      "target": "limitation:2f70e946b4b84ce4ab8f90283e77f55f:0",
+      "type": "STATES"
+    },
+    {
+      "id": "edge:804e323c15124f0983a076420dcf1651",
+      "source": "paper:0556b1c20b6946edb46124c3e862c3ca",
+      "target": "method:1",
+      "type": "USES"
+    },
+    {
+      "id": "edge:3f5ddb20f9ea40e0a03584d70ce44d20",
+      "source": "paper:0556b1c20b6946edb46124c3e862c3ca",
+      "target": "dataset:1",
+      "type": "EVALUATES"
+    },
+    {
+      "id": "edge:7ec5efcbedca48419045d831cb5fb2ee",
+      "source": "paper:0556b1c20b6946edb46124c3e862c3ca",
+      "target": "metric:1",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:2080a9a9da9c43fcafa069e287bbf870",
+      "source": "paper:0556b1c20b6946edb46124c3e862c3ca",
+      "target": "metric:2",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:0e6d436c2e9a4ef789e0fd889be60c00",
+      "source": "paper:0556b1c20b6946edb46124c3e862c3ca",
+      "target": "metric:5",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:9addfc199c684199bce40b33d867593b",
+      "source": "paper:0556b1c20b6946edb46124c3e862c3ca",
+      "target": "metric:6",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:fedb8ff994f4416db00521454de1d98e",
+      "source": "paper:0556b1c20b6946edb46124c3e862c3ca",
+      "target": "metric:7",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:ab30e560ac8f4bf4948ffb37004bc06f",
+      "source": "paper:0556b1c20b6946edb46124c3e862c3ca",
+      "target": "metric:8",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:7ae65d0623ec43c0b0ba0c8aa0f005fe",
+      "source": "paper:0556b1c20b6946edb46124c3e862c3ca",
+      "target": "finding:0556b1c20b6946edb46124c3e862c3ca:0",
+      "type": "CLAIMS"
+    },
+    {
+      "id": "edge:1a55e5517cf1405bae0bdc04e681c13a",
+      "source": "paper:0556b1c20b6946edb46124c3e862c3ca",
+      "target": "finding:0556b1c20b6946edb46124c3e862c3ca:1",
+      "type": "CLAIMS"
+    },
+    {
+      "id": "edge:89c4bb7ad0864b1f9e4583c22058d77f",
+      "source": "paper:0556b1c20b6946edb46124c3e862c3ca",
+      "target": "finding:0556b1c20b6946edb46124c3e862c3ca:2",
+      "type": "CLAIMS"
+    },
+    {
+      "id": "edge:87dc9dfbc6c54a4e9f850dae23d8f0ff",
+      "source": "paper:0556b1c20b6946edb46124c3e862c3ca",
+      "target": "limitation:0556b1c20b6946edb46124c3e862c3ca:0",
+      "type": "STATES"
+    },
+    {
+      "id": "edge:83e675955585465fa9743401680bfc00",
+      "source": "paper:0556b1c20b6946edb46124c3e862c3ca",
+      "target": "limitation:0556b1c20b6946edb46124c3e862c3ca:1",
+      "type": "STATES"
+    },
+    {
+      "id": "edge:c07c30d5181b4bc394c9adffe7b0d395",
+      "source": "paper:0c71bc4a50fe44e09f3647e938c0c3c5",
+      "target": "method:2",
+      "type": "USES"
+    },
+    {
+      "id": "edge:27c8069e0f2c40c6a1e50ea49cbe1c52",
+      "source": "paper:0c71bc4a50fe44e09f3647e938c0c3c5",
+      "target": "dataset:1",
+      "type": "EVALUATES"
+    },
+    {
+      "id": "edge:115f0adeceb446b4ae97b71fc3fb0ee5",
+      "source": "paper:0c71bc4a50fe44e09f3647e938c0c3c5",
+      "target": "metric:1",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:75d57ca4d2ca45f9979a2dcf6b683770",
+      "source": "paper:0c71bc4a50fe44e09f3647e938c0c3c5",
+      "target": "metric:2",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:79dd1bd6fabb46f7913769e6409f7056",
+      "source": "paper:0c71bc4a50fe44e09f3647e938c0c3c5",
+      "target": "metric:4",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:51c6138684b04627a01e3418a8dc3447",
+      "source": "paper:0c71bc4a50fe44e09f3647e938c0c3c5",
+      "target": "metric:5",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:1c981d2b936044b4a69efaebf33ef6dc",
+      "source": "paper:0c71bc4a50fe44e09f3647e938c0c3c5",
+      "target": "metric:6",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:43d526a617e048ce837b3e2b4055b0c3",
+      "source": "paper:0c71bc4a50fe44e09f3647e938c0c3c5",
+      "target": "metric:7",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:8ba957605bde4786972125c435f6d3d3",
+      "source": "paper:0c71bc4a50fe44e09f3647e938c0c3c5",
+      "target": "finding:0c71bc4a50fe44e09f3647e938c0c3c5:0",
+      "type": "CLAIMS"
+    },
+    {
+      "id": "edge:38fbcc6fda684c43b66fbd63d838b05f",
+      "source": "paper:0c71bc4a50fe44e09f3647e938c0c3c5",
+      "target": "finding:0c71bc4a50fe44e09f3647e938c0c3c5:1",
+      "type": "CLAIMS"
+    },
+    {
+      "id": "edge:3f730f8255434fc1b94ca3cad61b0724",
+      "source": "paper:0c71bc4a50fe44e09f3647e938c0c3c5",
+      "target": "finding:0c71bc4a50fe44e09f3647e938c0c3c5:2",
+      "type": "CLAIMS"
+    },
+    {
+      "id": "edge:92a2dd1762ec43b698f88c6b78aa8997",
+      "source": "paper:0c71bc4a50fe44e09f3647e938c0c3c5",
+      "target": "limitation:0c71bc4a50fe44e09f3647e938c0c3c5:0",
+      "type": "STATES"
+    },
+    {
+      "id": "edge:2f54012086874c1c896946e6db4c3f17",
+      "source": "paper:0c71bc4a50fe44e09f3647e938c0c3c5",
+      "target": "limitation:0c71bc4a50fe44e09f3647e938c0c3c5:1",
+      "type": "STATES"
+    },
+    {
+      "id": "edge:3548a448c4e3471e973506e7f6b1041d",
+      "source": "paper:d5cd600ff86146068e39ae1a3a605455",
+      "target": "method:2",
+      "type": "USES"
+    },
+    {
+      "id": "edge:b9e44d3a90504de39b2f46f00637dfb9",
+      "source": "paper:d5cd600ff86146068e39ae1a3a605455",
+      "target": "dataset:1",
+      "type": "EVALUATES"
+    },
+    {
+      "id": "edge:3bab02f773314611a9fc0cdeb66716ff",
+      "source": "paper:d5cd600ff86146068e39ae1a3a605455",
+      "target": "metric:1",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:472a5a366840403e93ebe51a0c60ccf6",
+      "source": "paper:d5cd600ff86146068e39ae1a3a605455",
+      "target": "metric:4",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:8d203cabcfeb4059ac15220d8ddabbc9",
+      "source": "paper:d5cd600ff86146068e39ae1a3a605455",
+      "target": "metric:5",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:1ddf07abc95549648b04d164f746f499",
+      "source": "paper:d5cd600ff86146068e39ae1a3a605455",
+      "target": "metric:6",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:eb8f0794ac054c69800020a77e008d1d",
+      "source": "paper:d5cd600ff86146068e39ae1a3a605455",
+      "target": "metric:7",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:3fb856c1623b4f1c8e78e02f5aeef255",
+      "source": "paper:d5cd600ff86146068e39ae1a3a605455",
+      "target": "metric:8",
+      "type": "REPORTS"
+    },
+    {
+      "id": "edge:bb75f9f072d04c98881ad24eb1131497",
+      "source": "paper:d5cd600ff86146068e39ae1a3a605455",
+      "target": "finding:d5cd600ff86146068e39ae1a3a605455:0",
+      "type": "CLAIMS"
+    },
+    {
+      "id": "edge:0522cce3a6e04a609357a3b91f5292b3",
+      "source": "paper:d5cd600ff86146068e39ae1a3a605455",
+      "target": "finding:d5cd600ff86146068e39ae1a3a605455:1",
+      "type": "CLAIMS"
+    },
+    {
+      "id": "edge:cdc005b5bd5547fe951ffec191eb49e5",
+      "source": "paper:d5cd600ff86146068e39ae1a3a605455",
+      "target": "finding:d5cd600ff86146068e39ae1a3a605455:2",
+      "type": "CLAIMS"
+    },
+    {
+      "id": "edge:e2503ad45863433b8fe108301d4cdaf2",
+      "source": "paper:d5cd600ff86146068e39ae1a3a605455",
+      "target": "limitation:d5cd600ff86146068e39ae1a3a605455:0",
+      "type": "STATES"
+    },
+    {
+      "id": "edge:b713f24dcd7641b7b7d95481757bfcc2",
+      "source": "method:1",
+      "target": "method:2",
+      "type": "COMPARES"
+    },
+    {
+      "id": "edge:9bd5b27227754ed4a8de9d3fc982d058",
+      "source": "paper:0556b1c20b6946edb46124c3e862c3ca",
+      "target": "gap:primary",
+      "type": "SUGGESTS"
+    },
+    {
+      "id": "edge:01ca4aaac3c146a193e047414fd7d33d",
+      "source": "paper:0c71bc4a50fe44e09f3647e938c0c3c5",
+      "target": "gap:primary",
+      "type": "SUGGESTS"
+    },
+    {
+      "id": "edge:26faa43bc8b449e28576b5d085932a5b",
+      "source": "paper:d5cd600ff86146068e39ae1a3a605455",
+      "target": "gap:primary",
+      "type": "SUGGESTS"
+    }
+  ],
+  "analysis": {
+    "most_common_methods": [
+      "machine learning",
+      "deep learning"
+    ],
+    "most_common_datasets": [
+      "wisconsin"
+    ],
+    "repeated_limitations": [
+      "validation breadth (2 papers)",
+      "dataset imbalance or bias (2 papers)"
+    ],
+    "contradictions": [
+      "No explicit contradiction was strongly supported by the uploaded papers."
+    ],
+    "common_metrics": [
+      "accuracy",
+      "roc",
+      "auc",
+      "precision",
+      "recall",
+      "sensitivity"
+    ]
+  },
+  "research_gap": {
+    "title": "Need for externally validated and generalizable AI research evidence",
+    "description": "Multiple uploaded papers indicate limitations around validation breadth, dataset size, generalization, or clinical robustness. The evidence supports a gap around evaluating AI detection methods on larger, diverse, externally validated datasets.",
+    "supporting_papers": [
+      "J Biomed Phys Eng 2022; 12(3)",
+      "Applied and Computational Mathematics",
+      "Procedia Computer Science  83 ( 2016 )  1064 – 1069"
+    ],
+    "evidence": [
+      "In the current study, limitations are consid­ ered as follows: modeling based on records of only one database, and the lack of access to genetic data that could influence the find­ ings of the study.",
+      "In this study, there are still some limitations that should be solved in further work.",
+      "Lu, “Decision tree based predictive models for breast cancer survivability on imbalanced data,” pp."
+    ]
+  },
+  "grounded_answer": {
+    "question": "What is the most effective method?",
+    "answer": "The eternal quest for the most effective method!\n\nAfter analyzing the provided evidence, I'll attempt to synthesize the findings and provide a conclusion.\n\n**Machine Learning (ML) vs. Deep Learning (DL)**\n\nWhile both ML and DL have been shown to be effective in various studies, the evidence suggests that **Machine Learning** might have a slight edge over **Deep Learning** in the context of breast cancer prediction.\n\nThe study published in \"J Biomed Phys Eng 2022; 12(3)\" found that Random Forest (RF) achieved higher performance compared to other techniques, including Deep Learning (DL) methods, in terms of accuracy, sensitivity, and specificity (80%, 95%, and 80%, respectively). The area under the curve (AUC) for RF was 0.56, which is comparable to the AUC values reported for other ML methods.\n\nIn contrast, the study published in \"ScienceDirect\" found that both Decision Tree (DT) and XGBoost achieved the highest accuracy (97%) among all models, with XGBoost having the highest AUC (0.999).\n\n**Comparison of ML Methods**\n\nThe study published in \"Procedia Computer Science  83 ( 2016 )  1064 – 1069\" compared the performance of five classification models using three indicators: prediction accuracy values, F-measure metric, and AUC values. The results showed that the ML methods outperformed the DL methods in terms of accuracy and AUC values.\n\nThe study published in \"Applied and Computational Mathematics\" evaluated the performance of five classification models using three indicators and found that the ML methods had higher accuracy, precision, sensitivity, and specificity compared to the DL methods.\n\n**Conclusion**\n\nWhile both ML and DL have been shown to be effective in breast cancer prediction, the evidence suggests that **Machine Learning** might have a slight edge over **Deep Learning**. Specifically, Random Forest (RF) and XGBoost have been shown to achieve high accuracy and AUC values in various studies. However, it's essential to note that the choice of method ultimately depends on the specific problem, dataset, and performance metrics used.\n\nReferences:\n\n* [1] \"J Biomed Phys Eng 2022; 12(3)\"\n* [2] \"ScienceDirect\"\n* [3] \"Procedia Computer Science  83 ( 2016 )  1064 – 1069\"\n* [4] \"Applied and Computational Mathematics\"",
+    "citations": [
+      "ScienceDirect"
+    ],
+    "evidence": [
+      "In this paper, we used various ML Classification techniques: Naïve Bayes(NB), Logistic regression (LR),Support vector machine(SVM),K-Nearest Neighbor (KNN), Decision Tree(DT), and ensemble techniques: Random forest(RF), Adaboost, XGBoost on breast cancer dataset and evaluated by using different performance measure.",
+      "It has been found that both decision tree and XGBoost classifier has highest accuracy 97% among all model and highest AUC 0.999 obtained for XGBoost classifier.",
+      "In this paper, we used various ML Classification techniques: Naïve Bayes(NB), Logistic regression (LR),Support vector machine(SVM),K-Nearest Neighbor (KNN), Decision Tree(DT), and ensemble techniques: Random forest(RF), Adaboost, XGBoost on breast cancer dataset and evaluated by using different performance measure.",
+      "It has been found that both decision tree and XGBoost classifier has highest accuracy 97% among all model and highest AUC 0.999 obtained for XGBoost classifier.",
+      "Keywords: Breast Cancer; Prediction; Diagnostic ; SVM; Random Forest; Logistic regression ; C4.5; k-NN; Accuracy; Precision; * Corresponding author.",
+      "Consequently, high accuracy in cancer prediction is important to update the treatment aspect and the survivability standard of patients.",
+      "Keywords: Breast Cancer; Prediction; Diagnostic ; SVM; Random Forest; Logistic regression ; C4.5; k-NN; Accuracy; Precision; * Corresponding author.",
+      "Consequently, high accuracy in cancer prediction is important to update the treatment aspect and the survivability standard of patients."
+    ]
+  }
+}

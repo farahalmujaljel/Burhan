@@ -1,0 +1,16 @@
+name: Burhan Local Ollama
+version: 1.0.0
+schema: v1
+models:
+  - name: Llama 3.2 3B
+    provider: ollama
+    model: llama3.2:3b
+    apiBase: http://localhost:11434
+    roles:
+      - chat
+      - edit
+      - apply
+context:
+  - provider: code
+  - provider: docs
+  - provider: diff

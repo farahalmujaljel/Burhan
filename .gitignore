@@ -1,3 +1,17 @@
+<<<<<<< HEAD
 .venv
 __pycache__/
 *.pyc
+=======
+.DS_Store
+.env
+*.pyc
+__pycache__/
+.venv/
+node_modules/
+.next/
+dist/
+storage/uploads/
+storage/runs/
+*.log
+>>>>>>> efdbbf2ae655154c3da4812036378f3392e217d8
