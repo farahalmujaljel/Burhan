@@ -1,12 +1,14 @@
 """Research Digital Twin: the evolving, evidence-backed model of a research field."""
 
 from datetime import UTC, datetime
+from typing import Literal
 
 from pydantic import Field, model_validator
 
 from app.schemas.common import BurhanModel, new_id
 from app.schemas.entities import Entity, EntityType, ResearchGap
 from app.schemas.evidence import Evidence
+from app.schemas.graph import PossibleDuplicate, ResolutionDecision
 from app.schemas.relations import Relation
 
 
@@ -53,17 +55,51 @@ class GapCard(BurhanModel):
 
 
 class TwinUpdate(BurhanModel):
-    """Changelog entry recording how one ingestion run changed the twin."""
+    """Changelog entry recording how one ingestion run changed the twin.
+
+    - added: new nodes/edges
+    - strengthened: existing nodes/edges that gained supporting papers or evidence
+    - changed: existing nodes/edges whose content changed without gaining support
+      (e.g. new aliases, or re-extraction replaced their evidence)
+    - removed: nodes/edges no longer supported by any paper (e.g. after re-extraction)
+    """
 
     id: str = Field(default_factory=lambda: new_id("upd"))
     created_at: datetime = Field(default_factory=_now)
+    operation: Literal["apply", "remove"] = "apply"
     paper_ids: list[str] = Field(default_factory=list)
     added_entity_ids: list[str] = Field(default_factory=list)
-    added_relation_ids: list[str] = Field(default_factory=list)
     strengthened_entity_ids: list[str] = Field(default_factory=list)
+    changed_entity_ids: list[str] = Field(default_factory=list)
+    removed_entity_ids: list[str] = Field(default_factory=list)
+    added_relation_ids: list[str] = Field(default_factory=list)
+    strengthened_relation_ids: list[str] = Field(default_factory=list)
+    changed_relation_ids: list[str] = Field(default_factory=list)
+    removed_relation_ids: list[str] = Field(default_factory=list)
     new_contradiction_ids: list[str] = Field(default_factory=list)
     new_gap_ids: list[str] = Field(default_factory=list)
+    resolutions: list[ResolutionDecision] = Field(
+        default_factory=list, description="Entity names merged into existing canonical nodes"
+    )
+    possible_duplicates: list[PossibleDuplicate] = Field(default_factory=list)
+    evidence_indexed: int = 0
+    chunks_indexed: int = 0
     summary: str | None = None
+
+    @property
+    def is_noop(self) -> bool:
+        return not any(
+            (
+                self.added_entity_ids,
+                self.strengthened_entity_ids,
+                self.changed_entity_ids,
+                self.removed_entity_ids,
+                self.added_relation_ids,
+                self.strengthened_relation_ids,
+                self.changed_relation_ids,
+                self.removed_relation_ids,
+            )
+        )
 
 
 class TwinStats(BurhanModel):
@@ -72,6 +108,27 @@ class TwinStats(BurhanModel):
     contradiction_count: int
     verified_evidence: int
     flagged_evidence: int
+
+
+class RankedEntity(BurhanModel):
+    id: str
+    name: str
+    paper_count: int
+
+
+class TwinSummary(BurhanModel):
+    """Dashboard-level view of the Research Digital Twin."""
+
+    domain: str
+    paper_count: int
+    stats: TwinStats
+    unverified_evidence: int
+    relation_counts: dict[str, int]
+    indexed_vectors: int
+    top_methods: list[RankedEntity]
+    top_datasets: list[RankedEntity]
+    top_metrics: list[RankedEntity]
+    last_update: TwinUpdate | None = None
 
 
 class TwinSnapshot(BurhanModel):
