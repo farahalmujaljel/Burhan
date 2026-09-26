@@ -52,7 +52,7 @@ def answer_with_llm(question: str, context: str, citations: list[str]) -> str:
                 {"role": "user", "content": f"Question: {question}\n\nEvidence:\n{context}\n\nAvailable citations: {citations}"},
             ],
         )
-    except Exception:
+    except Exception as e:
         pass
     method_lines = [line for line in context.splitlines() if "method:" in line.lower() or "finding:" in line.lower()]
     summary = " ".join(method_lines[:4]) or context[:500]

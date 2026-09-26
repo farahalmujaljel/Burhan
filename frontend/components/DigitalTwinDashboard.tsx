@@ -224,6 +224,27 @@ function ResearchAssistant({
           <>
             <h3 className="text-sm font-semibold text-slate-950">Grounded answer</h3>
             <p className="mt-2 text-sm leading-6 text-slate-700">{answer.answer}</p>
+            <div className="mt-4 rounded-[18px] bg-blue-50 p-4 ring-1 ring-blue-100">
+  <div className="flex items-center justify-between">
+    <div>
+      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+        Evidence Confidence
+      </p>
+      <p className="mt-1 text-2xl font-bold text-blue-700">
+        {Math.round(answer.confidence_score * 100)}%
+      </p>
+    </div>
+
+    <div className="text-right">
+      <p className="text-sm font-bold text-slate-900">
+        {answer.confidence_level}
+      </p>
+      <p className="mt-1 text-xs text-slate-500">
+        {answer.validation_status.replaceAll("_", " ")}
+      </p>
+    </div>
+  </div>
+</div>
             <EvidenceList title="Citations" items={answer.citations} />
             <EvidenceList title="Evidence retrieved" items={answer.evidence.slice(0, 4)} />
           </>

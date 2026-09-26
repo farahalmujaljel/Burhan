@@ -47,6 +47,9 @@ export type GroundedAnswer = {
   answer: string;
   citations: string[];
   evidence: string[];
+  confidence_score: number;
+  confidence_level: "high" | "medium" | "low";
+  validation_status: "accepted" | "needs_more_evidence" | "insufficient_evidence";
 };
 
 export type RunSummary = {

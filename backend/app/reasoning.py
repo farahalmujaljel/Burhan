@@ -103,10 +103,73 @@ def detect_research_gap(papers: list[PaperRecord], analysis: CrossPaperAnalysis)
 
 
 def make_grounded_answer(question: str, answer: str, papers: list[PaperRecord], evidence: list[str]) -> GroundedAnswer:
-    citations = [paper.metadata.title for paper in papers if any(snippet in paper.extraction.evidence_quotes + paper.extraction.findings for snippet in evidence)]
+    citations = [
+        paper.metadata.title
+        for paper in papers
+        if any(
+            snippet in paper.extraction.evidence_quotes + paper.extraction.findings
+            for snippet in evidence
+        )
+    ]
+
     if not citations:
         citations = [paper.metadata.title for paper in papers[:3]]
-    return GroundedAnswer(question=question, answer=answer, citations=list(dict.fromkeys(citations)), evidence=evidence)
+
+    citations = list(dict.fromkeys(citations))
+
+    confidence_score = _calculate_confidence(
+        papers=papers,
+        evidence=evidence,
+        citations=citations,
+    )
+
+    if confidence_score >= 0.75:
+        confidence_level = "high"
+        validation_status = "accepted"
+    elif confidence_score >= 0.50:
+        confidence_level = "medium"
+        validation_status = "needs_more_evidence"
+    else:
+        confidence_level = "low"
+        validation_status = "insufficient_evidence"
+
+    return GroundedAnswer(
+        question=question,
+        answer=answer,
+        citations=citations,
+        evidence=evidence,
+        confidence_score=round(confidence_score, 2),
+        confidence_level=confidence_level,
+        validation_status=validation_status,
+    )
+def _calculate_confidence(
+    papers: list[PaperRecord],
+    evidence: list[str],
+    citations: list[str],
+) -> float:
+    if not evidence:
+        return 0.0
+
+    evidence_score = min(len(evidence) / 8, 1.0)
+    citation_score = min(len(citations) / len(papers), 1.0) if papers else 0.0
+
+    supporting_papers = sum(
+        1
+        for paper in papers
+        if any(
+            snippet in paper.extraction.evidence_quotes + paper.extraction.findings
+            for snippet in evidence
+        )
+    )
+    agreement_score = min(supporting_papers / len(papers), 1.0) if papers else 0.0
+
+    score = (
+        0.4 * evidence_score
+        + 0.3 * citation_score
+        + 0.3 * agreement_score
+    )
+
+    return score
 
 
 def _edge(source: str, target: str, relation: GraphEdge.model_fields["type"].annotation) -> GraphEdge:
