@@ -6,7 +6,7 @@
 - Node.js 20+
 - Docker Desktop or Docker Engine
 - Ollama running locally
-- `qwen2.5:7b` pulled in Ollama
+- `llama3.2:3b` pulled in Ollama
 
 ## 1. Start Data Services
 
@@ -30,7 +30,7 @@ uvicorn app.main:app --reload
 Run Ollama locally:
 
 ```bash
-ollama pull qwen2.5:7b
+ollama pull llama3.2:3b
 ollama serve
 ```
 
@@ -38,7 +38,7 @@ The backend defaults to:
 
 ```env
 LLM_BASE_URL=http://localhost:11434/v1
-LLM_MODEL=qwen2.5:7b
+LLM_MODEL=llama3.2:3b
 ```
 
 Docling is supported as the preferred parser when installed. PyMuPDF is included as the reliable fallback. To enable Docling in environments with compatible wheels, run:

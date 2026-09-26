@@ -68,7 +68,7 @@ Everything shown in the UI is wired to backend outputs. Features outside the MVP
 | Frontend | Next.js, Tailwind, React Flow |
 | Backend | FastAPI |
 | AI | Ollama local API at `http://localhost:11434/v1` |
-| Local LLM | `qwen2.5:7b` |
+| Local LLM | `llama3.2:3b` |
 | Embeddings | Local deterministic evidence vectors for Qdrant |
 | Knowledge Graph | Neo4j |
 | Vector DB | Qdrant |
@@ -98,11 +98,11 @@ uvicorn app.main:app --reload
 Run Ollama locally and pull the configured model:
 
 ```bash
-ollama pull qwen2.5:7b
+ollama pull llama3.2:3b
 ollama serve
 ```
 
-The backend defaults to `LLM_BASE_URL=http://localhost:11434/v1` and `LLM_MODEL=qwen2.5:7b`.
+The backend defaults to `LLM_BASE_URL=http://localhost:11434/v1` and `LLM_MODEL=llama3.2:3b`.
 
 Optional Docling parser support:
 
