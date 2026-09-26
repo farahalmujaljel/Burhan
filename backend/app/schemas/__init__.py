@@ -1,0 +1,71 @@
+"""Burhan's data contract: validated scientific knowledge with evidence provenance."""
+
+from app.schemas.documents import (
+    Chunk,
+    PageSpan,
+    PaperRecord,
+    PaperStatus,
+    ParsedDocument,
+    Section,
+    SectionKind,
+)
+from app.schemas.entities import (
+    Author,
+    Dataset,
+    Entity,
+    EntityType,
+    Finding,
+    FutureWork,
+    GapSignal,
+    Limitation,
+    Method,
+    Metric,
+    Paper,
+    ResearchGap,
+)
+from app.schemas.evidence import ConfidenceLevel, Evidence, SourceSpan, VerificationStatus
+from app.schemas.relations import Relation, RelationType
+from app.schemas.twin import (
+    Comparison,
+    ComparisonCell,
+    Contradiction,
+    GapCard,
+    TwinSnapshot,
+    TwinStats,
+    TwinUpdate,
+)
+
+__all__ = [
+    "Author",
+    "Chunk",
+    "Comparison",
+    "ComparisonCell",
+    "ConfidenceLevel",
+    "Contradiction",
+    "Dataset",
+    "Entity",
+    "EntityType",
+    "Evidence",
+    "Finding",
+    "FutureWork",
+    "GapCard",
+    "GapSignal",
+    "Limitation",
+    "Method",
+    "Metric",
+    "PageSpan",
+    "Paper",
+    "PaperRecord",
+    "PaperStatus",
+    "ParsedDocument",
+    "Relation",
+    "RelationType",
+    "ResearchGap",
+    "Section",
+    "SectionKind",
+    "SourceSpan",
+    "TwinSnapshot",
+    "TwinStats",
+    "TwinUpdate",
+    "VerificationStatus",
+]
