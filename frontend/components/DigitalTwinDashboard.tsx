@@ -2,14 +2,16 @@
 
 import { useMemo, useState } from "react";
 import { Background, Controls, ReactFlow, type Edge, type Node } from "@xyflow/react";
-import { Bot, Database, FileSearch, GitBranch, Lightbulb, Network, Quote, Sparkles } from "lucide-react";
+import { Bot, Database, FileSearch, FolderKanban, GitBranch, Home, Lightbulb, Network, Quote, Settings, Sparkles, UploadCloud } from "lucide-react";
 import type { GroundedAnswer, TwinState } from "@/lib/types";
+import { BrandLogo } from "./Brand";
 
 const suggestedQuestions = [
-  "What is the most effective method?",
-  "Which datasets appear most often?",
-  "What limitations repeat across papers?",
-  "What evidence supports the research gap?"
+  "Compare CNN vs ViT",
+  "Show research gaps",
+  "Find contradictory findings",
+  "Summarize limitations",
+  "Which datasets are most common?"
 ];
 
 export function DigitalTwinDashboard({
@@ -31,18 +33,18 @@ export function DigitalTwinDashboard({
   const flow = useMemo(() => buildFlow(twin), [twin]);
 
   return (
-    <main className="min-h-screen bg-slate-50">
-      <TopBar />
-      <section className="mx-auto max-w-[1440px] px-5 py-6">
+    <main className="min-h-screen bg-[#F8FBFF] lg:grid lg:grid-cols-[280px_1fr]">
+      <Sidebar />
+      <section className="min-w-0 px-5 py-6 lg:px-8">
         <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">Research Digital Twin</p>
-            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">Focused Research Domain</h1>
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-700">Research Digital Twin</p>
+            <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 md:text-5xl">Focused Research Domain</h1>
             <p className="mt-3 max-w-3xl text-base leading-7 text-slate-600">
               Burhan extracted structured knowledge from {twin.papers.length} papers and connected it into a graph-first research intelligence layer.
             </p>
           </div>
-          <div className="rounded-lg border border-blue-100 bg-white px-4 py-3 text-sm text-slate-600 shadow-sm">
+          <div className="rounded-[18px] bg-white px-4 py-3 text-sm text-slate-600 shadow-lg shadow-blue-950/5 ring-1 ring-blue-100/80">
             Run ID <span className="font-semibold text-slate-950">{twin.run_id.slice(0, 10)}</span>
           </div>
         </div>
@@ -50,8 +52,8 @@ export function DigitalTwinDashboard({
         <SummaryCards twin={twin} />
 
         <div className="mt-6 grid gap-6 xl:grid-cols-[1fr_390px]">
-          <section className="rounded-lg border border-slate-200 bg-white shadow-sm shadow-blue-950/5">
-            <div className="flex flex-col gap-3 border-b border-slate-200 p-5 md:flex-row md:items-center md:justify-between">
+          <section className="rounded-[26px] bg-white shadow-xl shadow-blue-950/6 ring-1 ring-blue-100/80">
+            <div className="flex flex-col gap-3 border-b border-blue-100 p-5 md:flex-row md:items-center md:justify-between">
               <div>
                 <div className="flex items-center gap-2">
                   <GitBranch className="h-5 w-5 text-blue-700" />
@@ -61,25 +63,25 @@ export function DigitalTwinDashboard({
               </div>
               <GraphLegend />
             </div>
-            <div className="grid min-h-[660px] xl:grid-cols-[1fr_320px]">
-              <div className="h-[660px]">
+            <div className="grid min-h-[680px] xl:grid-cols-[1fr_320px]">
+              <div className="h-[680px]">
                 <ReactFlow nodes={flow.nodes} edges={flow.edges} fitView onNodeClick={(_, node) => setSelectedNode(node)}>
                   <Background color="#dbeafe" gap={22} />
                   <Controls />
                 </ReactFlow>
               </div>
-              <aside className="border-t border-slate-200 p-5 xl:border-l xl:border-t-0">
+              <aside className="border-t border-blue-100 p-5 xl:border-l xl:border-t-0">
                 <h3 className="font-semibold text-slate-950">Node details</h3>
                 {selectedNode ? (
                   <div className="mt-4 space-y-4">
-                    <div className="rounded-lg bg-blue-50 p-3">
+                    <div className="rounded-[18px] bg-blue-50 p-3">
                       <p className="text-xs font-semibold uppercase tracking-wide text-blue-700">Selected node</p>
                       <p className="mt-1 text-sm font-semibold text-slate-950">{String(selectedNode.data.label)}</p>
                     </div>
-                    <pre className="max-h-[480px] overflow-auto rounded-lg bg-slate-950 p-4 text-xs leading-5 text-blue-50">{JSON.stringify(selectedNode, null, 2)}</pre>
+                    <pre className="max-h-[480px] overflow-auto rounded-[18px] bg-slate-950 p-4 text-xs leading-5 text-blue-50">{JSON.stringify(selectedNode, null, 2)}</pre>
                   </div>
                 ) : (
-                  <p className="mt-4 rounded-lg bg-slate-50 p-4 text-sm leading-6 text-slate-500">Select a paper, method, dataset, finding, limitation, or research gap node to inspect its metadata.</p>
+                  <p className="mt-4 rounded-[18px] bg-slate-50 p-4 text-sm leading-6 text-slate-500">Select a paper, method, dataset, finding, limitation, or research gap node to inspect its metadata.</p>
                 )}
               </aside>
             </div>
@@ -97,20 +99,43 @@ export function DigitalTwinDashboard({
   );
 }
 
-function TopBar() {
+function Sidebar() {
+  const items = [
+    { label: "Home", icon: Home },
+    { label: "Projects", icon: FolderKanban },
+    { label: "Upload", icon: UploadCloud },
+    { label: "Digital Twin", icon: Network, active: true },
+    { label: "Knowledge Graph", icon: GitBranch },
+    { label: "Research Gaps", icon: Lightbulb },
+    { label: "Compare Papers", icon: Database },
+    { label: "Research Assistant", icon: Bot },
+    { label: "Settings", icon: Settings }
+  ];
   return (
-    <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/90 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-5">
-        <div>
-          <p className="text-lg font-semibold tracking-tight text-slate-950">Burhan</p>
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-blue-700">Agentic Research Scientist</p>
-        </div>
-        <div className="hidden items-center gap-2 rounded-lg bg-blue-50 px-3 py-2 text-sm font-medium text-blue-800 md:flex">
-          <Sparkles className="h-4 w-4" />
-          Twin generated
-        </div>
+    <aside className="hidden min-h-screen border-r border-blue-100 bg-white/80 p-5 shadow-xl shadow-blue-950/5 backdrop-blur-xl lg:block">
+      <BrandLogo />
+      <nav className="mt-10 space-y-1">
+        {items.map((item) => {
+          const Icon = item.icon;
+          return (
+            <button
+              key={item.label}
+              className={`flex w-full items-center gap-3 rounded-[18px] px-4 py-3 text-left text-sm font-bold transition ${
+                item.active ? "bg-blue-600 text-white shadow-lg shadow-blue-700/20" : "text-gray-600 hover:bg-[#EAF3FF] hover:text-blue-700"
+              }`}
+            >
+              <Icon className="h-4 w-4" />
+              {item.label}
+            </button>
+          );
+        })}
+      </nav>
+      <div className="mt-10 rounded-[24px] bg-gradient-to-br from-blue-600 to-sky-400 p-5 text-white shadow-xl shadow-blue-700/20">
+        <Sparkles className="h-5 w-5" />
+        <h2 className="mt-4 font-bold">Twin generated</h2>
+        <p className="mt-2 text-sm leading-6 text-blue-50">Explore the graph before asking the assistant.</p>
       </div>
-    </header>
+    </aside>
   );
 }
 
@@ -129,14 +154,14 @@ function SummaryCards({ twin }: { twin: TwinState }) {
       {cards.map((card) => {
         const Icon = card.icon;
         return (
-          <article key={card.label} className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm shadow-blue-950/5">
+          <article key={card.label} className="rounded-[24px] bg-white p-5 shadow-lg shadow-blue-950/5 ring-1 ring-blue-100/80 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10">
             <div className="flex items-center justify-between">
-              <div className="grid h-10 w-10 place-items-center rounded-lg bg-blue-50 text-blue-700">
+              <div className="grid h-12 w-12 place-items-center rounded-[18px] bg-blue-50 text-blue-700">
                 <Icon className="h-5 w-5" />
               </div>
-              <span className="text-2xl font-semibold text-slate-950">{card.value}</span>
+              <span className="text-3xl font-bold text-gray-900">{card.value}</span>
             </div>
-            <h2 className="mt-4 text-sm font-semibold text-slate-950">{card.label}</h2>
+            <h2 className="mt-5 text-sm font-bold text-gray-900">{card.label}</h2>
             <p className="mt-1 truncate text-xs text-slate-500">{card.detail}</p>
           </article>
         );
@@ -159,12 +184,17 @@ function ResearchAssistant({
   onAsk: () => void;
 }) {
   return (
-    <aside className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm shadow-blue-950/5">
+    <aside className="rounded-[26px] bg-white p-5 shadow-xl shadow-blue-950/6 ring-1 ring-blue-100/80">
       <div className="flex items-center gap-2">
-        <Bot className="h-5 w-5 text-blue-700" />
-        <h2 className="text-lg font-semibold text-slate-950">Research Assistant</h2>
+        <div className="grid h-10 w-10 place-items-center rounded-[16px] bg-blue-50 text-blue-700">
+          <Bot className="h-5 w-5" />
+        </div>
+        <div>
+          <h2 className="text-lg font-bold text-gray-900">Research Assistant</h2>
+          <p className="text-sm text-slate-500">Secondary evidence panel</p>
+        </div>
       </div>
-      <p className="mt-2 text-sm leading-6 text-slate-500">Ask evidence-based questions after inspecting the Digital Twin.</p>
+      <p className="mt-4 text-sm leading-6 text-slate-500">Ask evidence-based questions after inspecting the Digital Twin.</p>
 
       <div className="mt-5 grid gap-2">
         {suggestedQuestions.map((suggestion) => (
@@ -172,7 +202,7 @@ function ResearchAssistant({
             key={suggestion}
             type="button"
             onClick={() => onQuestionChange(suggestion)}
-            className="rounded-lg border border-blue-100 bg-blue-50/70 px-3 py-2 text-left text-sm font-medium text-blue-900 transition hover:border-blue-300 hover:bg-blue-100"
+            className="rounded-[16px] bg-blue-50/80 px-3 py-2 text-left text-sm font-bold text-blue-900 ring-1 ring-blue-100 transition hover:bg-blue-100"
           >
             {suggestion}
           </button>
@@ -183,13 +213,13 @@ function ResearchAssistant({
       <textarea
         value={question}
         onChange={(event) => onQuestionChange(event.target.value)}
-        className="mt-2 h-28 w-full resize-none rounded-lg border border-slate-200 bg-white p-3 text-sm leading-6 text-slate-900 outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
+        className="mt-2 h-28 w-full resize-none rounded-[18px] bg-white p-3 text-sm leading-6 text-slate-900 outline-none ring-1 ring-slate-200 transition focus:ring-4 focus:ring-blue-100"
       />
-      <button disabled={loading || question.trim().length === 0} onClick={onAsk} className="mt-3 h-11 w-full rounded-lg bg-blue-700 text-sm font-semibold text-white shadow-sm shadow-blue-900/15 transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:bg-slate-300">
+      <button disabled={loading || question.trim().length === 0} onClick={onAsk} className="mt-3 h-12 w-full rounded-[18px] bg-blue-600 text-sm font-bold text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-slate-300">
         {loading ? "Retrieving evidence..." : "Ask Burhan"}
       </button>
 
-      <div className="mt-5 rounded-lg bg-slate-50 p-4">
+      <div className="mt-5 rounded-[20px] bg-slate-50 p-4">
         {answer ? (
           <>
             <h3 className="text-sm font-semibold text-slate-950">Grounded answer</h3>
@@ -207,7 +237,7 @@ function ResearchAssistant({
 
 function ExtractionOverview({ twin }: { twin: TwinState }) {
   return (
-    <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm shadow-blue-950/5">
+    <section className="rounded-[26px] bg-white p-5 shadow-xl shadow-blue-950/5 ring-1 ring-blue-100/80">
       <div className="flex items-center gap-2">
         <Database className="h-5 w-5 text-blue-700" />
         <h2 className="text-lg font-semibold text-slate-950">Structured Extraction</h2>
@@ -242,7 +272,7 @@ function ExtractionOverview({ twin }: { twin: TwinState }) {
 
 function ResearchGapCard({ twin }: { twin: TwinState }) {
   return (
-    <section className="rounded-lg border border-blue-200 bg-blue-700 p-5 text-white shadow-lg shadow-blue-900/20">
+    <section className="rounded-[26px] bg-blue-700 p-5 text-white shadow-xl shadow-blue-900/20">
       <div className="flex items-center gap-2">
         <Lightbulb className="h-5 w-5" />
         <h2 className="text-lg font-semibold">Evidence-backed research gap</h2>
@@ -261,7 +291,7 @@ function EvidenceList({ title, items, inverted = false }: { title: string; items
       <h4 className={`text-xs font-semibold uppercase tracking-wide ${inverted ? "text-blue-100" : "text-slate-500"}`}>{title}</h4>
       <ul className="mt-2 grid gap-2">
         {items.map((item, index) => (
-          <li key={`${title}-${index}`} className={`rounded-lg p-3 text-sm leading-6 ${inverted ? "bg-white/10 text-white" : "bg-white text-slate-600"}`}>
+          <li key={`${title}-${index}`} className={`rounded-[16px] p-3 text-sm leading-6 ${inverted ? "bg-white/10 text-white" : "bg-white text-slate-600"}`}>
             {item}
           </li>
         ))}
@@ -274,7 +304,7 @@ function GraphLegend() {
   return (
     <div className="flex flex-wrap gap-2 text-xs font-medium">
       {["Paper", "Method", "Dataset", "Finding", "Gap"].map((item) => (
-        <span key={item} className="rounded-lg bg-slate-50 px-2.5 py-1 text-slate-600">
+        <span key={item} className="rounded-[12px] bg-slate-50 px-2.5 py-1 text-slate-600">
           {item}
         </span>
       ))}
