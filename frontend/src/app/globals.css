@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+/*
+ * Burhan visual identity — "ink & paper", derived from the logo:
+ * black calligraphic ink on warm paper, with the logo's diamond and four-point-star motifs.
+ * Entity colours are muted, scholarly hues that stay legible on paper.
+ */
+@theme {
+  --color-paper: #faf9f6;
+  --color-paper-2: #f3f1ec;
+  --color-paper-3: #ebe7df;
+  --color-line: #e3ded4;
+  --color-line-strong: #cfc8bb;
+  --color-ink: #0e0e10;
+  --color-ink-2: #2d2c30;
+  --color-muted: #6f6b64;
+  --color-faint: #9b968d;
+  --color-brass: #9c7a3c;
+  --color-brass-soft: #f1e8d6;
+
+  --color-verified: #2f7d5b;
+  --color-verified-soft: #e3f0e8;
+  --color-flagged: #b5542e;
+  --color-flagged-soft: #f6e4db;
+  --color-unverified: #8a857d;
+  --color-unverified-soft: #ecebe7;
+
+  --color-paper-node: #0e0e10;
+  --color-method: #3d4fa8;
+  --color-dataset: #1f7a7a;
+  --color-metric: #9c7a3c;
+  --color-finding: #2f7d5b;
+  --color-limitation: #b5542e;
+  --color-future: #7a4fa0;
+
+  --font-display: var(--font-newsreader), ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  --shadow-card: 0 1px 0 rgb(14 14 16 / 0.03), 0 1px 3px rgb(14 14 16 / 0.05);
+  --shadow-lift: 0 1px 0 rgb(14 14 16 / 0.04), 0 12px 32px -12px rgb(14 14 16 / 0.18);
+
+  --animate-fade-up: fade-up 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-pulse-soft: pulse-soft 3.2s ease-in-out infinite;
+  --animate-shimmer: shimmer 1.6s linear infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -200% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+html,
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-brass-soft);
+}
+
+/* Faint dotted "graph paper" backdrop used behind the twin and graph canvases. */
+.bg-dots {
+  background-image: radial-gradient(rgb(14 14 16 / 0.09) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-paper-2) 0%,
+    var(--color-paper-3) 50%,
+    var(--color-paper-2) 100%
+  );
+  background-size: 200% 100%;
+  animation: var(--animate-shimmer);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* React Flow: blend into the paper theme. */
+.react-flow__attribution {
+  background: transparent !important;
+}
+.react-flow__controls {
+  box-shadow: var(--shadow-card) !important;
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.react-flow__controls-button {
+  background: var(--color-paper) !important;
+  border-bottom: 1px solid var(--color-line) !important;
+}
+.react-flow__minimap {
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  overflow: hidden;
+}
