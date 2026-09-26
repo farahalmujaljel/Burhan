@@ -1,0 +1,32 @@
+# API
+fastapi
+uvicorn[standard]
+python-multipart
+
+# Data validation
+pydantic
+pydantic-settings
+
+# PDF processing
+PyMuPDF
+
+# LLM
+groq
+
+# Environment variables
+python-dotenv
+
+# Utilities
+httpx
+
+# Testing
+pytest
+
+# Linting
+ruff
+
+# Added in later phases (kept out until needed):
+#   langgraph            - Phase 6 agent orchestration
+#   neo4j, qdrant-client - Phase 5 knowledge layer
+#   fastembed            - Phase 5 local embeddings
+#   rapidfuzz            - Phase 4 evidence quote anchoring
