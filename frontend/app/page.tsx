@@ -14,7 +14,7 @@ export default function Home() {
   const [view, setView] = useState<ViewState>("landing");
   const [files, setFiles] = useState<File[]>([]);
   const [progress, setProgress] = useState(0);
-  const [message, setMessage] = useState("Upload exactly five breast cancer AI papers to begin.");
+  const [message, setMessage] = useState("Upload exactly five research papers from one focused domain to begin.");
   const [loading, setLoading] = useState(false);
   const [twin, setTwin] = useState<TwinState | null>(null);
   const [question, setQuestion] = useState("What is the most effective method?");

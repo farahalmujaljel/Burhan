@@ -65,7 +65,7 @@ Open `http://localhost:3000`.
 
 ## Demo Flow
 
-1. Upload exactly five PDF papers about breast cancer detection using AI.
+1. Upload exactly five PDF papers from one focused research domain.
 2. Wait for parsing, extraction, storage, graph building, and reasoning.
 3. Review AI Analysis.
 4. Inspect Structured Extraction.

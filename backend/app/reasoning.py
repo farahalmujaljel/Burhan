@@ -95,7 +95,7 @@ def detect_research_gap(papers: list[PaperRecord], analysis: CrossPaperAnalysis)
             evidence.extend(paper.extraction.limitations[:1])
             supporting.append(paper.metadata.title)
     return ResearchGap(
-        title="Need for externally validated and generalizable breast cancer AI models",
+        title="Need for externally validated and generalizable AI research evidence",
         description="Multiple uploaded papers indicate limitations around validation breadth, dataset size, generalization, or clinical robustness. The evidence supports a gap around evaluating AI detection methods on larger, diverse, externally validated datasets.",
         supporting_papers=list(dict.fromkeys(supporting))[:5],
         evidence=list(dict.fromkeys(evidence))[:6],

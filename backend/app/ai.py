@@ -78,20 +78,20 @@ def _heuristic_extraction(metadata: PaperMetadata, text: str) -> ScientificExtra
     compact = re.sub(r"\s+", " ", text)
     lower = compact.lower()
     method = _first_match(compact, ["deep learning", "convolutional neural network", "cnn", "machine learning", "transformer", "resnet", "svm", "random forest"], "AI-based detection model")
-    dataset = _first_match(compact, ["breakhis", "mini-mias", "ddsm", "inbreast", "wisconsin", "bcdr", "private dataset"], "reported breast cancer imaging dataset")
+    dataset = _first_match(compact, ["breakhis", "mini-mias", "ddsm", "inbreast", "wisconsin", "bcdr", "private dataset"], "reported research dataset")
     metrics = sorted(set(re.findall(r"\b(accuracy|precision|recall|sensitivity|specificity|f1[- ]?score|auc|roc)\b", lower))) or ["accuracy"]
     limitation_sentences = _sentences_with(compact, ["limitation", "limited", "small dataset", "generalization", "imbalance", "external validation"])
     finding_sentences = _sentences_with(compact, ["accuracy", "outperform", "improve", "achieve", "detect", "classification"])
     future_sentences = _sentences_with(compact, ["future", "further", "additional", "larger dataset", "clinical"])
-    problem = "Breast cancer detection requires reliable AI support across medical imaging and clinical datasets."
-    objective = metadata.abstract[:350] or "Evaluate AI methods for breast cancer detection."
+    problem = "The selected research domain requires reliable evidence across methods, datasets, and reported findings."
+    objective = metadata.abstract[:350] or "Evaluate AI methods for the selected research domain."
     return ScientificExtraction(
         problem=problem,
         objective=objective,
         method=method,
         dataset=dataset,
         metrics=metrics[:6],
-        findings=finding_sentences[:4] or [f"The paper reports use of {method} for breast cancer detection."],
+        findings=finding_sentences[:4] or [f"The paper reports use of {method} for the selected research task."],
         limitations=limitation_sentences[:4] or ["The paper indicates that broader validation and stronger generalization evidence are needed."],
         future_work=future_sentences[:3] or ["Future work should validate the method on larger and more diverse datasets."],
         evidence_quotes=(finding_sentences + limitation_sentences)[:6],

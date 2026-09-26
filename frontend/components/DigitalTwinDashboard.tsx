@@ -37,7 +37,7 @@ export function DigitalTwinDashboard({
         <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">Research Digital Twin</p>
-            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">Breast Cancer Detection using AI</h1>
+            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">Focused Research Domain</h1>
             <p className="mt-3 max-w-3xl text-base leading-7 text-slate-600">
               Burhan extracted structured knowledge from {twin.papers.length} papers and connected it into a graph-first research intelligence layer.
             </p>

@@ -123,9 +123,7 @@ Open `http://localhost:3000`.
 
 ## Required Demo Input
 
-Upload exactly five PDF papers in one domain. The intended FARQ demo topic is:
-
-**Breast Cancer Detection using AI**
+Upload exactly five PDF papers in one focused research domain.
 
 ## API
 

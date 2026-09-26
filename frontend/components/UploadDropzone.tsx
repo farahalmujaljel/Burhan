@@ -96,7 +96,7 @@ function Header() {
         <p className="text-lg font-semibold text-slate-950">Burhan</p>
         <p className="text-sm text-slate-500">Paper-to-twin workflow</p>
       </div>
-      <div className="rounded-lg border border-blue-100 bg-white px-3 py-2 text-sm font-medium text-blue-800 shadow-sm">Breast Cancer Detection using AI</div>
+      <div className="rounded-lg border border-blue-100 bg-white px-3 py-2 text-sm font-medium text-blue-800 shadow-sm">Focused Research Domain</div>
     </header>
   );
 }
