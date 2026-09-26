@@ -61,11 +61,19 @@ SAMPLE_PAGES: list[list[tuple[str, float]]] = [
 
 
 def make_pdf(
-    pages: list[list[tuple[str, float]]] = SAMPLE_PAGES, *, metadata_title: str | None = None
+    pages: list[list[tuple[str, float]]] = SAMPLE_PAGES,
+    *,
+    metadata_title: str | None = None,
+    arxiv_stamp: bool = False,
 ) -> bytes:
     doc = pymupdf.open()
-    for blocks in pages:
+    for number, blocks in enumerate(pages):
         page = doc.new_page()
+        if arxiv_stamp and number == 0:
+            # Vertical, larger-than-title text in the margin, like real arXiv PDFs.
+            page.insert_text(
+                (30, 600), "arXiv:2401.00001v1 [cs.CL] 1 Jan 2024", fontsize=24, rotate=90
+            )
         y = 72.0
         for text, size in blocks:
             rect = pymupdf.Rect(72, y, page.rect.width - 72, page.rect.height - 72)

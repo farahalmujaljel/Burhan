@@ -43,3 +43,33 @@ def finding(make_evidence) -> Finding:
 @pytest.fixture
 def method() -> Method:
     return Method(id="method_transformer", name="Transformer")
+
+
+@pytest.fixture
+def parsed_doc():
+    """The generated sample paper, parsed, sectioned, and chunked (small chunks)."""
+    from app.parsing.chunker import chunk_document
+    from app.parsing.pymupdf_parser import PyMuPDFParser
+    from app.parsing.sectioner import detect_sections
+    from tests.pdf_factory import make_pdf
+
+    doc = PyMuPDFParser().parse(make_pdf(), paper_id="paper_0123456789ab", file_name="sample.pdf")
+    doc = doc.model_copy(update={"sections": detect_sections(doc)})
+    return doc.model_copy(update={"chunks": chunk_document(doc, size=300, overlap=50)})
+
+
+def build_knowledge(paper_id: str, extraction=None):
+    """Parse the sample PDF under `paper_id` and extract knowledge with the fake LLM."""
+    from app.parsing.chunker import chunk_document
+    from app.parsing.pymupdf_parser import PyMuPDFParser
+    from app.parsing.sectioner import detect_sections
+    from app.services.extraction import KnowledgeExtractor
+    from tests.fake_llm import FakeLLM
+    from tests.pdf_factory import make_pdf
+
+    doc = PyMuPDFParser().parse(make_pdf(), paper_id=paper_id, file_name=f"{paper_id}.pdf")
+    doc = doc.model_copy(update={"sections": detect_sections(doc)})
+    doc = doc.model_copy(update={"chunks": chunk_document(doc, size=300, overlap=50)})
+    llm = FakeLLM(extraction=extraction) if extraction else FakeLLM()
+    knowledge = KnowledgeExtractor(llm, window_chars=100_000, max_attempts=2).extract(doc)
+    return doc, knowledge

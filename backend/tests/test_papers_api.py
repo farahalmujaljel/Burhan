@@ -18,6 +18,7 @@ def client(tmp_path) -> TestClient:
         chunk_overlap=50,
         max_files_per_upload=5,
         max_upload_mb=1,
+        embedding_backend="hashing",
     )
     return TestClient(create_app(settings))
 

@@ -60,6 +60,10 @@ def test_parser_title_from_largest_font_when_metadata_missing():
     assert parse(make_pdf()).title == TITLE
 
 
+def test_parser_title_ignores_rotated_margin_stamp():
+    assert parse(make_pdf(arxiv_stamp=True)).title == TITLE
+
+
 def test_parser_prefers_metadata_title():
     assert parse(make_pdf(metadata_title="A Metadata Title")).title == "A Metadata Title"
 
@@ -124,6 +128,18 @@ def test_heading_variants(line, title, kind):
     assert sections[1].kind == kind
 
 
+def test_section_number_on_its_own_line():
+    # LaTeX PDFs often extract as "3\nModel Architecture".
+    text = "Intro text.\n3\nModel Architecture\nBody.\n3.1\nEncoder Stacks\nMore body."
+    sections = detect_sections(plain_doc(text))
+    assert [s.title for s in sections] == [
+        "Front Matter",
+        "3 Model Architecture",
+        "3.1 Encoder Stacks",
+    ]
+    assert sections[1].char_start == text.index("3\nModel")
+
+
 def test_inline_abstract_heading():
     text = "Title\nAbstract—We propose a method.\n1 Introduction\nText."
     sections = detect_sections(plain_doc(text))
@@ -140,6 +156,7 @@ def test_inline_abstract_heading():
         "3 0.91 0.88 0.75",  # table row
         "1 We propose a novel method that outperforms every baseline we tried.",  # sentence
         "2 Results are shown below.",  # ends with a period
+        "91.7\nTransformer (4 layers)",  # table value followed by a row label
     ],
 )
 def test_non_headings_are_ignored(line):
