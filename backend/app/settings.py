@@ -8,9 +8,9 @@ class Settings(BaseSettings):
     llm_model: str = "llama3.2:3b"
 
     database_url: str | None = None
-    qdrant_url: str | None = "http://localhost:6333"
+    qdrant_url: str | None = None
     qdrant_api_key: str | None = None
-    neo4j_uri: str | None = "bolt://localhost:7687"
+    neo4j_uri: str | None = None
     neo4j_user: str | None = "neo4j"
     neo4j_password: str | None = "burhan-password"
 
