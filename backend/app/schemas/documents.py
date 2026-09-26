@@ -109,6 +109,12 @@ class PaperStatus(StrEnum):
     FAILED = "failed"
 
 
+class ExtractionStatus(StrEnum):
+    RUNNING = "running"
+    COMPLETED = "completed"
+    FAILED = "failed"
+
+
 class PaperRecord(BurhanModel):
     """Ingestion bookkeeping for one uploaded PDF."""
 
@@ -125,3 +131,8 @@ class PaperRecord(BurhanModel):
     chunk_count: int | None = None
     created_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
     parsed_at: datetime | None = None
+    extraction_status: ExtractionStatus | None = None
+    extraction_error: str | None = None
+    extracted_at: datetime | None = None
+    twin_updated_at: datetime | None = None
+    twin_error: str | None = None

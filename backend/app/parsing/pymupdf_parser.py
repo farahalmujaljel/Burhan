@@ -17,7 +17,7 @@ TEXT_FLAGS = (
     pymupdf.TEXT_PRESERVE_WHITESPACE | pymupdf.TEXT_MEDIABOX_CLIP | pymupdf.TEXT_DEHYPHENATE
 )
 
-_JUNK_TITLES = re.compile(r"^(untitled|microsoft word|title|document\d*)\b", re.IGNORECASE)
+_JUNK_TITLES = re.compile(r"^(untitled|microsoft word|title|document\d*|arxiv:)", re.IGNORECASE)
 
 pymupdf.TOOLS.mupdf_display_errors(False)  # corrupted files are reported via exceptions
 
@@ -90,6 +90,8 @@ class PyMuPDFParser(DocumentParser):
         lines: list[tuple[float, str]] = []
         for block in doc[0].get_text("dict", flags=TEXT_FLAGS)["blocks"]:
             for line in block.get("lines", []):
+                if abs(line["dir"][1]) > 0.1:  # rotated text, e.g. the arXiv margin stamp
+                    continue
                 spans = [s for s in line["spans"] if s["text"].strip()]
                 if spans:
                     size = max(s["size"] for s in spans)

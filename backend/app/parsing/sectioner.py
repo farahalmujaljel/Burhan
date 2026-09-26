@@ -5,6 +5,7 @@ its own structure can reuse it. Headings are recognized when a short standalone 
 either a known scientific section name (optionally numbered) or a numbered title.
 """
 
+import hashlib
 import re
 from collections.abc import Iterator
 
@@ -52,10 +53,14 @@ _NUMBERED_HEADING = re.compile(
     rf"^(?P<num>{_NUMBERING})\s+(?P<title>[A-Z][A-Za-z0-9 ,:&()'/\-]{{1,70}})$"
 )
 
+# A line holding only a section number; the title is on the next line (common in LaTeX PDFs).
+_NUMBER_ONLY = re.compile(rf"^{_NUMBERING}$")
+
 # "Abstract—We propose ..." / "Abstract: We ..." (heading inline with body text).
 _INLINE_ABSTRACT = re.compile(r"^(?P<title>abstract)\s*[—–:.\-]\s*\S", re.IGNORECASE)
 
 MAX_HEADING_WORDS = 10
+MAX_SECTION_NUMBER = 20
 
 
 def classify(title: str) -> SectionKind:
@@ -84,8 +89,10 @@ def _match_heading(line: str) -> tuple[str, str | None] | None:
     if m := _NUMBERED_HEADING.match(stripped):
         title = m.group("title").strip()
         letters = sum(c.isalpha() for c in title)
+        top = m.group("num").split(".")[0]
         if (
-            letters >= 3
+            (not top.isdigit() or int(top) <= MAX_SECTION_NUMBER)  # "91.7 ..." is a table value
+            and letters >= 3
             and letters >= 0.6 * len(title.replace(" ", ""))
             and title[-1] not in ".,;:"
         ):
@@ -102,8 +109,16 @@ def detect_sections(doc: ParsedDocument) -> list[Section]:
     headings: list[tuple[int, str, SectionKind]] = []
     parent_kind = SectionKind.OTHER
 
-    for offset, line in _lines(text):
+    lines = list(_lines(text))
+    i = 0
+    while i < len(lines):
+        offset, line = lines[i]
+        i += 1
         match = _match_heading(line)
+        if not match and _NUMBER_ONLY.match(line.strip()) and i < len(lines):
+            match = _match_heading(f"{line.strip()} {lines[i][1].strip()}")
+            if match:
+                i += 1  # consumed the title line
         if not match:
             continue
         title, numbering = match
@@ -133,6 +148,7 @@ def detect_sections(doc: ParsedDocument) -> list[Section]:
 
 def _section(doc: ParsedDocument, title: str, kind: SectionKind, start: int, end: int) -> Section:
     return Section(
+        id=f"sec_{hashlib.sha1(f'{doc.paper_id}:{start}'.encode()).hexdigest()[:12]}",
         title=title,
         kind=kind,
         page_start=doc.page_for_offset(start),

@@ -5,6 +5,7 @@ Chunks never cross section boundaries and are always exact slices of the documen
 evidence quote inside it, can be traced back to its page in the original PDF.
 """
 
+import hashlib
 import re
 
 from app.schemas.documents import Chunk, ParsedDocument, Section, SectionKind
@@ -12,6 +13,11 @@ from app.schemas.documents import Chunk, ParsedDocument, Section, SectionKind
 DEFAULT_EXCLUDED_KINDS = frozenset({SectionKind.REFERENCES})
 
 _SENTENCE_END = re.compile(r"[.!?][\"')\]]?\s")
+
+
+def chunk_id(paper_id: str, start: int, end: int) -> str:
+    """Deterministic, so re-parsing with the same settings keeps evidence chunk IDs valid."""
+    return f"chunk_{hashlib.sha1(f'{paper_id}:{start}:{end}'.encode()).hexdigest()[:12]}"
 
 
 def _find_break(text: str, start: int, hard_end: int, min_len: int) -> int:
@@ -58,6 +64,7 @@ def _chunk_section(doc: ParsedDocument, section: Section, size: int, overlap: in
 
         chunks.append(
             Chunk(
+                id=chunk_id(doc.paper_id, start, end),
                 paper_id=doc.paper_id,
                 section_id=section.id,
                 section_title=section.title,
