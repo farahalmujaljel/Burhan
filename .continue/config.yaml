@@ -1,0 +1,16 @@
+name: Burhan Local Ollama
+version: 1.0.0
+schema: v1
+models:
+  - name: Qwen 2.5 7B
+    provider: ollama
+    model: qwen2.5:7b
+    apiBase: http://localhost:11434
+    roles:
+      - chat
+      - edit
+      - apply
+context:
+  - provider: code
+  - provider: docs
+  - provider: diff

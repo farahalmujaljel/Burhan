@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-import fitz
+import pymupdf
 
 from .schemas import PaperMetadata
 
@@ -36,7 +36,7 @@ def _parse_with_docling(path: Path) -> str:
 
 def _parse_with_pymupdf(path: Path) -> str:
     chunks: list[str] = []
-    with fitz.open(path) as doc:
+    with pymupdf.open(path) as doc:
         for page in doc:
             chunks.append(page.get_text("text"))
     return "\n".join(chunks)

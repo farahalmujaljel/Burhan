@@ -5,7 +5,8 @@
 - Python 3.11+
 - Node.js 20+
 - Docker Desktop or Docker Engine
-- OpenAI API key for GPT-5 and `text-embedding-3-large`
+- Ollama running locally
+- `qwen2.5:7b` pulled in Ollama
 
 ## 1. Start Data Services
 
@@ -26,7 +27,19 @@ cp .env.example .env
 uvicorn app.main:app --reload
 ```
 
-Set `OPENAI_API_KEY` in `backend/.env` for GPT-5 extraction and OpenAI embeddings.
+Run Ollama locally:
+
+```bash
+ollama pull qwen2.5:7b
+ollama serve
+```
+
+The backend defaults to:
+
+```env
+LLM_BASE_URL=http://localhost:11434/v1
+LLM_MODEL=qwen2.5:7b
+```
 
 Docling is supported as the preferred parser when installed. PyMuPDF is included as the reliable fallback. To enable Docling in environments with compatible wheels, run:
 

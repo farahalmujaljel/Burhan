@@ -4,7 +4,7 @@ import hashlib
 import math
 import re
 
-from openai import OpenAI
+import httpx
 
 from .schemas import PaperMetadata, ScientificExtraction
 from .settings import settings
@@ -27,43 +27,51 @@ Only use information supported by the paper text. Do not invent details."""
 
 
 def extract_scientific_knowledge(metadata: PaperMetadata, text: str) -> ScientificExtraction:
-    if settings.openai_api_key:
-        client = OpenAI(api_key=settings.openai_api_key)
-        response = client.chat.completions.create(
-            model=settings.openai_model,
-            messages=[
+    try:
+        content = _chat_completion(
+            [
                 {"role": "system", "content": EXTRACTION_SYSTEM},
-                {"role": "user", "content": f"Metadata:\n{metadata.model_dump_json()}\n\nPaper text:\n{text[:28000]}"},
+                {"role": "user", "content": f"Metadata:\n{metadata.model_dump_json()}\n\nPaper text:\n{text[:24000]}"},
             ],
-            response_format={"type": "json_object"},
+            json_mode=True,
         )
-        content = response.choices[0].message.content or "{}"
         return ScientificExtraction.model_validate_json(content)
-    return _heuristic_extraction(metadata, text)
+    except Exception:
+        return _heuristic_extraction(metadata, text)
 
 
 def embed_texts(texts: list[str]) -> list[list[float]]:
-    if settings.openai_api_key:
-        client = OpenAI(api_key=settings.openai_api_key)
-        response = client.embeddings.create(model=settings.embedding_model, input=texts)
-        return [item.embedding for item in response.data]
     return [_hash_embedding(text) for text in texts]
 
 
-def answer_with_gpt(question: str, context: str, citations: list[str]) -> str:
-    if settings.openai_api_key:
-        client = OpenAI(api_key=settings.openai_api_key)
-        response = client.chat.completions.create(
-            model=settings.openai_model,
-            messages=[
+def answer_with_llm(question: str, context: str, citations: list[str]) -> str:
+    try:
+        return _chat_completion(
+            [
                 {"role": "system", "content": "Answer as Burhan, an evidence-grounded AI research scientist. Cite supporting papers by title."},
                 {"role": "user", "content": f"Question: {question}\n\nEvidence:\n{context}\n\nAvailable citations: {citations}"},
             ],
         )
-        return response.choices[0].message.content or ""
+    except Exception:
+        pass
     method_lines = [line for line in context.splitlines() if "method:" in line.lower() or "finding:" in line.lower()]
     summary = " ".join(method_lines[:4]) or context[:500]
     return f"Based on the uploaded papers, the strongest supported method is the one most consistently associated with positive findings across the evidence: {summary}"
+
+
+def _chat_completion(messages: list[dict[str, str]], json_mode: bool = False) -> str:
+    payload: dict[str, object] = {
+        "model": settings.llm_model,
+        "messages": messages,
+        "temperature": 0.1,
+    }
+    if json_mode:
+        payload["response_format"] = {"type": "json_object"}
+    with httpx.Client(timeout=180) as client:
+        response = client.post(f"{settings.llm_base_url.rstrip('/')}/chat/completions", json=payload)
+        response.raise_for_status()
+        data = response.json()
+    return data["choices"][0]["message"]["content"] or ""
 
 
 def _heuristic_extraction(metadata: PaperMetadata, text: str) -> ScientificExtraction:

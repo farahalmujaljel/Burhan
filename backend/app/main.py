@@ -8,7 +8,7 @@ from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-from .ai import answer_with_gpt, embed_texts, extract_scientific_knowledge
+from .ai import answer_with_llm, embed_texts, extract_scientific_knowledge
 from .pdf_parser import full_text, parse_pdf
 from .persistence import Persistence
 from .reasoning import build_twin, make_grounded_answer
@@ -81,7 +81,7 @@ def ask(run_id: str, body: QuestionRequest) -> GroundedAnswer:
         evidence.extend(paper.extraction.findings[:2])
         evidence.extend(paper.extraction.evidence_quotes[:2])
     context = "\n".join(f"{paper.metadata.title}\nMethod: {paper.extraction.method}\nFinding: {' '.join(paper.extraction.findings[:2])}" for paper in summary.twin.papers)
-    answer = answer_with_gpt(body.question, context, [paper.metadata.title for paper in summary.twin.papers])
+    answer = answer_with_llm(body.question, context, [paper.metadata.title for paper in summary.twin.papers])
     grounded = make_grounded_answer(body.question, answer, summary.twin.papers, evidence[:8])
     summary.twin.grounded_answer = grounded
     persistence.save_run_artifact(summary.twin)

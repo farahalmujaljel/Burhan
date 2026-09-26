@@ -8,7 +8,7 @@ flowchart TD
     B[Upload Progress and Local Storage]
     C[Docling Parser]
     D[PyMuPDF Fallback]
-    E[GPT-5 Scientific Extraction]
+    E[Ollama Scientific Extraction]
     F[Pydantic Validation]
     G[(PostgreSQL Metadata)]
     H[(Qdrant Evidence Embeddings)]
@@ -44,7 +44,7 @@ flowchart TD
 - Store PDFs locally under `storage/uploads/{run_id}`.
 - Parse PDFs with Docling when available and PyMuPDF as fallback.
 - Extract Title, Authors, Year, Abstract, and Sections.
-- Extract Problem, Objective, Method, Dataset, Metrics, Findings, Limitations, and Future Work.
+- Extract Problem, Objective, Method, Dataset, Metrics, Findings, Limitations, and Future Work with the configured local Ollama model.
 - Validate all extracted scientific knowledge with Pydantic models.
 - Persist metadata to PostgreSQL.
 - Persist evidence embeddings to Qdrant.

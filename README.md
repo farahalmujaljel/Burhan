@@ -28,7 +28,7 @@ This repository implements one complete proof-of-concept workflow for the FARQ H
 flowchart TD
     A[Upload Five PDF Papers]
     B[Parse with Docling or PyMuPDF]
-    C[Extract Scientific Knowledge with GPT-5]
+    C[Extract Scientific Knowledge with Ollama]
     D[Validate JSON with Pydantic]
     E[Store Metadata in PostgreSQL]
     F[Store Evidence Embeddings in Qdrant]
@@ -67,8 +67,9 @@ Everything shown in the UI is wired to backend outputs. Features outside the MVP
 |---|---|
 | Frontend | Next.js, Tailwind, React Flow |
 | Backend | FastAPI |
-| AI | GPT-5 |
-| Embeddings | text-embedding-3-large |
+| AI | Ollama local API at `http://localhost:11434/v1` |
+| Local LLM | `qwen2.5:7b` |
+| Embeddings | Local deterministic evidence vectors for Qdrant |
 | Knowledge Graph | Neo4j |
 | Vector DB | Qdrant |
 | Parser | Docling when installed, PyMuPDF fallback |
@@ -94,7 +95,14 @@ cp .env.example .env
 uvicorn app.main:app --reload
 ```
 
-Set `OPENAI_API_KEY` in `backend/.env` for GPT-5 extraction and OpenAI embeddings.
+Run Ollama locally and pull the configured model:
+
+```bash
+ollama pull qwen2.5:7b
+ollama serve
+```
+
+The backend defaults to `LLM_BASE_URL=http://localhost:11434/v1` and `LLM_MODEL=qwen2.5:7b`.
 
 Optional Docling parser support:
 
