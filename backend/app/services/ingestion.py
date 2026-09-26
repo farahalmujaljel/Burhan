@@ -10,6 +10,7 @@ from datetime import UTC, datetime
 from pathlib import PurePath
 
 from app.core.errors import (
+    ConflictError,
     DocumentParsingError,
     FileTooLargeError,
     InvalidInputError,
@@ -18,7 +19,7 @@ from app.core.errors import (
 from app.parsing.base import DocumentParser
 from app.parsing.chunker import chunk_document
 from app.parsing.sectioner import detect_sections
-from app.schemas.documents import PaperRecord, PaperStatus, ParsedDocument
+from app.schemas.documents import ExtractionStatus, PaperRecord, PaperStatus, ParsedDocument
 from app.services.document_store import DocumentStore
 
 logger = logging.getLogger(__name__)
@@ -82,6 +83,13 @@ class IngestionService:
     def process(self, paper_id: str) -> PaperRecord:
         """(Re)parse a stored PDF and persist the ParsedDocument."""
         record = self.store.get_record(paper_id)
+        if record.extraction_status == ExtractionStatus.RUNNING:
+            raise ConflictError(f"Cannot re-parse '{paper_id}' while extraction is running")
+        # Re-parsing produces new chunk IDs, so any earlier extraction result is stale.
+        self.store.delete_knowledge(paper_id)
+        record = record.model_copy(
+            update={"extraction_status": None, "extraction_error": None, "extracted_at": None}
+        )
         try:
             doc = self._parse(record)
         except DocumentParsingError as exc:

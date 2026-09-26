@@ -1,6 +1,6 @@
 """File-based storage for uploaded PDFs, ingestion records, and parsed documents.
 
-Layout: <uploads_dir>/<paper_id>/{source.pdf, record.json, parsed.json}
+Layout: <uploads_dir>/<paper_id>/{source.pdf, record.json, parsed.json, knowledge.json}
 Plain files keep the MVP dependency-free and make parsed output easy to inspect or cache.
 """
 
@@ -13,6 +13,7 @@ from pathlib import Path
 from app.core.errors import NotFoundError
 from app.schemas.common import new_id
 from app.schemas.documents import PaperRecord, ParsedDocument
+from app.schemas.extraction import PaperKnowledge
 
 _PAPER_ID = re.compile(r"^paper_[0-9a-f]{12}$")
 
@@ -92,3 +93,18 @@ class DocumentStore:
                 f"Paper '{paper_id}' has not been parsed", details={"paper_id": paper_id}
             )
         return ParsedDocument.model_validate_json(path.read_text("utf-8"))
+
+    def save_knowledge(self, knowledge: PaperKnowledge) -> None:
+        path = self._dir(knowledge.paper.id) / "knowledge.json"
+        _atomic_write(path, knowledge.model_dump_json(indent=2).encode("utf-8"))
+
+    def delete_knowledge(self, paper_id: str) -> None:
+        (self._dir(paper_id) / "knowledge.json").unlink(missing_ok=True)
+
+    def get_knowledge(self, paper_id: str) -> PaperKnowledge:
+        path = self._dir(paper_id) / "knowledge.json"
+        if not path.exists():
+            raise NotFoundError(
+                f"Paper '{paper_id}' has no extraction result", details={"paper_id": paper_id}
+            )
+        return PaperKnowledge.model_validate_json(path.read_text("utf-8"))
