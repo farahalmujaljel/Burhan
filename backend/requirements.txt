@@ -13,11 +13,19 @@ PyMuPDF
 # LLM
 groq
 
+# Knowledge layer (graph + vector evidence index)
+neo4j
+qdrant-client
+
+# Local embeddings (numpy-only; works on Intel Macs). Optional alternative: fastembed
+model2vec
+
 # Environment variables
 python-dotenv
 
 # Utilities
 httpx
+rapidfuzz
 
 # Testing
 pytest
@@ -27,6 +35,3 @@ ruff
 
 # Added in later phases (kept out until needed):
 #   langgraph            - Phase 6 agent orchestration
-#   neo4j, qdrant-client - Phase 5 knowledge layer
-#   fastembed            - Phase 5 local embeddings
-#   rapidfuzz            - Phase 4 evidence quote anchoring

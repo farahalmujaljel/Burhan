@@ -29,21 +29,39 @@ class Settings(BaseSettings):
     # LLM (provider-agnostic; Groq is the default)
     llm_provider: Literal["groq"] = "groq"
     groq_api_key: SecretStr | None = None
-    llm_model: str = "llama-3.3-70b-versatile"
-    llm_fallback_model: str | None = "llama-3.1-8b-instant"
+    llm_model: str = "openai/gpt-oss-120b"
+    llm_fallback_model: str | None = "openai/gpt-oss-20b"
+    # For reasoning models (gpt-oss): low keeps hidden reasoning tokens and latency down.
+    llm_reasoning_effort: Literal["low", "medium", "high"] | None = "low"
     llm_temperature: float = Field(default=0.0, ge=0.0, le=2.0)
     llm_timeout_seconds: float = Field(default=60.0, gt=0)
+    # Repair retries when the model returns malformed/invalid JSON.
     llm_max_retries: int = Field(default=2, ge=0)
+    # SDK retries for transient HTTP errors, including 429 rate limits (honours Retry-After).
+    llm_http_retries: int = Field(default=6, ge=0)
+    # Groq counts max_tokens toward the tokens-per-minute limit, so keep this modest.
+    llm_max_output_tokens: int = Field(default=4096, gt=0)
 
-    # Embeddings (local model)
-    embedding_model: str = "BAAI/bge-small-en-v1.5"
-    embedding_dim: int = Field(default=384, gt=0)
+    # Extraction
+    extraction_window_chars: int = Field(default=8000, ge=1000)
+    verification_batch_size: int = Field(default=12, gt=0)
+
+    # Embeddings (always local; no embedding API is called)
+    # model2vec runs everywhere (incl. Intel Macs); fastembed needs onnxruntime; hashing is
+    # a no-download lexical fallback for tests/offline use.
+    embedding_backend: Literal["model2vec", "fastembed", "hashing"] = "model2vec"
+    embedding_model: str = "minishlab/potion-retrieval-32M"
+    embedding_dim: int = Field(default=384, gt=0, description="Only used by the hashing backend")
+
+    # Research Digital Twin
+    research_domain: str = "General"
 
     # Knowledge graph
     graph_backend: Literal["memory", "neo4j"] = "memory"
     neo4j_uri: str = "bolt://localhost:7687"
     neo4j_user: str = "neo4j"
     neo4j_password: SecretStr | None = None
+    neo4j_database: str | None = None
 
     # Vector evidence store
     vector_backend: Literal["local", "qdrant"] = "local"
@@ -89,6 +107,10 @@ class Settings(BaseSettings):
     @property
     def demo_cache_dir(self) -> Path:
         return self.data_dir / "demo_cache"
+
+    @property
+    def twin_dir(self) -> Path:
+        return self.data_dir / "twin"
 
     @property
     def qdrant_local_path(self) -> Path:

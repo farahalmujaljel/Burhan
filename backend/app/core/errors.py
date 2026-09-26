@@ -23,6 +23,11 @@ class NotFoundError(BurhanError):
     code = "not_found"
 
 
+class ConflictError(BurhanError):
+    status_code = 409
+    code = "conflict"
+
+
 class InvalidInputError(BurhanError):
     status_code = 422
     code = "invalid_input"

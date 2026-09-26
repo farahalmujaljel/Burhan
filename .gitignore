@@ -15,6 +15,7 @@ node_modules/
 .next/
 
 # Runtime data
+data/papers/*.pdf
 data/uploads/
 data/qdrant_local/
 
