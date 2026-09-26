@@ -68,7 +68,9 @@ class GroundedAnswer(BaseModel):
     answer: str
     citations: list[str]
     evidence: list[str]
-
+    confidence_score: float
+    confidence_level: Literal["high", "medium", "low"]
+    validation_status: Literal["accepted", "needs_more_evidence", "insufficient_evidence"]
 
 class TwinState(BaseModel):
     run_id: str

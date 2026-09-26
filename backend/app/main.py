@@ -74,17 +74,66 @@ def get_run(run_id: str) -> RunSummary:
 @app.post("/api/runs/{run_id}/ask", response_model=GroundedAnswer)
 def ask(run_id: str, body: QuestionRequest) -> GroundedAnswer:
     summary = get_run(run_id)
+
     if not summary.twin:
         raise HTTPException(status_code=409, detail="Run is not complete yet.")
-    evidence = []
+
+    question_words = {
+        word.lower().strip("?,.!:;()[]{}")
+        for word in body.question.split()
+        if len(word.strip("?,.!:;()[]{}")) > 2
+    }
+
+    evidence_candidates = []
+
     for paper in summary.twin.papers:
-        evidence.extend(paper.extraction.findings[:2])
-        evidence.extend(paper.extraction.evidence_quotes[:2])
-    context = "\n".join(f"{paper.metadata.title}\nMethod: {paper.extraction.method}\nFinding: {' '.join(paper.extraction.findings[:2])}" for paper in summary.twin.papers)
-    answer = answer_with_llm(body.question, context, [paper.metadata.title for paper in summary.twin.papers])
-    grounded = make_grounded_answer(body.question, answer, summary.twin.papers, evidence[:8])
+        for item in (
+            paper.extraction.findings
+            + paper.extraction.evidence_quotes
+            + paper.extraction.limitations
+        ):
+            item_words = {
+                word.lower().strip("?,.!:;()[]{}")
+                for word in item.split()
+                if len(word.strip("?,.!:;()[]{}")) > 2
+            }
+
+            overlap = len(question_words & item_words)
+
+            evidence_candidates.append((overlap, item))
+
+    evidence_candidates.sort(key=lambda x: x[0], reverse=True)
+
+    evidence = [
+        item
+        for overlap, item in evidence_candidates[:8]
+        if overlap > 0
+    ]
+
+    context = "\n".join(
+        f"{paper.metadata.title}\n"
+        f"Method: {paper.extraction.method}\n"
+        f"Finding: {' '.join(paper.extraction.findings[:2])}\n"
+        f"Limitations: {' '.join(paper.extraction.limitations[:2])}"
+        for paper in summary.twin.papers
+    )
+
+    answer = answer_with_llm(
+        body.question,
+        context,
+        [paper.metadata.title for paper in summary.twin.papers],
+    )
+
+    grounded = make_grounded_answer(
+        body.question,
+        answer,
+        summary.twin.papers,
+        evidence,
+    )
+
     summary.twin.grounded_answer = grounded
     persistence.save_run_artifact(summary.twin)
+
     return grounded
 
 

@@ -6,6 +6,6 @@ __pycache__/
 node_modules/
 .next/
 dist/
-storage/uploads/
-storage/runs/
+backend/storage/uploads/
+backend/storage/runs/
 *.log
