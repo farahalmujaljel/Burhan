@@ -221,3 +221,23 @@ Mentor: Dr. Muzammil, Assistant Professor of AI, KFUPM.
 ## License
 
 This project is licensed under the MIT License.
+
+## Running the Project
+
+Open two separate terminals.
+
+### Backend
+
+```bash
+uvicorn backend.app.main:app --reload
+```
+
+### Frontend
+
+```bash
+cd frontend
+npm run dev
+```
+
+> Note: The backend and frontend should be running in two separate terminals.
+
