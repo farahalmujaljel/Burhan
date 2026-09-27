@@ -5,6 +5,7 @@ from pathlib import Path
 from uuid import uuid4
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -19,6 +20,8 @@ app = FastAPI(title="Burhan MVP API", version="0.1.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    # Next.js falls back to 3001, 3002, ... when 3000 is busy; allow any local dev port.
+    allow_origin_regex=r"http://(localhost|127\.0\.0\.1)(:\d+)?",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -48,7 +51,8 @@ async def create_run(files: list[UploadFile] = File(...)) -> RunSummary:
     summary = RunSummary(run_id=run_id, status="queued", progress=5, message="Run created.")
     runs[run_id] = summary
     try:
-        twin = await _process_run(run_id, files)
+        # Parsing and LLM calls are blocking; run them off the event loop so the API stays responsive.
+        twin = await run_in_threadpool(_process_run, run_id, files)
         summary.status = "complete"
         summary.progress = 100
         summary.message = "Research Digital Twin built successfully."
@@ -137,7 +141,7 @@ def ask(run_id: str, body: QuestionRequest) -> GroundedAnswer:
     return grounded
 
 
-async def _process_run(run_id: str, files: list[UploadFile]) -> TwinState:
+def _process_run(run_id: str, files: list[UploadFile]) -> TwinState:
     upload_dir = Path(settings.storage_dir) / "uploads" / run_id
     upload_dir.mkdir(parents=True, exist_ok=True)
     papers: list[PaperRecord] = []

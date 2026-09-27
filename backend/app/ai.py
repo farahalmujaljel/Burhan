@@ -1,14 +1,17 @@
 from __future__ import annotations
 
 import hashlib
+import logging
 import math
 import re
+import time
 
 import httpx
 
 from .schemas import PaperMetadata, ScientificExtraction
 from .settings import settings
 
+logger = logging.getLogger(__name__)
 
 EXTRACTION_SYSTEM = """You extract scientific knowledge from research papers.
 Return strict JSON matching this schema:
@@ -31,12 +34,14 @@ def extract_scientific_knowledge(metadata: PaperMetadata, text: str) -> Scientif
         content = _chat_completion(
             [
                 {"role": "system", "content": EXTRACTION_SYSTEM},
-                {"role": "user", "content": f"Metadata:\n{metadata.model_dump_json()}\n\nPaper text:\n{text[:24000]}"},
+                # Sections are excerpts of the paper text itself, so leave them out to save tokens.
+                {"role": "user", "content": f"Metadata:\n{metadata.model_dump_json(exclude={'sections'})}\n\nPaper text:\n{text[:settings.llm_max_input_chars]}"},
             ],
             json_mode=True,
         )
         return ScientificExtraction.model_validate_json(content)
-    except Exception:
+    except Exception as exc:
+        logger.warning("LLM extraction failed for %r, using heuristic extraction: %s", metadata.title[:80], exc)
         return _heuristic_extraction(metadata, text)
 
 
@@ -52,8 +57,8 @@ def answer_with_llm(question: str, context: str, citations: list[str]) -> str:
                 {"role": "user", "content": f"Question: {question}\n\nEvidence:\n{context}\n\nAvailable citations: {citations}"},
             ],
         )
-    except Exception as e:
-        pass
+    except Exception as exc:
+        logger.warning("LLM answer failed, using heuristic answer: %s", exc)
     method_lines = [line for line in context.splitlines() if "method:" in line.lower() or "finding:" in line.lower()]
     summary = " ".join(method_lines[:4]) or context[:500]
     return f"Based on the uploaded papers, the strongest supported method is the one most consistently associated with positive findings across the evidence: {summary}"
@@ -67,8 +72,16 @@ def _chat_completion(messages: list[dict[str, str]], json_mode: bool = False) ->
     }
     if json_mode:
         payload["response_format"] = {"type": "json_object"}
+    headers = {"Authorization": f"Bearer {settings.llm_api_key}"} if settings.llm_api_key else {}
     with httpx.Client(timeout=180) as client:
-        response = client.post(f"{settings.llm_base_url.rstrip('/')}/chat/completions", json=payload)
+        for attempt in range(4):
+            response = client.post(f"{settings.llm_base_url.rstrip('/')}/chat/completions", json=payload, headers=headers)
+            # Hosted providers (e.g. Groq) rate-limit per minute; wait and retry instead of failing the paper.
+            if response.status_code != 429 or attempt == 3:
+                break
+            wait = min(float(response.headers.get("retry-after") or 10), 60)
+            logger.info("LLM rate limited, retrying in %.0fs", wait)
+            time.sleep(wait)
         response.raise_for_status()
         data = response.json()
     return data["choices"][0]["message"]["content"] or ""
