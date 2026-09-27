@@ -180,17 +180,50 @@ See [docs/ROADMAP.md](docs/ROADMAP.md) and [docs/MVP_PLAN.md](docs/MVP_PLAN.md).
 
 The prototype is under active, incremental development. Currently implemented: backend foundation, the validated data contract (entities, relations, evidence, twin), PDF ingestion (multi-file upload, page-aware parsing, section detection, traceable chunking), evidence-verified scientific extraction with Groq, the Research Digital Twin (entity resolution, knowledge graph, local-embedding evidence index, change tracking), and the Next.js frontend (twin dashboard, papers, knowledge graph, evidence search, twin evolution).
 
+### Run the project locally
+
+#### 1. Backend
+
+From the project root:
+
 ```bash
 python3 -m venv .venv
-make install
-cp .env.example .env   # add your GROQ_API_KEY
-make test
-make dev               # API: http://localhost:8000/docs
-make frontend-install && make frontend-dev   # UI: http://localhost:3000
+source .venv/bin/activate
+python -m pip install -r backend/requirements.txt
+cp .env.example .env
 ```
 
-Neo4j and Qdrant are optional (`make infra-up`); the defaults use in-memory and local fallbacks. See [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md).
+Add your Groq API key to `.env`:
 
+```env
+GROQ_API_KEY=your_groq_api_key
+```
+
+Start the FastAPI backend:
+
+```bash
+python -m uvicorn backend.app.main:app --reload
+```
+
+Backend API: `http://127.0.0.1:8000`  
+Swagger docs: `http://127.0.0.1:8000/docs`
+
+#### 2. Frontend
+
+Open a second terminal and run:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend: `http://localhost:3000`
+
+Keep both terminals running while using Burhan.
+
+
+Neo4j and Qdrant are optional (`make infra-up`); the defaults use in-memory and local fallbacks. See [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md).
 ## Team
 
 Developed for the FARQ Hackathon.
