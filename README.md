@@ -142,7 +142,7 @@ Core node types include Paper, Method, Dataset, Metric, Finding, Limitation, Res
 
 | Layer | Recommended technology | Why it fits Burhan |
 |---|---|---|
-| LLM | GPT-5 preferred, GPT-4.1 fallback | Strong reasoning and structured extraction for scientific text |
+| LLM | openai/gpt-oss-120b via Groq API | Open-weight 120B model with strong reasoning and structured scientific extraction, served through Groq for fast inference |
 | Embeddings | text-embedding-3-large | High-quality semantic retrieval for evidence grounding |
 | Agent framework | LangGraph | Explicit multi-agent orchestration with stateful workflows |
 | Knowledge graph | Neo4j | Native graph storage for scientific entities and relationships |
@@ -156,7 +156,7 @@ See [docs/TECH_STACK.md](docs/TECH_STACK.md) for implementation rationale.
 
 ## MVP
 
-The FARQ MVP focuses on one research domain and proves the core workflow:
+The Burhan MVP focuses on one research domain and proves the core workflow:
 
 - Upload or select multiple research papers.
 - Parse paper text and sections.

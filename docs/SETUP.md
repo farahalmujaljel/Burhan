@@ -5,8 +5,7 @@
 - Python 3.11+
 - Node.js 20+
 - Docker Desktop or Docker Engine
-- Ollama running locally
-- `llama3.2:3b` pulled in Ollama
+- A Groq API key
 
 ## 1. Start Data Services
 
@@ -27,19 +26,15 @@ cp .env.example .env
 uvicorn app.main:app --reload
 ```
 
-Run Ollama locally:
-
-```bash
-ollama pull llama3.2:3b
-ollama serve
-```
-
-The backend defaults to:
+Configure Groq in `backend/.env`:
 
 ```env
-LLM_BASE_URL=http://localhost:11434/v1
-LLM_MODEL=llama3.2:3b
+GROQ_API_KEY=your_groq_api_key_here
+LLM_BASE_URL=https://api.groq.com/openai/v1
+LLM_MODEL=openai/gpt-oss-120b
 ```
+
+Keep the real API key only in `backend/.env`. Never commit it to GitHub.
 
 Docling is supported as the preferred parser when installed. PyMuPDF is included as the reliable fallback. To enable Docling in environments with compatible wheels, run:
 

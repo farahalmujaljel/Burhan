@@ -67,8 +67,19 @@ def _chat_completion(messages: list[dict[str, str]], json_mode: bool = False) ->
     }
     if json_mode:
         payload["response_format"] = {"type": "json_object"}
+    if not settings.groq_api_key:
+        raise RuntimeError("GROQ_API_KEY is not configured")
+
+    headers = {
+        "Authorization": f"Bearer {settings.groq_api_key}",
+    }
+
     with httpx.Client(timeout=180) as client:
-        response = client.post(f"{settings.llm_base_url.rstrip('/')}/chat/completions", json=payload)
+        response = client.post(
+            f"{settings.llm_base_url.rstrip('/')}/chat/completions",
+            headers=headers,
+            json=payload,
+        )
         response.raise_for_status()
         data = response.json()
     return data["choices"][0]["message"]["content"] or ""

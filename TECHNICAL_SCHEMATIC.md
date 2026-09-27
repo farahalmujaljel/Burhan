@@ -321,7 +321,7 @@ flowchart LR
 ```mermaid
 graph TD
 
-    GPT[GPT-5]
+    GPT[Groq GPT-OSS-120B]
 
     LangGraph[LangGraph]
 

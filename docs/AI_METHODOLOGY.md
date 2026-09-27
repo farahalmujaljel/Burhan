@@ -36,7 +36,7 @@ Burhan uses LLM reasoning for tasks that require language understanding:
 - normalizing similar terms across papers;
 - generating structured explanations for researchers.
 
-Recommended model: GPT-5. If GPT-5 is unavailable, GPT-4.1 is the preferred fallback. The model should be called with strict extraction instructions and schema-constrained outputs rather than free-form summaries.
+Recommended model: **openai/gpt-oss-120b**, served through the **Groq API**. It is used for scientific knowledge extraction and evidence-grounded reasoning. The model should be called with strict extraction instructions and schema-constrained outputs rather than free-form summaries.
 
 ## Scientific Information Extraction
 

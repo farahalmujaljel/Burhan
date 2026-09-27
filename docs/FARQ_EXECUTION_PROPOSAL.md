@@ -203,8 +203,7 @@ graph LR
 
 Recommended LLM:
 
-- GPT-5 preferred;
-- GPT-4.1 as fallback.
+- openai/gpt-oss-120b via the Groq API.
 
 The LLM is used for scientific text understanding, structured extraction, claim normalization, cross-paper reasoning, and explanation generation. It should produce schema-constrained outputs rather than free-form summaries.
 
@@ -236,7 +235,7 @@ Recommended implementation stack:
 
 | Layer | Technology | Reason |
 |---|---|---|
-| LLM | GPT-5 or GPT-4.1 | Scientific reasoning and structured extraction |
+| LLM | openai/gpt-oss-120b via Groq API | Scientific reasoning and structured extraction |
 | Embeddings | text-embedding-3-large | Evidence retrieval |
 | Agent framework | LangGraph | Stateful multi-agent orchestration |
 | Knowledge graph | Neo4j | Scientific relationship storage and traversal |

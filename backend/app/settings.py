@@ -4,8 +4,9 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
-    llm_base_url: str = "http://localhost:11434/v1"
-    llm_model: str = "llama3.2:3b"
+    groq_api_key: str | None = None
+    llm_base_url: str = "https://api.groq.com/openai/v1"
+    llm_model: str = "openai/gpt-oss-120b"
 
     database_url: str | None = None
     qdrant_url: str | None = None
