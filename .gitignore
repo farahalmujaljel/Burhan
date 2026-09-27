@@ -9,3 +9,4 @@ dist/
 backend/storage/uploads/
 backend/storage/runs/
 *.log
+*.tsbuildinfo

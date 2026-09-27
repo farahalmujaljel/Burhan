@@ -82,7 +82,10 @@ class Persistence:
             prepared = [PointStruct(id=index + 1, vector=vector, payload=payload | {"source_id": source_id}) for index, (source_id, vector, payload) in enumerate(points)]
             if not prepared:
                 return
-            client.recreate_collection(collection_name=collection, vectors_config=VectorParams(size=len(prepared[0].vector), distance=Distance.COSINE))
+            # recreate_collection() was removed from newer qdrant-client releases.
+            if client.collection_exists(collection_name=collection):
+                client.delete_collection(collection_name=collection)
+            client.create_collection(collection_name=collection, vectors_config=VectorParams(size=len(prepared[0].vector), distance=Distance.COSINE))
             client.upsert(collection_name=collection, points=prepared)
         except Exception as exc:
             logger.warning("Skipping Qdrant persistence for run %s: %s", run_id, exc)

@@ -1,23 +1,6 @@
-# API
-fastapi
-uvicorn[standard]
-python-multipart
-
-# Data validation
-pydantic
-pydantic-settings
-
-# PDF processing
-PyMuPDF
-
-# LLM
-groq
-
-# Environment variables
-python-dotenv
-
-# Utilities
-httpx
+# Backend dependencies live in backend/requirements.txt; this file lets you
+# install everything from the project root with: pip install -r requirements.txt
+-r backend/requirements.txt
 
 # Testing
-pytest
+pytest>=8.3
