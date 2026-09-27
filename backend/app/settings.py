@@ -20,8 +20,9 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    llm_base_url: str = "http://localhost:11434/v1"
-    llm_model: str = "llama3.2:3b"
+
+    llm_base_url: str = "https://api.groq.com/openai/v1"
+    llm_model: str = "openai/gpt-oss-120b"
     llm_api_key: str | None = Field(default=None, validation_alias=AliasChoices("LLM_API_KEY", "GROQ_API_KEY"))
     # Paper text sent to the LLM per extraction request.
     llm_max_input_chars: int = 24000

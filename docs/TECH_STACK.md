@@ -6,7 +6,7 @@ Burhan's stack is selected to support an Agentic AI Research Scientist that buil
 
 | Layer | Technology | Rationale |
 |---|---|---|
-| LLM | GPT-5 preferred, GPT-4.1 fallback | Strong reasoning and structured extraction for scientific text |
+| LLM | openai/gpt-oss-120b via Groq API | Strong reasoning and structured extraction with fast hosted inference |
 | Embeddings | text-embedding-3-large | High-quality semantic retrieval for evidence passages |
 | Agent framework | LangGraph | Explicit stateful orchestration for multi-agent workflows |
 | Knowledge graph | Neo4j | Native graph representation for scientific entities and relationships |
@@ -18,9 +18,9 @@ Burhan's stack is selected to support an Agentic AI Research Scientist that buil
 
 ## AI Models
 
-### GPT-5 or GPT-4.1
+### openai/gpt-oss-120b via Groq API
 
-The LLM is used for scientific text understanding, structured extraction, normalization, cross-paper reasoning, and explanation generation. GPT-5 is the preferred model because Burhan depends on strong reasoning and reliable instruction following. GPT-4.1 is an appropriate fallback for structured extraction and prototype development.
+The LLM is used for scientific text understanding, structured extraction, normalization, cross-paper reasoning, and evidence-grounded answer generation. Burhan uses the open-weight openai/gpt-oss-120b model through the Groq API for fast hosted inference and schema-constrained outputs.
 
 The model should be used with:
 

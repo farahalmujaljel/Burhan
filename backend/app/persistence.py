@@ -5,8 +5,6 @@ import logging
 from pathlib import Path
 from typing import Iterable
 
-import psycopg
-from psycopg.types.json import Jsonb
 from neo4j import GraphDatabase
 from qdrant_client import QdrantClient
 from qdrant_client.http.models import Distance, PointStruct, VectorParams
@@ -31,6 +29,9 @@ class Persistence:
         if not settings.database_url:
             return
         try:
+            import psycopg
+            from psycopg.types.json import Jsonb
+
             with psycopg.connect(settings.database_url) as conn:
                 with conn.cursor() as cur:
                     cur.execute(
